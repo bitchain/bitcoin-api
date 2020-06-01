@@ -1,0 +1,14 @@
+# dependencies
+node_modules
+
+# production
+dist
+
+# misc
+.vscode
+.env
+
+yarn.lock
+yarn-error.log
+
+tmp/uploads/*
