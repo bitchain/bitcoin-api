@@ -1,14 +1,15 @@
 # dependencies
 node_modules
 
-# production
+# env
+.env
+ormconfig.json
+
+# build
 dist
 
 # misc
-.vscode
-.env
+coverage
 
 yarn.lock
 yarn-error.log
-
-tmp/uploads/*
