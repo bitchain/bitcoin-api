@@ -1,11 +1,16 @@
+import 'reflect-metadata';
+
 import express from 'express';
+import cors from 'cors';
 
-const app = express();
+import routes from './routes';
 
-app.get('/', (request, response) => {
-  const teste = 'BLa';
+import './providers';
 
-  return response.json({ message: teste });
-});
+const node = express();
 
-app.listen(3333);
+node.use(cors());
+node.use(express.json());
+node.use(routes);
+
+node.listen(3333);
