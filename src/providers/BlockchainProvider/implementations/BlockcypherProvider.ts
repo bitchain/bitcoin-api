@@ -20,18 +20,10 @@ export default class BlockcypherProvider implements IBlockchainProvider {
       return undefined;
     }
 
-    const {
-      address,
-      total_received,
-      total_sent,
-      final_balance,
-      unconfirmed_balance,
-    } = response.data;
+    const { address, final_balance, unconfirmed_balance } = response.data;
 
     return {
       publicAddress: address,
-      totalAmountReceived: total_received,
-      totalAmountSent: total_sent,
       balance: final_balance,
       unconfirmedBalance: unconfirmed_balance,
     };
