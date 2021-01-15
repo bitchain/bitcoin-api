@@ -31,6 +31,16 @@ export default class BitcoreProvider implements IBlockchainProvider {
   }
 
   public async createWallet(): Promise<ICreateWalletDTO | undefined> {
-    return { publicAddress: '', privateKey: '' };
+    const bitcorePrivateKey = new bitcore.PrivateKey(
+      bitcore.Networks.testnet.name,
+    );
+
+    const publicAddress = bitcorePrivateKey.toAddress().toString();
+    const privateKey = bitcorePrivateKey.toWIF();
+
+    return {
+      publicAddress,
+      privateKey,
+    };
   }
 }
