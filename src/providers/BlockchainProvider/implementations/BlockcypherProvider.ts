@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 import IBlockchainProvider from '../models/IBlockchainProvider';
-import IPublicWalletInfoDTO from '../dtos/IPublicWalletInfoDTO';
-import ICreateWalletDTO from '../dtos/ICreateWalletDTO';
+import IWalletBalanceDTO from '../dtos/IWalletBalanceDTO';
+import IWalletKeyDTO from '../dtos/IWalletKeyDTO';
 
 const network = 'https://api.blockcypher.com/v1/btc/test3';
 
@@ -11,25 +11,31 @@ const api = axios.create({
 });
 
 export default class BlockcypherProvider implements IBlockchainProvider {
-  public async publicWalletInfo(
+  public async showWalletBalance(
     publicAddress: string,
-  ): Promise<IPublicWalletInfoDTO | undefined> {
+  ): Promise<IWalletBalanceDTO | undefined> {
     const response = await api.get(`/addrs/${publicAddress}`);
 
     if (!response) {
       return undefined;
     }
 
-    const { address, final_balance, unconfirmed_balance } = response.data;
+    const {
+      address,
+      final_balance,
+      balance,
+      unconfirmed_balance,
+    } = response.data;
 
     return {
       publicAddress: address,
       balance: final_balance,
+      confirmedBalance: balance,
       unconfirmedBalance: unconfirmed_balance,
     };
   }
 
-  public async createWallet(): Promise<ICreateWalletDTO | undefined> {
+  public async createWallet(): Promise<IWalletKeyDTO | undefined> {
     const response = await api.post('/addrs');
 
     if (!response) {

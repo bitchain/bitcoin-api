@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { container } from 'tsyringe';
 
 import CreateWalletService from './services/CreateWalletService';
-import ShowPublicWalletService from './services/ShowPublicWalletService';
+import ShowWalletBalanceService from './services/ShowWalletBalanceService';
 
 const routes = Router();
 
@@ -15,13 +15,13 @@ routes.get('/create', async (request, response) => {
 });
 
 routes.get('/show/:publicAddress', async (request, response) => {
-  const showPublicWalletService = container.resolve(ShowPublicWalletService);
+  const showWalletBalanceService = container.resolve(ShowWalletBalanceService);
 
   const { publicAddress } = request.params;
 
-  const publicWalletInfo = await showPublicWalletService.execute(publicAddress);
+  const walletBalance = await showWalletBalanceService.execute(publicAddress);
 
-  return response.json(publicWalletInfo);
+  return response.json(walletBalance);
 });
 
 export default routes;

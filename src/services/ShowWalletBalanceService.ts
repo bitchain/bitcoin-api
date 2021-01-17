@@ -1,10 +1,10 @@
 import { injectable, inject } from 'tsyringe';
 
 import IBlockchainProvider from '../providers/BlockchainProvider/models/IBlockchainProvider';
-import IPublicWalletInfoDTO from '../providers/BlockchainProvider/dtos/IPublicWalletInfoDTO';
+import IShowWalletBalanceDTO from '../providers/BlockchainProvider/dtos/IShowWalletBalanceDTO';
 
 @injectable()
-class ShowPublicWalletService {
+class ShowWalletBalanceService {
   constructor(
     @inject('BlockchainProvider')
     private blockchainProvider: IBlockchainProvider,
@@ -12,9 +12,9 @@ class ShowPublicWalletService {
 
   public async execute(
     address: string,
-  ): Promise<IPublicWalletInfoDTO | undefined> {
-    return this.blockchainProvider.publicWalletInfo(address);
+  ): Promise<IShowWalletBalanceDTO | undefined> {
+    return this.blockchainProvider.showWalletBalance(address);
   }
 }
 
-export default ShowPublicWalletService;
+export default ShowWalletBalanceService;

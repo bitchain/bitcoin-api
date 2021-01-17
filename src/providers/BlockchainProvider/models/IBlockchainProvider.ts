@@ -1,9 +1,9 @@
-import IPublicWalletInfoDTO from '../dtos/IPublicWalletInfoDTO';
-import ICreateWalletDTO from '../dtos/ICreateWalletDTO';
+import IWalletBalanceDTO from '../dtos/IWalletBalanceDTO';
+import IWalletKeyDTO from '../dtos/IWalletKeyDTO';
 
 export default interface IBlockchainProvider {
-  publicWalletInfo(
+  showWalletBalance(
     publicAddress: string,
-  ): Promise<IPublicWalletInfoDTO | undefined>;
-  createWallet(): Promise<ICreateWalletDTO | undefined>;
+  ): Promise<IWalletBalanceDTO | undefined>;
+  createWallet(): Promise<IWalletKeyDTO | undefined>;
 }
