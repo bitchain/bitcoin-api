@@ -1,7 +1,7 @@
 import { injectable, inject } from 'tsyringe';
 
 import IBlockchainProvider from '../providers/BlockchainProvider/models/IBlockchainProvider';
-import ICreateWalletDTO from '../providers/BlockchainProvider/dtos/ICreateWalletDTO';
+import IWalletKeyDTO from '../providers/BlockchainProvider/dtos/IWalletKeyDTO';
 
 @injectable()
 class CreateWalletService {
@@ -10,7 +10,7 @@ class CreateWalletService {
     private blockchainProvider: IBlockchainProvider,
   ) {}
 
-  public async execute(): Promise<ICreateWalletDTO | undefined> {
+  public async execute(): Promise<IWalletKeyDTO | undefined> {
     return this.blockchainProvider.createWallet();
   }
 }

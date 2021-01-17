@@ -1,7 +1,7 @@
 import { injectable, inject } from 'tsyringe';
 
 import IBlockchainProvider from '../providers/BlockchainProvider/models/IBlockchainProvider';
-import IShowWalletBalanceDTO from '../providers/BlockchainProvider/dtos/IShowWalletBalanceDTO';
+import IWalletBalanceDTO from '../providers/BlockchainProvider/dtos/IWalletBalanceDTO';
 
 @injectable()
 class ShowWalletBalanceService {
@@ -11,9 +11,9 @@ class ShowWalletBalanceService {
   ) {}
 
   public async execute(
-    address: string,
-  ): Promise<IShowWalletBalanceDTO | undefined> {
-    return this.blockchainProvider.showWalletBalance(address);
+    publicAddress: string,
+  ): Promise<IWalletBalanceDTO | undefined> {
+    return this.blockchainProvider.showWalletBalance(publicAddress);
   }
 }
 
