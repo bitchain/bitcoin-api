@@ -8,13 +8,13 @@ import BlockcypherCreateWalletService from './services/BlockcypherCreateWalletSe
 export default class BlockcypherProvider implements IBlockchainProvider {
   public async showWalletBalance(
     publicAddress: string,
-  ): Promise<IWalletBalanceDTO | undefined> {
+  ): Promise<IWalletBalanceDTO> {
     const blockcypherShowWalletBalance = new BlockcypherShowWalletBalanceService();
 
     return blockcypherShowWalletBalance.execute(publicAddress);
   }
 
-  public async createWallet(): Promise<IWalletKeyDTO | undefined> {
+  public async createWallet(): Promise<IWalletKeyDTO> {
     const blockcypherCreateWallet = new BlockcypherCreateWalletService();
 
     return blockcypherCreateWallet.execute();

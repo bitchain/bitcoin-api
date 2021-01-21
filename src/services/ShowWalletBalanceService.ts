@@ -10,9 +10,7 @@ class ShowWalletBalanceService {
     private blockchainProvider: IBlockchainProvider,
   ) {}
 
-  public async execute(
-    publicAddress: string,
-  ): Promise<IWalletBalanceDTO | undefined> {
+  public async execute(publicAddress: string): Promise<IWalletBalanceDTO> {
     return this.blockchainProvider.showWalletBalance(publicAddress);
   }
 }

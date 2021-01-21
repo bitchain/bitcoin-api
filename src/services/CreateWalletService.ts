@@ -10,7 +10,7 @@ class CreateWalletService {
     private blockchainProvider: IBlockchainProvider,
   ) {}
 
-  public async execute(): Promise<IWalletKeyDTO | undefined> {
+  public async execute(): Promise<IWalletKeyDTO> {
     return this.blockchainProvider.createWallet();
   }
 }
