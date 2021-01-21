@@ -9,14 +9,8 @@ const api = axios.create({
 });
 
 class BitcoreShowWalletBalanceService {
-  public async execute(
-    publicAddress: string,
-  ): Promise<IWalletBalanceDTO | undefined> {
+  public async execute(publicAddress: string): Promise<IWalletBalanceDTO> {
     const response = await api.get(`/address/${publicAddress}/balance`);
-
-    if (!response) {
-      return undefined;
-    }
 
     const { balance, confirmed, unconfirmed } = response.data;
 

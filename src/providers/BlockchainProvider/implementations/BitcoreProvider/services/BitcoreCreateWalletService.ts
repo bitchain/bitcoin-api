@@ -5,7 +5,7 @@ import network from '../network';
 import IWalletKeyDTO from '../../../dtos/IWalletKeyDTO';
 
 class BitcoreCreateWalletService {
-  public async execute(): Promise<IWalletKeyDTO | undefined> {
+  public async execute(): Promise<IWalletKeyDTO> {
     const bitcorePrivateKey = new bitcore.PrivateKey(network.name);
 
     const publicAddress = bitcorePrivateKey.toAddress().toString();
