@@ -1,17 +1,36 @@
 import 'reflect-metadata';
 import 'dotenv/config';
 
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
+import 'express-async-errors';
 
 import routes from './routes';
 
+import AppError from './errors/AppError';
+
 import './providers';
 
-const node = express();
+const application = express();
 
-node.use(cors());
-node.use(express.json());
-node.use(routes);
+application.use(cors());
+application.use(express.json());
+application.use(routes);
 
-node.listen(3333);
+application.use(
+  (err: Error, request: Request, response: Response, _: NextFunction) => {
+    if (err instanceof AppError) {
+      return response.status(err.statusCode).json({
+        status: 'error',
+        message: err.message,
+      });
+    }
+
+    return response.status(500).json({
+      status: 'error',
+      message: 'Internal Server error!',
+    });
+  },
+);
+
+application.listen(3333);
