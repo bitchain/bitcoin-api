@@ -5,7 +5,7 @@ import networkConfig from '../../../../../config/network';
 const networks = {
   mainnet: {
     name: bitcore.Networks.mainnet.name,
-    url: '',
+    url: 'https://api.bitcore.io/api/BTC/mainnet',
   },
   testnet: {
     name: bitcore.Networks.testnet.name,
