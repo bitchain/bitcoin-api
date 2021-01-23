@@ -1,7 +1,7 @@
-import ITransactionDTO from 'providers/BlockchainProvider/dtos/ITransactionDTO';
 import IBlockchainProvider from '../../models/IBlockchainProvider';
 import IWalletBalanceDTO from '../../dtos/IWalletBalanceDTO';
 import IWalletKeyDTO from '../../dtos/IWalletKeyDTO';
+import ITransactionDTO from '../../dtos/ITransactionDTO';
 
 import BlockcypherShowWalletBalanceService from './services/BlockcypherShowWalletBalanceService';
 import BlockcypherCreateWalletService from './services/BlockcypherCreateWalletService';
