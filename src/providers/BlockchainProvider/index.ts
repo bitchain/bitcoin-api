@@ -12,5 +12,5 @@ const providers = {
 
 container.registerInstance<IBlockchainProvider>(
   'BlockchainProvider',
-  providers.blockcypher,
+  providers.bitcore,
 );
