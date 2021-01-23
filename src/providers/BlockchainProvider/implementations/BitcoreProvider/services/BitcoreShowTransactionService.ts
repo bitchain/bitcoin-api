@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 import network from '../network';
 import AppError from '../../../../../errors/AppError';
 
@@ -15,18 +13,14 @@ interface Output {
   value: number;
 }
 
-const api = axios.create({
-  baseURL: network.url,
-});
-
 class BitcoreShowTransactionService {
   public async execute(publicId: string): Promise<ITransactionDTO> {
     try {
-      const responseTx = await api.get(`/tx/${publicId}`);
+      const responseTx = await network.api.get(`/tx/${publicId}`);
 
       const { txid, fee, confirmations } = responseTx.data;
 
-      const responseCoins = await api.get(`/tx/${publicId}/coins`);
+      const responseCoins = await network.api.get(`/tx/${publicId}/coins`);
 
       const { inputs, outputs } = responseCoins.data;
 

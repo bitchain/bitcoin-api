@@ -1,3 +1,4 @@
+import axios from 'axios';
 import bitcore from 'bitcore-lib';
 
 import networkConfig from '../../../../../config/network';
@@ -5,11 +6,15 @@ import networkConfig from '../../../../../config/network';
 const networks = {
   mainnet: {
     name: bitcore.Networks.mainnet.name,
-    url: 'https://api.bitcore.io/api/BTC/mainnet',
+    api: axios.create({
+      baseURL: 'https://api.bitcore.io/api/BTC/mainnet',
+    }),
   },
   testnet: {
     name: bitcore.Networks.testnet.name,
-    url: 'https://api.bitcore.io/api/BTC/testnet',
+    api: axios.create({
+      baseURL: 'https://api.bitcore.io/api/BTC/testnet',
+    }),
   },
 };
 
