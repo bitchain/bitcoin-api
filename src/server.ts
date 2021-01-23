@@ -21,14 +21,12 @@ application.use(
   (err: Error, request: Request, response: Response, _: NextFunction) => {
     if (err instanceof AppError) {
       return response.status(err.statusCode).json({
-        status: 'error',
-        message: err.message,
+        error: err.message,
       });
     }
 
     return response.status(500).json({
-      status: 'error',
-      message: 'Internal Server error!',
+      error: 'Internal Server error!',
     });
   },
 );
