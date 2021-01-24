@@ -6,11 +6,11 @@ import ITransactionDTO from '@modules/transactions/dtos/ITransactionDTO';
 
 import IBlockchainProvider from '../../models/IBlockchainProvider';
 
-import BitcoreCreateWalletService from './services/BitcoreCreateWalletService';
-import BitcoreShowWalletBalanceService from './services/BitcoreShowWalletBalanceService';
-import BitcoreListWalletHistoryService from './services/BitcoreListWalletHistoryService';
+import BitcoreCreateWalletService from './services/wallets/BitcoreCreateWalletService';
+import BitcoreShowWalletBalanceService from './services/wallets/BitcoreShowWalletBalanceService';
+import BitcoreListWalletHistoryService from './services/wallets/BitcoreListWalletHistoryService';
 
-import BitcoreShowTransactionService from './services/BitcoreShowTransactionService';
+import BitcoreShowTransactionService from './services/transactions/BitcoreShowTransactionService';
 
 export default class BitcoreProvider implements IBlockchainProvider {
   public async createWallet(): Promise<IWalletKeyDTO> {

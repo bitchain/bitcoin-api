@@ -1,7 +1,7 @@
 import ApplicationError from '@shared/errors/ApplicationError';
 import IWalletHistoryDTO from '@modules/wallets/dtos/IWalletHistoryDTO';
 
-import network from '../network';
+import network from '../../network';
 
 interface Txref {
   tx_hash: string;

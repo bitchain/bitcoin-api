@@ -1,7 +1,7 @@
 import ApplicationError from '@shared/errors/ApplicationError';
 import ITransactionDTO from '@modules/transactions/dtos/ITransactionDTO';
 
-import network from '../network';
+import network from '../../network';
 
 interface Input {
   addresses: string[];

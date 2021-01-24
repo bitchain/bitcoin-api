@@ -1,6 +1,6 @@
 import IWalletKeyDTO from '@modules/wallets/dtos/IWalletKeyDTO';
 
-import network from '../network';
+import network from '../../network';
 
 class BlockcypherCreateWalletService {
   public async execute(): Promise<IWalletKeyDTO> {

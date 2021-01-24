@@ -1,6 +1,6 @@
 import IWalletHistoryDTO from '@modules/wallets/dtos/IWalletHistoryDTO';
 
-import network from '../network';
+import network from '../../network';
 
 interface Txref {
   mintTxid: string;

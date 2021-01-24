@@ -6,11 +6,11 @@ import ITransactionDTO from '@modules/transactions/dtos/ITransactionDTO';
 
 import IBlockchainProvider from '../../models/IBlockchainProvider';
 
-import BlockcypherCreateWalletService from './services/BlockcypherCreateWalletService';
-import BlockcypherShowWalletBalanceService from './services/BlockcypherShowWalletBalanceService';
-import BlockcypherListWalletHistoryService from './services/BlockcypherListWalletHistoryService';
+import BlockcypherCreateWalletService from './services/wallets/BlockcypherCreateWalletService';
+import BlockcypherShowWalletBalanceService from './services/wallets/BlockcypherShowWalletBalanceService';
+import BlockcypherListWalletHistoryService from './services/wallets/BlockcypherListWalletHistoryService';
 
-import BlockcypherShowTransactionService from './services/BlockcypherShowTransactionService';
+import BlockcypherShowTransactionService from './services/transactions/BlockcypherShowTransactionService';
 
 export default class BlockcypherProvider implements IBlockchainProvider {
   public async createWallet(): Promise<IWalletKeyDTO> {

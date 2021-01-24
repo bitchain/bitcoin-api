@@ -1,7 +1,7 @@
 import bitcore from 'bitcore-lib';
 import IWalletKeyDTO from '@modules/wallets/dtos/IWalletKeyDTO';
 
-import network from '../network';
+import network from '../../network';
 
 class BitcoreCreateWalletService {
   public async execute(): Promise<IWalletKeyDTO> {

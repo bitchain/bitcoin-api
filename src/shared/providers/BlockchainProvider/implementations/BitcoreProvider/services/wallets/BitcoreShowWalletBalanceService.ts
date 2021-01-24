@@ -1,6 +1,6 @@
 import IWalletBalanceDTO from '@modules/wallets/dtos/IWalletBalanceDTO';
 
-import network from '../network';
+import network from '../../network';
 
 class BitcoreShowWalletBalanceService {
   public async execute(publicAddress: string): Promise<IWalletBalanceDTO> {
