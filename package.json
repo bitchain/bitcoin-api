@@ -6,7 +6,7 @@
   "author": "Wladimir <wladimir.code@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/server.ts"
+    "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/http/server.ts"
   },
   "devDependencies": {
     "@types/bitcore-lib": "^0.15.2",
