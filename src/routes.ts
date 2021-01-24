@@ -3,7 +3,7 @@ import { container } from 'tsyringe';
 
 import CreateWalletService from './services/CreateWalletService';
 import ShowWalletBalanceService from './services/ShowWalletBalanceService';
-
+import ListWalletTransactionsService from './services/ListWalletTransactionsService';
 import ShowTransactionService from './services/ShowTransactionService';
 
 const routes = Router();
@@ -24,6 +24,20 @@ routes.get('/wallet/:publicAddress', async (request, response) => {
   const walletBalance = await showWalletBalanceService.execute(publicAddress);
 
   return response.json(walletBalance);
+});
+
+routes.get('/wallet/:publicAddress/transactions', async (request, response) => {
+  const listWalletTransactionsService = container.resolve(
+    ListWalletTransactionsService,
+  );
+
+  const { publicAddress } = request.params;
+
+  const walletTransactions = await listWalletTransactionsService.execute(
+    publicAddress,
+  );
+
+  return response.json(walletTransactions);
 });
 
 routes.get('/transaction/:publicId', async (request, response) => {
