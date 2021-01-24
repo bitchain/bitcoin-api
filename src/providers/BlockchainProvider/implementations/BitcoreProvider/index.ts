@@ -2,29 +2,39 @@ import IBlockchainProvider from '../../models/IBlockchainProvider';
 import IWalletBalanceDTO from '../../dtos/IWalletBalanceDTO';
 import IWalletKeyDTO from '../../dtos/IWalletKeyDTO';
 import ITransactionDTO from '../../dtos/ITransactionDTO';
+import ITransactionReferenceDTO from '../../dtos/ITransactionReferenceDTO';
 
-import BitcoreShowWalletBalanceService from './services/BitcoreShowWalletBalanceService';
 import BitcoreCreateWalletService from './services/BitcoreCreateWalletService';
+import BitcoreShowWalletBalanceService from './services/BitcoreShowWalletBalanceService';
+import BitcoreListWalletTransactionsService from './services/BitcoreListWalletTransactionsService';
 import BitcoreShowTransactionService from './services/BitcoreShowTransactionService';
 
 export default class BitcoreProvider implements IBlockchainProvider {
+  public async createWallet(): Promise<IWalletKeyDTO> {
+    const createWallet = new BitcoreCreateWalletService();
+
+    return createWallet.execute();
+  }
+
   public async showWalletBalance(
     publicAddress: string,
   ): Promise<IWalletBalanceDTO> {
-    const bitcoreShowWalletBalance = new BitcoreShowWalletBalanceService();
+    const showWalletBalance = new BitcoreShowWalletBalanceService();
 
-    return bitcoreShowWalletBalance.execute(publicAddress);
+    return showWalletBalance.execute(publicAddress);
   }
 
-  public async createWallet(): Promise<IWalletKeyDTO> {
-    const bitcoreCreateWallet = new BitcoreCreateWalletService();
+  public async listWalletTransactions(
+    publicAddress: string,
+  ): Promise<ITransactionReferenceDTO[]> {
+    const listWalletTransactions = new BitcoreListWalletTransactionsService();
 
-    return bitcoreCreateWallet.execute();
+    return listWalletTransactions.execute(publicAddress);
   }
 
   public async showTransaction(publicId: string): Promise<ITransactionDTO> {
-    const bitcoreShowTransaction = new BitcoreShowTransactionService();
+    const showTransaction = new BitcoreShowTransactionService();
 
-    return bitcoreShowTransaction.execute(publicId);
+    return showTransaction.execute(publicId);
   }
 }

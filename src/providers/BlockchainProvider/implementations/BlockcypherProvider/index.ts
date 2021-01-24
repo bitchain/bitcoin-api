@@ -11,30 +11,30 @@ import BlockcypherShowTransactionService from './services/BlockcypherShowTransac
 
 export default class BlockcypherProvider implements IBlockchainProvider {
   public async createWallet(): Promise<IWalletKeyDTO> {
-    const blockcypherCreateWallet = new BlockcypherCreateWalletService();
+    const createWallet = new BlockcypherCreateWalletService();
 
-    return blockcypherCreateWallet.execute();
+    return createWallet.execute();
   }
 
   public async showWalletBalance(
     publicAddress: string,
   ): Promise<IWalletBalanceDTO> {
-    const blockcypherShowWalletBalance = new BlockcypherShowWalletBalanceService();
+    const showWalletBalance = new BlockcypherShowWalletBalanceService();
 
-    return blockcypherShowWalletBalance.execute(publicAddress);
+    return showWalletBalance.execute(publicAddress);
   }
 
   public async listWalletTransactions(
     publicAddress: string,
   ): Promise<ITransactionReferenceDTO[]> {
-    const blockcypherListWalletTransactionsService = new BlockcypherListWalletTransactionsService();
+    const listWalletTransactions = new BlockcypherListWalletTransactionsService();
 
-    return blockcypherListWalletTransactionsService.execute(publicAddress);
+    return listWalletTransactions.execute(publicAddress);
   }
 
   public async showTransaction(publicId: string): Promise<ITransactionDTO> {
-    const blockcypherShowTransactionService = new BlockcypherShowTransactionService();
+    const showTransaction = new BlockcypherShowTransactionService();
 
-    return blockcypherShowTransactionService.execute(publicId);
+    return showTransaction.execute(publicId);
   }
 }
