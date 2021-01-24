@@ -5,11 +5,10 @@ import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import 'express-async-errors';
 
+import ApplicationError from '@shared/errors/ApplicationError';
+import '@shared/providers';
+
 import routes from './routes';
-
-import AppError from './errors/AppError';
-
-import './providers';
 
 const application = express();
 
@@ -18,12 +17,14 @@ application.use(express.json());
 application.use(routes);
 
 application.use(
-  (err: Error, request: Request, response: Response, _: NextFunction) => {
-    if (err instanceof AppError) {
-      return response.status(err.statusCode).json({
-        error: err.message,
+  (error: Error, request: Request, response: Response, _: NextFunction) => {
+    if (error instanceof ApplicationError) {
+      return response.status(error.statusCode).json({
+        error: error.message,
       });
     }
+
+    console.log(error);
 
     return response.status(500).json({
       error: 'Internal Server error!',
