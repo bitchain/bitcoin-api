@@ -20,13 +20,20 @@ class BlockcypherShowTransactionService {
 
       const { hash, fees, confirmations, inputs, outputs } = response.data;
 
-      const walletsFrom = inputs.map((input: Input) => {
-        return { publicAddress: input.addresses[0], value: input.output_value };
-      });
+      const walletsFrom = inputs
+        .filter((input: Input) => input.addresses)
+        .map((input: Input) => {
+          return {
+            publicAddress: input.addresses[0],
+            value: input.output_value,
+          };
+        });
 
-      const walletsTo = outputs.map((output: Output) => {
-        return { publicAddress: output.addresses[0], value: output.value };
-      });
+      const walletsTo = outputs
+        .filter((output: Output) => output.addresses)
+        .map((output: Output) => {
+          return { publicAddress: output.addresses[0], value: output.value };
+        });
 
       return {
         publicId: hash,

@@ -28,9 +28,11 @@ class BitcoreShowTransactionService {
         return { publicAddress: input.address, value: input.value };
       });
 
-      const walletsTo = outputs.map((output: Output) => {
-        return { publicAddress: output.address, value: output.value };
-      });
+      const walletsTo = outputs
+        .filter((output: Output) => output.address !== 'false')
+        .map((output: Output) => {
+          return { publicAddress: output.address, value: output.value };
+        });
 
       return {
         publicId: txid,
