@@ -3,6 +3,8 @@ import IWalletHistoryDTO from '@modules/wallets/dtos/IWalletHistoryDTO';
 import IWalletKeyDTO from '@modules/wallets/dtos/IWalletKeyDTO';
 
 import ITransactionDTO from '@modules/transactions/dtos/ITransactionDTO';
+import ITransactionFeeRequestDTO from '@modules/transactions/dtos/ITransactionFeeRequestDTO';
+import ITransactionFeeResponseDTO from '@modules/transactions/dtos/ITransactionFeeResponseDTO';
 
 import IBlockchainProvider from '../../models/IBlockchainProvider';
 
@@ -11,6 +13,7 @@ import BlockcypherShowWalletBalanceService from './services/wallets/BlockcypherS
 import BlockcypherListWalletHistoryService from './services/wallets/BlockcypherListWalletHistoryService';
 
 import BlockcypherShowTransactionService from './services/transactions/BlockcypherShowTransactionService';
+import BlockcypherShowTransactionFeeService from './services/transactions/BlockcypherShowTransactionFeeService';
 
 export default class BlockcypherProvider implements IBlockchainProvider {
   public async createWallet(): Promise<IWalletKeyDTO> {
@@ -39,5 +42,13 @@ export default class BlockcypherProvider implements IBlockchainProvider {
     const showTransaction = new BlockcypherShowTransactionService();
 
     return showTransaction.execute(publicId);
+  }
+
+  public async showTransactionFee(
+    transactionFeeRequest: ITransactionFeeRequestDTO,
+  ): Promise<ITransactionFeeResponseDTO> {
+    const blockcypherShowTransactionFeeService = new BlockcypherShowTransactionFeeService();
+
+    return blockcypherShowTransactionFeeService.execute(transactionFeeRequest);
   }
 }
