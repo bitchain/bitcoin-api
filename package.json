@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist",
-    "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/http/server.ts"
+    "dev:server": "tsnd -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/http/server.ts"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",

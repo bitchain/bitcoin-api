@@ -14,9 +14,10 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@modules/*": ["modules/*"],
+      "@useCases/*": ["useCases/*"],
       "@config/*": ["config/*"],
-      "@shared/*": ["shared/*"]
+      "@errors/*": ["errors/*"],
+      "@http/*": ["http/*"]
     },
   }
 }

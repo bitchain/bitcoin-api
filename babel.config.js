@@ -6,9 +6,10 @@ module.exports = {
   plugins: [
     ["module-resolver", {
       alias: {
-        "@modules": "./src/modules",
+        "@useCases": "./src/useCases",
         "@config": "./src/config",
-        "@shared": "./src/shared"
+        "@errors": "./src/errors",
+        "@http": "./src/http"
       }
     }],
     "transform-typescript-metadata",
