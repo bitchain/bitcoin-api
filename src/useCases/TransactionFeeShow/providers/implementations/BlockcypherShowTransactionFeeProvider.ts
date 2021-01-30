@@ -41,7 +41,7 @@ export class BlockcypherShowTransactionFeeProvider {
       const { tx } = response.data;
 
       return {
-        transactionFee: tx.fees,
+        transactionEstimatedFee: tx.fees,
       };
     } catch (error) {
       const { response } = error;

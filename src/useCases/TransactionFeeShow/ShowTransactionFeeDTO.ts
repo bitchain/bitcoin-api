@@ -5,5 +5,5 @@ export interface IShowTransactionFeeRequestDTO {
 }
 
 export interface IShowTransactionFeeResponseDTO {
-  transactionFee: number;
+  transactionEstimatedFee: number;
 }
