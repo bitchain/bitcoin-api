@@ -8,4 +8,4 @@ const walletsRouter = Router();
 walletsRouter.get('/:publicAddress', showWalletController.handle);
 walletsRouter.post('/create', createWalletController.handle);
 
-export default walletsRouter;
+export { walletsRouter };

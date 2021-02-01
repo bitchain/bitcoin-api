@@ -9,4 +9,4 @@ class ApplicationError {
   }
 }
 
-export default ApplicationError;
+export { ApplicationError };

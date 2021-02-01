@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import ApplicationError from '@errors/ApplicationError';
+import { ApplicationError } from '@errors/ApplicationError';
 import networkConfig from '@config/network';
 
 import { IShowTransactionDTO } from '../../ShowTransactionDTO';

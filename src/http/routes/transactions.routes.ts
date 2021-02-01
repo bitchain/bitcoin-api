@@ -8,4 +8,4 @@ const transactionsRouter = Router();
 transactionsRouter.get('/:publicId', showTransactionController.handle);
 transactionsRouter.post('/fee', showTransactionFeeController.handle);
 
-export default transactionsRouter;
+export { transactionsRouter };
