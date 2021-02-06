@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import networkConfig from '@config/network';
+
 import { IShowWalletDTO } from '../../ShowWalletDTO';
 import { IShowWalletProvider } from '../IShowWalletProvider';
 

@@ -2,8 +2,7 @@ import { ShowWalletController } from './ShowWalletController';
 
 import { ProviderInstance } from './providers';
 
-const providerInstance = new ProviderInstance();
-providerInstance.resolve();
+new ProviderInstance().resolve();
 
 const showWalletController = new ShowWalletController();
 

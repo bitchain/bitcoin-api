@@ -1,9 +1,9 @@
 import { injectable, inject } from 'tsyringe';
 
+import { IProvidersRepository } from '@repositories/Providers/IProvidersRepository';
+
 import { IShowWalletProvider } from './providers/IShowWalletProvider';
 import { IShowWalletDTO } from './ShowWalletDTO';
-
-import { IProvidersRepository } from '../../repositories/Providers/IProvidersRepository';
 
 @injectable()
 export class ShowWalletUseCase {

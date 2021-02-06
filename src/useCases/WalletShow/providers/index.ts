@@ -1,8 +1,8 @@
 import { container } from 'tsyringe';
 
-import { IProvidersRepository } from '../../../repositories/Providers/IProvidersRepository';
-import { IShowWalletProvider } from './IShowWalletProvider';
+import { IProvidersRepository } from '@repositories/Providers/IProvidersRepository';
 
+import { IShowWalletProvider } from './IShowWalletProvider';
 import { BitcoreShowWalletProvider } from './implementations/BitcoreShowWalletProvider';
 import { BlockcypherShowWalletProvider } from './implementations/BlockcypherShowWalletProvider';
 
