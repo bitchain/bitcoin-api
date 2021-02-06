@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
+      "@repositories/*": ["repositories/*"],
       "@useCases/*": ["useCases/*"],
+      "@entities/*": ["entities/*"],
       "@config/*": ["config/*"],
       "@errors/*": ["errors/*"],
       "@http/*": ["http/*"]

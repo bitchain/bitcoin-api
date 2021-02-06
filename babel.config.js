@@ -6,7 +6,9 @@ module.exports = {
   plugins: [
     ["module-resolver", {
       alias: {
+        "@repositories": "./src/repositories",
         "@useCases": "./src/useCases",
+        "@entities": "./src/entities",
         "@config": "./src/config",
         "@errors": "./src/errors",
         "@http": "./src/http"
