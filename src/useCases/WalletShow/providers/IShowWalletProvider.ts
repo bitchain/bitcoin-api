@@ -1,5 +1,6 @@
 import { IShowWalletDTO } from '../ShowWalletDTO';
 
 export interface IShowWalletProvider {
-  run(publicAddress: string): Promise<IShowWalletDTO>;
+  providerKey: string;
+  execute(publicAddress: string): Promise<IShowWalletDTO>;
 }

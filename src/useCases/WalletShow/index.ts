@@ -1,21 +1,9 @@
-import { container } from 'tsyringe';
-
-import { IShowWalletProvider } from './providers/IShowWalletProvider';
-
 import { ShowWalletController } from './ShowWalletController';
 
-import { BlockcypherShowWalletProvider } from './providers/implementations/BlockcypherShowWalletProvider';
-import { BitcoreShowWalletProvider } from './providers/implementations/BitcoreShowWalletProvider';
+import { ProviderInstance } from './providers';
 
-const providers = {
-  blockcypher: container.resolve(BlockcypherShowWalletProvider),
-  bitcore: container.resolve(BitcoreShowWalletProvider),
-};
-
-container.registerInstance<IShowWalletProvider>(
-  'ShowWalletProvider',
-  providers.blockcypher,
-);
+const providerInstance = new ProviderInstance();
+providerInstance.resolve();
 
 const showWalletController = new ShowWalletController();
 
