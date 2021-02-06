@@ -3,10 +3,12 @@ node_modules
 
 # env
 .env
-ormconfig.json
 
 # build
 dist
+
+# prisma
+prisma/migrations
 
 # misc
 coverage
