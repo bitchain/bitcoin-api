@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-import { ApplicationError } from '@errors/ApplicationError';
 import networkConfig from '@config/network';
+import { ApplicationError } from '@errors/ApplicationError';
 
 import { IShowTransactionDTO } from '../../ShowTransactionDTO';
+import { IShowTransactionProvider } from '../IShowTransactionProvider';
 
 const networks = {
   mainnet: process.env.BLOCKCYPHER_MAINNET_API,
@@ -24,8 +25,11 @@ interface Output {
   value: number;
 }
 
-export class BlockcypherShowTransactionProvider {
-  public async run(publicId: string): Promise<IShowTransactionDTO> {
+export class BlockcypherShowTransactionProvider
+  implements IShowTransactionProvider {
+  public providerKey = 'blockcypher_transaction_show';
+
+  public async execute(publicId: string): Promise<IShowTransactionDTO> {
     try {
       const response = await network.get(`/txs/${publicId}`);
 
