@@ -5,6 +5,8 @@ import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import 'express-async-errors';
 
+import 'repositories';
+
 import { ApplicationError } from '@errors/ApplicationError';
 
 import { routes } from './routes';
