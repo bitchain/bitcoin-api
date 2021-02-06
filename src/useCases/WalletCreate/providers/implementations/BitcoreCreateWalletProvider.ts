@@ -1,7 +1,9 @@
 import bitcore from 'bitcore-lib';
 
 import networkConfig from '@config/network';
+
 import { ICreateWalletResponseDTO } from '../../CreateWalletDTO';
+import { ICreateWalletProvider } from '../ICreateWalletProvider';
 
 const networks = {
   mainnet: bitcore.Networks.mainnet.name,
@@ -10,8 +12,10 @@ const networks = {
 
 const network = networks[networkConfig.networkType];
 
-export class BitcoreCreateWalletProvider {
-  public async run(): Promise<ICreateWalletResponseDTO> {
+export class BitcoreCreateWalletProvider implements ICreateWalletProvider {
+  public providerKey = 'bitcore_wallet_create';
+
+  public async execute(): Promise<ICreateWalletResponseDTO> {
     const bitcorePrivateKey = new bitcore.PrivateKey(network);
 
     const publicAddress = bitcorePrivateKey.toAddress().toString();
