@@ -16,10 +16,10 @@ export class PrismaProvidersRepository implements IProvidersRepository {
 
     const newKeys = providerKeys.filter(key => !subscribedKeys.includes(key));
 
-    newKeys.forEach(async newKey => {
-      await prisma.provider.create({
-        data: { providerKey: newKey },
-      });
+    const newProviders = newKeys.map(newKey => ({ providerKey: newKey }));
+
+    await prisma.provider.createMany({
+      data: newProviders,
     });
   }
 
@@ -30,7 +30,7 @@ export class PrismaProvidersRepository implements IProvidersRepository {
     });
 
     if (!provider) {
-      throw new ApplicationError('Provider registration cannot be null');
+      throw new Error();
     }
 
     return provider.providerKey;
