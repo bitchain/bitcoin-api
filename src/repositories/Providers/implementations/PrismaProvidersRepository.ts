@@ -47,8 +47,8 @@ export class PrismaProvidersRepository implements IProvidersRepository {
 
     await prisma.provider.update({
       data: {
-        success: provider?.success + 1,
-        fails: provider?.fails,
+        success: provider?.success,
+        fails: provider?.fails + 1,
         calls: provider?.calls + 1,
       },
       where: { providerKey },
