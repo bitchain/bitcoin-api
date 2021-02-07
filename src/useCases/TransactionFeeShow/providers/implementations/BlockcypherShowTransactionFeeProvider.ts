@@ -28,18 +28,12 @@ export class BlockcypherShowTransactionFeeProvider
     value,
   }: IShowTransactionFeeRequestDTO): Promise<IShowTransactionFeeResponseDTO> {
     try {
+      const inputs = [{ addresses: [addressFrom] }];
+      const outputs = [{ addresses: [addressTo], value }];
+
       const response = await network.post('/txs/new', {
-        inputs: [
-          {
-            addresses: [addressFrom],
-          },
-        ],
-        outputs: [
-          {
-            addresses: [addressTo],
-            value,
-          },
-        ],
+        inputs,
+        outputs,
       });
 
       const { tx } = response.data;
