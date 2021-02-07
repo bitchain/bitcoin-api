@@ -4,7 +4,8 @@ import {
 } from '../ShowTransactionFeeDTO';
 
 export interface IShowTransactionFeeProvider {
-  run(
+  providerKey: string;
+  execute(
     data: IShowTransactionFeeRequestDTO,
   ): Promise<IShowTransactionFeeResponseDTO>;
 }

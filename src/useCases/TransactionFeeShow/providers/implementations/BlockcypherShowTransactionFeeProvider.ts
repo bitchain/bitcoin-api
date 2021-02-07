@@ -1,12 +1,13 @@
 import axios from 'axios';
 
-import { ApplicationError } from '@errors/ApplicationError';
 import networkConfig from '@config/network';
+import { ApplicationError } from '@errors/ApplicationError';
 
 import {
   IShowTransactionFeeRequestDTO,
   IShowTransactionFeeResponseDTO,
 } from '../../ShowTransactionFeeDTO';
+import { IShowTransactionFeeProvider } from '../IShowTransactionFeeProvider';
 
 const networks = {
   mainnet: process.env.BLOCKCYPHER_MAINNET_API,
@@ -17,8 +18,11 @@ const network = axios.create({
   baseURL: networks[networkConfig.networkType],
 });
 
-export class BlockcypherShowTransactionFeeProvider {
-  public async run({
+export class BlockcypherShowTransactionFeeProvider
+  implements IShowTransactionFeeProvider {
+  public providerKey = 'blockcypher_transaction_fee_show';
+
+  public async execute({
     addressFrom,
     addressTo,
     value,
