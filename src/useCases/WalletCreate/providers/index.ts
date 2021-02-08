@@ -1,6 +1,6 @@
 import { container } from 'tsyringe';
 
-import { IProvidersRepository } from '@repositories/Providers/IProvidersRepository';
+import { IProvidersRepository } from '@repositories/IProvidersRepository';
 
 import { ICreateWalletProvider } from './ICreateWalletProvider';
 import { BitcoreCreateWalletProvider } from './implementations/BitcoreCreateWalletProvider';

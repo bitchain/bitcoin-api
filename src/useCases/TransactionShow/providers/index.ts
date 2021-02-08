@@ -1,6 +1,6 @@
 import { container } from 'tsyringe';
 
-import { IProvidersRepository } from '@repositories/Providers/IProvidersRepository';
+import { IProvidersRepository } from '@repositories/IProvidersRepository';
 
 import { IShowTransactionProvider } from './IShowTransactionProvider';
 import { BitcoreShowTransactionProvider } from './implementations/BitcoreShowTransactionProvider';

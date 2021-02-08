@@ -1,8 +1,8 @@
 import { container } from 'tsyringe';
 
-import { IProvidersRepository } from './Providers/IProvidersRepository';
+import { IProvidersRepository } from './IProvidersRepository';
 
-import { PrismaProvidersRepository } from './Providers/implementations/PrismaProvidersRepository';
+import { PrismaProvidersRepository } from './implementations/PrismaProvidersRepository';
 
 container.registerSingleton<IProvidersRepository>(
   'ProvidersRepository',

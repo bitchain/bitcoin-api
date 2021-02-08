@@ -1,6 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 
-import { IProvidersRepository } from '@repositories/Providers/IProvidersRepository';
+import { IProvidersRepository } from '@repositories/IProvidersRepository';
 
 import { ICreateWalletProvider } from './providers/ICreateWalletProvider';
 import { ICreateWalletResponseDTO } from './CreateWalletDTO';
