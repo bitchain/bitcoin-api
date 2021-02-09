@@ -39,6 +39,7 @@
   "dependencies": {
     "@prisma/client": "^2.16.0",
     "axios": "^0.21.1",
+    "bitcoinjs-lib": "^5.2.0",
     "bitcore-lib": "^8.24.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
