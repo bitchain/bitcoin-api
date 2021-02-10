@@ -8,6 +8,7 @@ import 'express-async-errors';
 import 'repositories';
 
 import { ApplicationError } from '@errors/ApplicationError';
+import { ValidationError } from '@errors/ValidationError';
 
 import { routes } from './routes';
 
@@ -19,7 +20,7 @@ application.use(routes);
 
 application.use(
   (error: Error, request: Request, response: Response, _: NextFunction) => {
-    if (error instanceof ApplicationError) {
+    if (error instanceof ApplicationError || error instanceof ValidationError) {
       return response.status(error.statusCode).json({
         error: error.message,
       });
