@@ -20,7 +20,9 @@ export class ShowWalletUseCase {
   public async execute(publicAddress: string): Promise<IShowWalletDTO> {
     try {
       if (!validateAddressUseCase.execute(publicAddress)) {
-        throw new ValidationError('Public Address is invalid');
+        throw new ValidationError(
+          `Public Address: ${publicAddress} is invalid`,
+        );
       }
 
       const result = await this.showWalletProvider.execute(publicAddress);

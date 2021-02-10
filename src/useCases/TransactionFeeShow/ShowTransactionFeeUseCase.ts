@@ -1,6 +1,9 @@
 import { injectable, inject } from 'tsyringe';
 
+import { ValidationError } from '@errors/ValidationError';
+
 import { IProvidersRepository } from '@repositories/IProvidersRepository';
+import { validateAddressUseCase } from '@useCases/ValidateAddress';
 
 import { IShowTransactionFeeProvider } from './providers/IShowTransactionFeeProvider';
 import {
@@ -21,6 +24,16 @@ export class ShowTransactionFeeUseCase {
     data: IShowTransactionFeeRequestDTO,
   ): Promise<IShowTransactionFeeResponseDTO> {
     try {
+      const { addressFrom, addressTo } = data;
+
+      if (!validateAddressUseCase.execute(addressFrom)) {
+        throw new ValidationError(`Public Address: ${addressFrom} is invalid`);
+      }
+
+      if (!validateAddressUseCase.execute(addressTo)) {
+        throw new ValidationError(`Public Address: ${addressTo} is invalid`);
+      }
+
       const result = await this.showTransactionFeeProvider.execute(data);
 
       this.providersRepository.registerSuccessfulCall(
@@ -29,9 +42,11 @@ export class ShowTransactionFeeUseCase {
 
       return result;
     } catch (error) {
-      this.providersRepository.registerFailedCall(
-        this.showTransactionFeeProvider.providerKey,
-      );
+      if (!(error instanceof ValidationError)) {
+        this.providersRepository.registerFailedCall(
+          this.showTransactionFeeProvider.providerKey,
+        );
+      }
 
       throw error;
     }
