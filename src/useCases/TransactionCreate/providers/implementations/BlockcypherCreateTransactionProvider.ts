@@ -64,14 +64,22 @@ export class BlockcypherCreateTransactionProvider
 
       const temporaryTransaction = responseTXNew.data;
 
-      temporaryTransaction.pubkeys = [btcPrivateKey.publicKey.toString('hex')];
+      temporaryTransaction.pubkeys = [];
 
-      const signature = btcPrivateKey.sign(
-        Buffer.from(temporaryTransaction.tosign[0], 'hex'),
+      temporaryTransaction.signatures = temporaryTransaction.tosign.map(
+        (inputTosign: string) => {
+          const pubKey = btcPrivateKey.publicKey.toString('hex');
+          temporaryTransaction.pubkeys.push(pubKey);
+
+          const signBuffer = Buffer.from(inputTosign, 'hex');
+          const signature = btcPrivateKey.sign(signBuffer);
+
+          return script.signature
+            .encode(signature, 0x01)
+            .toString('hex')
+            .slice(0, -2);
+        },
       );
-      temporaryTransaction.signatures = [
-        script.signature.encode(signature, 0x01).toString('hex').slice(0, -2),
-      ];
 
       const responseTXSend = await blockcypherAPI.post(
         '/txs/send',
