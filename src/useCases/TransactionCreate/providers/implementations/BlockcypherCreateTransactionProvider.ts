@@ -29,7 +29,7 @@ const blockcypherNetwork = appNetworks[networkConfig.networkType].type;
 
 interface Input {
   addresses: string[];
-  value: number;
+  output_value: number;
 }
 
 interface Output {
@@ -92,7 +92,7 @@ export class BlockcypherCreateTransactionProvider
 
       const walletsFrom = inputs.map((input: Input) => ({
         publicAddress: input.addresses[0],
-        value: input.value,
+        value: input.output_value,
       }));
 
       const walletsTo = outputs.map((output: Output) => ({
