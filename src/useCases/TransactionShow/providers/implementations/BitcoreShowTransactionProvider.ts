@@ -1,19 +1,8 @@
-import axios from 'axios';
-
 import networkConfig from '@config/network';
 import { ApplicationError } from '@errors/ApplicationError';
 
 import { IShowTransactionDTO } from '../../ShowTransactionDTO';
 import { IShowTransactionProvider } from '../IShowTransactionProvider';
-
-const networks = {
-  mainnet: process.env.BITCORE_MAINNET_API,
-  testnet: process.env.BITCORE_TESTNET_API,
-};
-
-const network = axios.create({
-  baseURL: networks[networkConfig.networkType],
-});
 
 interface Input {
   address: string;
@@ -25,17 +14,19 @@ interface Output {
   value: number;
 }
 
+const api = networkConfig.bitcore_api;
+
 export class BitcoreShowTransactionProvider
   implements IShowTransactionProvider {
   public providerKey = 'bitcore_transaction_show';
 
   public async execute(publicId: string): Promise<IShowTransactionDTO> {
     try {
-      const responseTx = await network.get(`/tx/${publicId}`);
+      const responseTx = await api.get(`/tx/${publicId}`);
 
       const { txid, fee, confirmations } = responseTx.data;
 
-      const responseCoins = await network.get(`/tx/${publicId}/coins`);
+      const responseCoins = await api.get(`/tx/${publicId}/coins`);
 
       const { inputs, outputs } = responseCoins.data;
 

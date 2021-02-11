@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { ECPair, script, payments, networks } from 'bitcoinjs-lib';
+import { ECPair, script, payments } from 'bitcoinjs-lib';
 
 import networkConfig from '@config/network';
 import { ApplicationError } from '@errors/ApplicationError';
@@ -9,23 +8,6 @@ import {
   ICreateTransactionResponseDTO,
 } from '../../CreateTransactionDTO';
 import { ICreateTransactionProvider } from '../ICreateTransactionProvider';
-
-const appNetworks = {
-  mainnet: {
-    endpoint: process.env.BLOCKCYPHER_MAINNET_API,
-    type: networks.bitcoin,
-  },
-  testnet: {
-    endpoint: process.env.BLOCKCYPHER_TESTNET_API,
-    type: networks.testnet,
-  },
-};
-
-const blockcypherAPI = axios.create({
-  baseURL: appNetworks[networkConfig.networkType].endpoint,
-});
-
-const blockcypherNetwork = appNetworks[networkConfig.networkType].type;
 
 interface Input {
   addresses: string[];
@@ -37,6 +19,8 @@ interface Output {
   value: number;
 }
 
+const api = networkConfig.blockcypher_api;
+
 export class BlockcypherCreateTransactionProvider
   implements ICreateTransactionProvider {
   public providerKey = 'blockcypher_transaction_create';
@@ -47,17 +31,20 @@ export class BlockcypherCreateTransactionProvider
     value,
   }: ICreateTransactionRequestDTO): Promise<ICreateTransactionResponseDTO> {
     try {
-      const btcPrivateKey = ECPair.fromWIF(privateKey, blockcypherNetwork);
+      const btcPrivateKey = ECPair.fromWIF(
+        privateKey,
+        networkConfig.bitcoinjs_type,
+      );
 
       const { address: addressFrom } = payments.p2pkh({
         pubkey: btcPrivateKey.publicKey,
-        network: blockcypherNetwork,
+        network: networkConfig.bitcoinjs_type,
       });
 
       const transactionInputs = [{ addresses: [addressFrom] }];
       const transactionOutputs = [{ addresses: [addressTo], value }];
 
-      const responseTXNew = await blockcypherAPI.post('/txs/new', {
+      const responseTXNew = await api.post('/txs/new', {
         inputs: transactionInputs,
         outputs: transactionOutputs,
       });
@@ -81,14 +68,9 @@ export class BlockcypherCreateTransactionProvider
         },
       );
 
-      const responseTXSend = await blockcypherAPI.post(
-        '/txs/send',
-        temporaryTransaction,
-      );
+      const responseTXSend = await api.post('/txs/send', temporaryTransaction);
 
-      const { tx } = responseTXSend.data;
-
-      const { hash, fees, inputs, outputs } = tx;
+      const { hash, fees, inputs, outputs } = responseTXSend.data.tx;
 
       const walletsFrom = inputs.map((input: Input) => ({
         publicAddress: input.addresses[0],
@@ -106,9 +88,12 @@ export class BlockcypherCreateTransactionProvider
         walletsFrom,
         walletsTo,
       };
-    } catch (err) {
-      console.log(err);
-      throw new Error();
+    } catch (error) {
+      const { response } = error;
+      throw new ApplicationError(
+        response.data.errors[0].error,
+        response.status,
+      );
     }
   }
 }

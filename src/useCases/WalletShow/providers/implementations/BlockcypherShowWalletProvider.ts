@@ -1,19 +1,8 @@
-import axios from 'axios';
-
 import networkConfig from '@config/network';
 import { ApplicationError } from '@errors/ApplicationError';
 
 import { IShowWalletDTO } from '../../ShowWalletDTO';
 import { IShowWalletProvider } from '../IShowWalletProvider';
-
-const networks = {
-  mainnet: process.env.BLOCKCYPHER_MAINNET_API,
-  testnet: process.env.BLOCKCYPHER_TESTNET_API,
-};
-
-const network = axios.create({
-  baseURL: networks[networkConfig.networkType],
-});
 
 interface Txref {
   tx_hash: string;
@@ -22,12 +11,14 @@ interface Txref {
   block_height: number;
 }
 
+const api = networkConfig.blockcypher_api;
+
 export class BlockcypherShowWalletProvider implements IShowWalletProvider {
   public providerKey = 'blockcypher_wallet_show';
 
   public async execute(publicAddress: string): Promise<IShowWalletDTO> {
     try {
-      const response = await network.get(`/addrs/${publicAddress}`);
+      const response = await api.get(`/addrs/${publicAddress}`);
 
       const {
         address,

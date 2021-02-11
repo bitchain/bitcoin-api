@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 import networkConfig from '@config/network';
 import { ApplicationError } from '@errors/ApplicationError';
 
@@ -9,14 +7,7 @@ import {
 } from '../../ShowTransactionFeeDTO';
 import { IShowTransactionFeeProvider } from '../IShowTransactionFeeProvider';
 
-const networks = {
-  mainnet: process.env.BLOCKCYPHER_MAINNET_API,
-  testnet: process.env.BLOCKCYPHER_TESTNET_API,
-};
-
-const network = axios.create({
-  baseURL: networks[networkConfig.networkType],
-});
+const api = networkConfig.blockcypher_api;
 
 export class BlockcypherShowTransactionFeeProvider
   implements IShowTransactionFeeProvider {
@@ -31,7 +22,7 @@ export class BlockcypherShowTransactionFeeProvider
       const inputs = [{ addresses: [addressFrom] }];
       const outputs = [{ addresses: [addressTo], value }];
 
-      const response = await network.post('/txs/new', {
+      const response = await api.post('/txs/new', {
         inputs,
         outputs,
       });

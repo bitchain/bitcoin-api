@@ -1,18 +1,11 @@
-import { address, networks } from 'bitcoinjs-lib';
+import { address } from 'bitcoinjs-lib';
 
 import networkConfig from '@config/network';
-
-const appNetworks = {
-  mainnet: networks.bitcoin,
-  testnet: networks.testnet,
-};
-
-const appNetwork = appNetworks[networkConfig.networkType];
 
 export class ValidateAddressUseCase {
   public execute(publicAddress: string): boolean {
     try {
-      address.toOutputScript(publicAddress, appNetwork);
+      address.toOutputScript(publicAddress, networkConfig.bitcoinjs_type);
 
       return true;
     } catch (error) {
