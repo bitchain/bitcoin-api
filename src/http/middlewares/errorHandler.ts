@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from 'express';
 import { ApplicationError } from '@errors/ApplicationError';
 import { ValidationError } from '@errors/ValidationError';
 
-export async function errorRoute(
+export async function errorHandler(
   error: Error,
   request: Request,
   response: Response,
