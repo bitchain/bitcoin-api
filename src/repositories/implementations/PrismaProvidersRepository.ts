@@ -1,7 +1,5 @@
 import { PrismaClient } from '@prisma/client';
 
-import { ApplicationError } from '@errors/ApplicationError';
-
 import { IProvidersRepository } from '../IProvidersRepository';
 
 const prisma = new PrismaClient();
@@ -30,7 +28,7 @@ export class PrismaProvidersRepository implements IProvidersRepository {
     });
 
     if (!provider) {
-      throw new Error();
+      throw new Error('Provider cannot be null');
     }
 
     return provider.providerKey;
@@ -42,7 +40,7 @@ export class PrismaProvidersRepository implements IProvidersRepository {
     });
 
     if (!provider) {
-      throw new ApplicationError('Provider registration cannot be null', 500);
+      throw new Error('Provider cannot be null');
     }
 
     await prisma.provider.update({
@@ -61,7 +59,7 @@ export class PrismaProvidersRepository implements IProvidersRepository {
     });
 
     if (!provider) {
-      throw new ApplicationError('Provider registration cannot be null', 500);
+      throw new Error('Provider cannot be null');
     }
 
     await prisma.provider.update({
