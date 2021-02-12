@@ -16,6 +16,8 @@ export class PrismaProvidersRepository implements IProvidersRepository {
 
     const newProviders = newKeys.map(newKey => ({ providerKey: newKey }));
 
+    if (!newProviders) return;
+
     await prisma.provider.createMany({
       data: newProviders,
     });
