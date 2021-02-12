@@ -1,11 +1,8 @@
-class ApplicationError {
-  public readonly message: string;
+import { HttpError } from './HttpError';
 
-  public readonly statusCode: number;
-
+class ApplicationError extends HttpError {
   constructor(message: string, statusCode = 400) {
-    this.message = message;
-    this.statusCode = statusCode;
+    super(message, statusCode);
   }
 }
 

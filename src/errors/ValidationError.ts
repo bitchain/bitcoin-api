@@ -1,11 +1,8 @@
-class ValidationError {
-  public readonly message: string;
+import { HttpError } from './HttpError';
 
-  public readonly statusCode: number;
-
+class ValidationError extends HttpError {
   constructor(message: string, statusCode = 400) {
-    this.message = message;
-    this.statusCode = statusCode;
+    super(message, statusCode);
   }
 }
 
