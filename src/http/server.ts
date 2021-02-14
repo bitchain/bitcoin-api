@@ -18,4 +18,6 @@ application.use(routes);
 
 application.use(errorHandler);
 
-application.listen(3333);
+const port = process.env.APPLICATION_PORT || 3333;
+
+application.listen(port);
