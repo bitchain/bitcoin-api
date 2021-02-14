@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist",
-    "dev:server": "tsnd -r tsconfig-paths/register --transpile-only --ignore-watch node_modules src/http/server.ts"
+    "dev:server": "tsnd -r tsconfig-paths/register --transpile-only --ignore-watch node_modules src/http/server.ts",
+    "dev:debug": "tsnd -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/http/server.ts"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
@@ -41,6 +42,7 @@
     "axios": "^0.21.1",
     "bitcoinjs-lib": "^5.2.0",
     "bitcore-lib": "^8.24.1",
+    "celebrate": "^13.0.4",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
