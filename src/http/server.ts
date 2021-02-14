@@ -5,7 +5,7 @@ import express from 'express';
 import cors from 'cors';
 import 'express-async-errors';
 
-import 'repositories';
+import '@repositories/index';
 
 import { errorHandler } from './middlewares/errorHandler';
 import { routes } from './routes';
