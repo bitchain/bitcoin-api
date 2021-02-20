@@ -1,16 +1,11 @@
 # dependencies
 node_modules
 
-# env
-.env
-
 # build
 dist
 
-# prisma
-prisma/migrations
-
 # misc
+.env
 coverage
 
 package-lock.json
