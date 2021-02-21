@@ -3,6 +3,10 @@ name: CI
 on:
   push:
     branches: [ master ]
+    
+    paths:
+      - src/**
+      - prisma/**
 
 jobs:
   build:
