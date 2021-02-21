@@ -29,7 +29,10 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }} 
-          source: ".,!node_modules,!src"
+          source: |
+            "."
+            "!node_modules"
+            "!src"
           target: "~/app"
           
       - name: Digital Ocean | Dependencies install | Migrations | Restart
