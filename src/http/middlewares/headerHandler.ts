@@ -7,7 +7,7 @@ export async function headerHandler(
   response: Response,
   next: NextFunction,
 ): Promise<void> {
-  response.append('network', networkConfig.type);
+  response.append('Network', networkConfig.type);
 
   next();
 }
