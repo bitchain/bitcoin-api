@@ -1,9 +1,7 @@
 import { ShowWalletController } from './ShowWalletController';
 
-import { ProviderInstance } from './providers';
-
-new ProviderInstance().resolve();
+import { instanceShowWalletProvider } from './middlewares/instanceShowWalletProvider';
 
 const showWalletController = new ShowWalletController();
 
-export { showWalletController };
+export { instanceShowWalletProvider, showWalletController };

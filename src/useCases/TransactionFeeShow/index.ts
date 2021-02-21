@@ -1,10 +1,12 @@
-import { ProviderInstance } from './providers';
-
-import { validateTransactionFeeRequest } from './middlewares/validateTransactionFeeRequest';
 import { ShowTransactionFeeController } from './ShowTransactionFeeController';
 
-new ProviderInstance().resolve();
+import { instanceShowTransactionFeeProvider } from './middlewares/instanceShowTransactionFeeProvider';
+import { validateTransactionFeeRequest } from './middlewares/validateTransactionFeeRequest';
 
 const showTransactionFeeController = new ShowTransactionFeeController();
 
-export { validateTransactionFeeRequest, showTransactionFeeController };
+export {
+  validateTransactionFeeRequest,
+  instanceShowTransactionFeeProvider,
+  showTransactionFeeController,
+};

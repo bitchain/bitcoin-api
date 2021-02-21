@@ -1,10 +1,15 @@
+import { NextFunction, Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import { IProvidersRepository } from '@repositories/IProvidersRepository';
 
-import { IShowWalletProvider } from './IShowWalletProvider';
-import { BitcoreShowWalletProvider } from './implementations/BitcoreShowWalletProvider';
-import { BlockcypherShowWalletProvider } from './implementations/BlockcypherShowWalletProvider';
+import { IShowWalletProvider } from '../providers/IShowWalletProvider';
+import { BitcoreShowWalletProvider } from '../providers/implementations/BitcoreShowWalletProvider';
+import { BlockcypherShowWalletProvider } from '../providers/implementations/BlockcypherShowWalletProvider';
+
+const providersRepository = container.resolve<IProvidersRepository>(
+  'ProvidersRepository',
+);
 
 const bitcoreWalletShow = container.resolve(BitcoreShowWalletProvider);
 const blockcypherWalletShow = container.resolve(BlockcypherShowWalletProvider);
@@ -14,12 +19,12 @@ const providers = {
   [bitcoreWalletShow.providerKey]: bitcoreWalletShow,
 };
 
-const providersRepository = container.resolve<IProvidersRepository>(
-  'ProvidersRepository',
-);
-
-export class ProviderInstance {
-  async resolve(): Promise<void> {
+export async function instanceShowWalletProvider(
+  request: Request,
+  response: Response,
+  next: NextFunction,
+): Promise<void> {
+  if (!container.isRegistered('ShowWalletProvider')) {
     const providerKeys = Object.keys(providers);
 
     await providersRepository.subscribe(providerKeys);
@@ -31,4 +36,5 @@ export class ProviderInstance {
       providers[providerKey],
     );
   }
+  next();
 }

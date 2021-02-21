@@ -1,10 +1,15 @@
+import { NextFunction, Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import { IProvidersRepository } from '@repositories/IProvidersRepository';
 
-import { IShowTransactionProvider } from './IShowTransactionProvider';
-import { BitcoreShowTransactionProvider } from './implementations/BitcoreShowTransactionProvider';
-import { BlockcypherShowTransactionProvider } from './implementations/BlockcypherShowTransactionProvider';
+import { IShowTransactionProvider } from '../providers/IShowTransactionProvider';
+import { BitcoreShowTransactionProvider } from '../providers/implementations/BitcoreShowTransactionProvider';
+import { BlockcypherShowTransactionProvider } from '../providers/implementations/BlockcypherShowTransactionProvider';
+
+const providersRepository = container.resolve<IProvidersRepository>(
+  'ProvidersRepository',
+);
 
 const bitcoreTransactionShow = container.resolve(
   BitcoreShowTransactionProvider,
@@ -18,12 +23,12 @@ const providers = {
   [bitcoreTransactionShow.providerKey]: bitcoreTransactionShow,
 };
 
-const providersRepository = container.resolve<IProvidersRepository>(
-  'ProvidersRepository',
-);
-
-export class ProviderInstance {
-  async resolve(): Promise<void> {
+export async function instanceShowTransactionProvider(
+  request: Request,
+  response: Response,
+  next: NextFunction,
+): Promise<void> {
+  if (!container.isRegistered('ShowTransactionProvider')) {
     const providerKeys = Object.keys(providers);
 
     await providersRepository.subscribe(providerKeys);
@@ -35,4 +40,5 @@ export class ProviderInstance {
       providers[providerKey],
     );
   }
+  next();
 }

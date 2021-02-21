@@ -1,9 +1,14 @@
+import { NextFunction, Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import { IProvidersRepository } from '@repositories/IProvidersRepository';
 
-import { IShowTransactionFeeProvider } from './IShowTransactionFeeProvider';
-import { BlockcypherShowTransactionFeeProvider } from './implementations/BlockcypherShowTransactionFeeProvider';
+import { IShowTransactionFeeProvider } from '../providers/IShowTransactionFeeProvider';
+import { BlockcypherShowTransactionFeeProvider } from '../providers/implementations/BlockcypherShowTransactionFeeProvider';
+
+const providersRepository = container.resolve<IProvidersRepository>(
+  'ProvidersRepository',
+);
 
 const blockcypherTransactionFeeShow = container.resolve(
   BlockcypherShowTransactionFeeProvider,
@@ -13,12 +18,12 @@ const providers = {
   [blockcypherTransactionFeeShow.providerKey]: blockcypherTransactionFeeShow,
 };
 
-const providersRepository = container.resolve<IProvidersRepository>(
-  'ProvidersRepository',
-);
-
-export class ProviderInstance {
-  async resolve(): Promise<void> {
+export async function instanceShowTransactionFeeProvider(
+  request: Request,
+  response: Response,
+  next: NextFunction,
+): Promise<void> {
+  if (!container.isRegistered('ShowTransactionFeeProvider')) {
     const providerKeys = Object.keys(providers);
 
     await providersRepository.subscribe(providerKeys);
@@ -30,4 +35,5 @@ export class ProviderInstance {
       providers[providerKey],
     );
   }
+  next();
 }

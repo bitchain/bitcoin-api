@@ -1,9 +1,7 @@
-import { ProviderInstance } from './providers';
-
 import { ShowTransactionController } from './ShowTransactionController';
 
-new ProviderInstance().resolve();
+import { instanceShowTransactionProvider } from './middlewares/instanceShowTransactionProvider';
 
 const showTransactionController = new ShowTransactionController();
 
-export { showTransactionController };
+export { instanceShowTransactionProvider, showTransactionController };

@@ -1,10 +1,15 @@
+import { NextFunction, Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import { IProvidersRepository } from '@repositories/IProvidersRepository';
 
-import { ICreateWalletProvider } from './ICreateWalletProvider';
-import { BitcoreCreateWalletProvider } from './implementations/BitcoreCreateWalletProvider';
-import { BlockcypherCreateWalletProvider } from './implementations/BlockcypherCreateWalletProvider';
+import { ICreateWalletProvider } from '../providers/ICreateWalletProvider';
+import { BitcoreCreateWalletProvider } from '../providers/implementations/BitcoreCreateWalletProvider';
+import { BlockcypherCreateWalletProvider } from '../providers/implementations/BlockcypherCreateWalletProvider';
+
+const providersRepository = container.resolve<IProvidersRepository>(
+  'ProvidersRepository',
+);
 
 const bitcoreWalletCreate = container.resolve(BitcoreCreateWalletProvider);
 const blockcypherWalletCreate = container.resolve(
@@ -16,12 +21,12 @@ const providers = {
   [bitcoreWalletCreate.providerKey]: bitcoreWalletCreate,
 };
 
-const providersRepository = container.resolve<IProvidersRepository>(
-  'ProvidersRepository',
-);
-
-export class ProviderInstance {
-  async resolve(): Promise<void> {
+export async function instanceCreateWalletProvider(
+  request: Request,
+  response: Response,
+  next: NextFunction,
+): Promise<void> {
+  if (!container.isRegistered('CreateWalletProvider')) {
     const providerKeys = Object.keys(providers);
 
     await providersRepository.subscribe(providerKeys);
@@ -33,4 +38,5 @@ export class ProviderInstance {
       providers[providerKey],
     );
   }
+  next();
 }

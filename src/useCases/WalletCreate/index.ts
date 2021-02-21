@@ -1,9 +1,7 @@
 import { CreateWalletController } from './CreateWalletController';
 
-import { ProviderInstance } from './providers';
-
-new ProviderInstance().resolve();
+import { instanceCreateWalletProvider } from './middlewares/instanceCreateWalletProvider';
 
 const createWalletController = new CreateWalletController();
 
-export { createWalletController };
+export { instanceCreateWalletProvider, createWalletController };

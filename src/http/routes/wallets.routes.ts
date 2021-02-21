@@ -1,11 +1,25 @@
 import { Router } from 'express';
 
-import { createWalletController } from '@useCases/WalletCreate';
-import { showWalletController } from '@useCases/WalletShow';
+import {
+  instanceCreateWalletProvider,
+  createWalletController,
+} from '@useCases/WalletCreate';
+import {
+  instanceShowWalletProvider,
+  showWalletController,
+} from '@useCases/WalletShow';
 
 const walletsRouter = Router();
 
-walletsRouter.get('/:publicAddress', showWalletController.handle);
-walletsRouter.post('/create', createWalletController.handle);
+walletsRouter.get(
+  '/:publicAddress',
+  instanceShowWalletProvider,
+  showWalletController.handle,
+);
+walletsRouter.post(
+  '/create',
+  instanceCreateWalletProvider,
+  createWalletController.handle,
+);
 
 export { walletsRouter };
