@@ -1,6 +1,8 @@
 import { ECPair, script, payments } from 'bitcoinjs-lib';
 
-import networkConfig from '@config/network';
+import { blockcypher } from '@config/blockcypher';
+import { bitcoinjs } from '@config/bitcoinjs';
+
 import { ApplicationError } from '@errors/ApplicationError';
 
 import {
@@ -19,8 +21,6 @@ interface Output {
   value: number;
 }
 
-const api = networkConfig.blockcypher_api;
-
 export class BlockcypherCreateTransactionProvider
   implements ICreateTransactionProvider {
   public providerKey = 'blockcypher_transaction_create';
@@ -31,20 +31,17 @@ export class BlockcypherCreateTransactionProvider
     value,
   }: ICreateTransactionRequestDTO): Promise<ICreateTransactionResponseDTO> {
     try {
-      const btcPrivateKey = ECPair.fromWIF(
-        privateKey,
-        networkConfig.bitcoinjs_type,
-      );
+      const btcPrivateKey = ECPair.fromWIF(privateKey, bitcoinjs.type);
 
       const { address: addressFrom } = payments.p2pkh({
         pubkey: btcPrivateKey.publicKey,
-        network: networkConfig.bitcoinjs_type,
+        network: bitcoinjs.type,
       });
 
       const transactionInputs = [{ addresses: [addressFrom] }];
       const transactionOutputs = [{ addresses: [addressTo], value }];
 
-      const responseTXNew = await api.post('/txs/new', {
+      const responseTXNew = await blockcypher.api.post('/txs/new', {
         inputs: transactionInputs,
         outputs: transactionOutputs,
       });
@@ -68,7 +65,10 @@ export class BlockcypherCreateTransactionProvider
         },
       );
 
-      const responseTXSend = await api.post('/txs/send', temporaryTransaction);
+      const responseTXSend = await blockcypher.api.post(
+        '/txs/send',
+        temporaryTransaction,
+      );
 
       const { hash, fees, inputs, outputs } = responseTXSend.data.tx;
 

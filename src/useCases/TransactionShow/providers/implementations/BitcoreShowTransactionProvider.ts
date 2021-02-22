@@ -1,4 +1,4 @@
-import networkConfig from '@config/network';
+import { bitcore } from '@config/bitcore';
 import { ApplicationError } from '@errors/ApplicationError';
 
 import { IShowTransactionDTO } from '../../ShowTransactionDTO';
@@ -14,19 +14,17 @@ interface Output {
   value: number;
 }
 
-const api = networkConfig.bitcore_api;
-
 export class BitcoreShowTransactionProvider
   implements IShowTransactionProvider {
   public providerKey = 'bitcore_transaction_show';
 
   public async execute(publicId: string): Promise<IShowTransactionDTO> {
     try {
-      const responseTx = await api.get(`/tx/${publicId}`);
+      const responseTx = await bitcore.api.get(`/tx/${publicId}`);
 
       const { txid, fee, confirmations } = responseTx.data;
 
-      const responseCoins = await api.get(`/tx/${publicId}/coins`);
+      const responseCoins = await bitcore.api.get(`/tx/${publicId}/coins`);
 
       const { inputs, outputs } = responseCoins.data;
 

@@ -1,11 +1,11 @@
 import { ECPair } from 'bitcoinjs-lib';
 
-import networkConfig from '@config/network';
+import { bitcoinjs } from '@config/bitcoinjs';
 
 export class ValidatePrivateKeyUseCase {
   public execute(privateKey: string): boolean {
     try {
-      ECPair.fromWIF(privateKey, networkConfig.bitcoinjs_type);
+      ECPair.fromWIF(privateKey, bitcoinjs.type);
 
       return true;
     } catch (error) {

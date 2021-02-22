@@ -1,4 +1,4 @@
-import networkConfig from '@config/network';
+import { blockcypher } from '@config/blockcypher';
 import { ApplicationError } from '@errors/ApplicationError';
 
 import {
@@ -6,8 +6,6 @@ import {
   IShowTransactionFeeResponseDTO,
 } from '../../ShowTransactionFeeDTO';
 import { IShowTransactionFeeProvider } from '../IShowTransactionFeeProvider';
-
-const api = networkConfig.blockcypher_api;
 
 export class BlockcypherShowTransactionFeeProvider
   implements IShowTransactionFeeProvider {
@@ -22,7 +20,7 @@ export class BlockcypherShowTransactionFeeProvider
       const inputs = [{ addresses: [addressFrom] }];
       const outputs = [{ addresses: [addressTo], value }];
 
-      const response = await api.post('/txs/new', {
+      const response = await blockcypher.api.post('/txs/new', {
         inputs,
         outputs,
       });

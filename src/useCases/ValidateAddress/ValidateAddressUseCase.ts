@@ -1,11 +1,11 @@
 import { address } from 'bitcoinjs-lib';
 
-import networkConfig from '@config/network';
+import { bitcoinjs } from '@config/bitcoinjs';
 
 export class ValidateAddressUseCase {
   public execute(publicAddress: string): boolean {
     try {
-      address.toOutputScript(publicAddress, networkConfig.bitcoinjs_type);
+      address.toOutputScript(publicAddress, bitcoinjs.type);
 
       return true;
     } catch (error) {

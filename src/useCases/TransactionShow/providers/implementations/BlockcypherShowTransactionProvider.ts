@@ -1,4 +1,4 @@
-import networkConfig from '@config/network';
+import { blockcypher } from '@config/blockcypher';
 import { ApplicationError } from '@errors/ApplicationError';
 
 import { IShowTransactionDTO } from '../../ShowTransactionDTO';
@@ -14,15 +14,13 @@ interface Output {
   value: number;
 }
 
-const api = networkConfig.blockcypher_api;
-
 export class BlockcypherShowTransactionProvider
   implements IShowTransactionProvider {
   public providerKey = 'blockcypher_transaction_show';
 
   public async execute(publicId: string): Promise<IShowTransactionDTO> {
     try {
-      const response = await api.get(`/txs/${publicId}`);
+      const response = await blockcypher.api.get(`/txs/${publicId}`);
 
       const { hash, fees, confirmations, inputs, outputs } = response.data;
 

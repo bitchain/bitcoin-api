@@ -1,4 +1,4 @@
-import networkConfig from '@config/network';
+import { blockcypher } from '@config/blockcypher';
 import { ApplicationError } from '@errors/ApplicationError';
 
 import { IShowWalletDTO } from '../../ShowWalletDTO';
@@ -11,14 +11,12 @@ interface Txref {
   block_height: number;
 }
 
-const api = networkConfig.blockcypher_api;
-
 export class BlockcypherShowWalletProvider implements IShowWalletProvider {
   public providerKey = 'blockcypher_wallet_show';
 
   public async execute(publicAddress: string): Promise<IShowWalletDTO> {
     try {
-      const response = await api.get(`/addrs/${publicAddress}`);
+      const response = await blockcypher.api.get(`/addrs/${publicAddress}`);
 
       const {
         address,

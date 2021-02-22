@@ -1,4 +1,4 @@
-import networkConfig from '@config/network';
+import { bitcore } from '@config/bitcore';
 
 import { IShowWalletDTO } from '../../ShowWalletDTO';
 import { IShowWalletProvider } from '../IShowWalletProvider';
@@ -10,17 +10,19 @@ interface Txref {
   mintHeight: number;
 }
 
-const api = networkConfig.bitcore_api;
-
 export class BitcoreShowWalletProvider implements IShowWalletProvider {
   public providerKey = 'bitcore_wallet_show';
 
   public async execute(publicAddress: string): Promise<IShowWalletDTO> {
-    const responseBalance = await api.get(`/address/${publicAddress}/balance`);
+    const responseBalance = await bitcore.api.get(
+      `/address/${publicAddress}/balance`,
+    );
 
     const { balance, confirmed, unconfirmed } = responseBalance.data;
 
-    const responseTransactions = await api.get(`/address/${publicAddress}`);
+    const responseTransactions = await bitcore.api.get(
+      `/address/${publicAddress}`,
+    );
 
     const txrefs = responseTransactions.data;
 
