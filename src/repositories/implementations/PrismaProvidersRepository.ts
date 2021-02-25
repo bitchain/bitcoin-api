@@ -1,76 +1,47 @@
 import { PrismaClient } from '@prisma/client';
 
+import { Provider } from 'entities/Provider';
+
 import { IProvidersRepository } from '../IProvidersRepository';
 
 const prisma = new PrismaClient();
 
 export class PrismaProvidersRepository implements IProvidersRepository {
-  async subscribe(providerKeys: string[]): Promise<void> {
-    const providers = await prisma.provider.findMany({
-      where: { providerKey: { in: providerKeys } },
-    });
+  async list(): Promise<Provider[]> {
+    return prisma.provider.findMany();
+  }
 
-    const subscribedKeys = providers.map(provider => provider.providerKey);
-
-    const newKeys = providerKeys.filter(key => !subscribedKeys.includes(key));
-
-    const newProviders = newKeys.map(newKey => ({ providerKey: newKey }));
-
-    if (!newProviders) return;
-
-    await prisma.provider.createMany({
-      data: newProviders,
+  async findByKey(providerKey: string): Promise<Provider | null> {
+    return prisma.provider.findUnique({
+      where: { providerKey },
     });
   }
 
-  async findLowestCalls(providerKeys: string[]): Promise<string> {
-    const provider = await prisma.provider.findFirst({
+  async findByKeys(providerKeys: string[]): Promise<Provider[]> {
+    return prisma.provider.findMany({
+      where: { providerKey: { in: providerKeys } },
+    });
+  }
+
+  async findByLowestCalls(providerKeys: string[]): Promise<Provider | null> {
+    return prisma.provider.findFirst({
       where: { providerKey: { in: providerKeys } },
       orderBy: { calls: 'asc' },
     });
-
-    if (!provider) {
-      throw new Error('Provider cannot be null');
-    }
-
-    return provider.providerKey;
   }
 
-  async registerFailedCall(providerKey: string): Promise<void> {
-    const provider = await prisma.provider.findUnique({
-      where: { providerKey },
-    });
-
-    if (!provider) {
-      throw new Error('Provider cannot be null');
-    }
-
+  async save(provider: Provider): Promise<void> {
     await prisma.provider.update({
-      data: {
-        success: provider?.success,
-        fails: provider?.fails + 1,
-        calls: provider?.calls + 1,
-      },
-      where: { providerKey },
+      data: provider,
+      where: { providerKey: provider.providerKey },
     });
   }
 
-  async registerSuccessfulCall(providerKey: string): Promise<void> {
-    const provider = await prisma.provider.findUnique({
-      where: { providerKey },
-    });
+  async createMany(providerKeys: string[]): Promise<void> {
+    const newKeys = providerKeys.map(key => ({ providerKey: key }));
 
-    if (!provider) {
-      throw new Error('Provider cannot be null');
-    }
-
-    await prisma.provider.update({
-      data: {
-        success: provider?.success + 1,
-        fails: provider?.fails,
-        calls: provider?.calls + 1,
-      },
-      where: { providerKey },
+    await prisma.provider.createMany({
+      data: newKeys,
     });
   }
 }

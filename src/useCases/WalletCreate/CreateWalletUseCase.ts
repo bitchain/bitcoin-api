@@ -1,6 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 
-import { IProvidersRepository } from '@repositories/IProvidersRepository';
+import { updateProviderUseCase } from '@useCases/ProviderUpdate';
 
 import { ICreateWalletProvider } from './providers/ICreateWalletProvider';
 import { ICreateWalletResponseDTO } from './CreateWalletDTO';
@@ -10,23 +10,25 @@ export class CreateWalletUseCase {
   constructor(
     @inject('CreateWalletProvider')
     private createWalletProvider: ICreateWalletProvider,
-    @inject('ProvidersRepository')
-    private providersRepository: IProvidersRepository,
   ) {}
 
   public async execute(): Promise<ICreateWalletResponseDTO> {
+    const { providerKey } = this.createWalletProvider;
+
     try {
       const result = await this.createWalletProvider.execute();
 
-      this.providersRepository.registerSuccessfulCall(
-        this.createWalletProvider.providerKey,
-      );
+      updateProviderUseCase.execute({
+        providerKey,
+        successfulCall: true,
+      });
 
       return result;
     } catch (error) {
-      this.providersRepository.registerFailedCall(
-        this.createWalletProvider.providerKey,
-      );
+      updateProviderUseCase.execute({
+        providerKey,
+        successfulCall: false,
+      });
 
       throw error;
     }

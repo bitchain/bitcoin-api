@@ -1,15 +1,12 @@
 import { NextFunction, Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { IProvidersRepository } from '@repositories/IProvidersRepository';
+import { createProviderUseCase } from '@useCases/ProviderCreate';
+import { selectProviderUseCase } from '@useCases/ProviderSelect';
 
 import { IShowTransactionProvider } from '../providers/IShowTransactionProvider';
 import { BitcoreShowTransactionProvider } from '../providers/implementations/BitcoreShowTransactionProvider';
 import { BlockcypherShowTransactionProvider } from '../providers/implementations/BlockcypherShowTransactionProvider';
-
-const providersRepository = container.resolve<IProvidersRepository>(
-  'ProvidersRepository',
-);
 
 const bitcoreTransactionShow = container.resolve(
   BitcoreShowTransactionProvider,
@@ -31,9 +28,9 @@ export async function instanceShowTransactionProvider(
   if (!container.isRegistered('ShowTransactionProvider')) {
     const providerKeys = Object.keys(providers);
 
-    await providersRepository.subscribe(providerKeys);
+    await createProviderUseCase.execute(providerKeys);
 
-    const providerKey = await providersRepository.findLowestCalls(providerKeys);
+    const providerKey = await selectProviderUseCase.execute(providerKeys);
 
     container.registerInstance<IShowTransactionProvider>(
       'ShowTransactionProvider',

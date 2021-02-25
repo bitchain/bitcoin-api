@@ -2,8 +2,7 @@ import { injectable, inject } from 'tsyringe';
 
 import { ValidationError } from '@errors/ValidationError';
 
-import { IProvidersRepository } from '@repositories/IProvidersRepository';
-
+import { updateProviderUseCase } from '@useCases/ProviderUpdate';
 import { validateAddressUseCase } from '@useCases/ValidateAddress';
 import { validatePrivateKeyUseCase } from '@useCases/ValidatePrivateKey';
 
@@ -18,13 +17,13 @@ export class CreateTransactionUseCase {
   constructor(
     @inject('CreateTransactionProvider')
     private createTransactionProvider: ICreateTransactionProvider,
-    @inject('ProvidersRepository')
-    private providersRepository: IProvidersRepository,
   ) {}
 
   public async execute(
     data: ICreateTransactionRequestDTO,
   ): Promise<ICreateTransactionResponseDTO> {
+    const { providerKey } = this.createTransactionProvider;
+
     try {
       const { addressTo, privateKey } = data;
 
@@ -38,16 +37,18 @@ export class CreateTransactionUseCase {
 
       const result = await this.createTransactionProvider.execute(data);
 
-      this.providersRepository.registerSuccessfulCall(
-        this.createTransactionProvider.providerKey,
-      );
+      updateProviderUseCase.execute({
+        providerKey,
+        successfulCall: true,
+      });
 
       return result;
     } catch (error) {
       if (!(error instanceof ValidationError)) {
-        this.providersRepository.registerFailedCall(
-          this.createTransactionProvider.providerKey,
-        );
+        updateProviderUseCase.execute({
+          providerKey,
+          successfulCall: false,
+        });
       }
 
       throw error;

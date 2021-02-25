@@ -1,6 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 
-import { IProvidersRepository } from '@repositories/IProvidersRepository';
+import { updateProviderUseCase } from '@useCases/ProviderUpdate';
 
 import { IShowTransactionProvider } from './providers/IShowTransactionProvider';
 import { IShowTransactionDTO } from './ShowTransactionDTO';
@@ -10,23 +10,25 @@ export class ShowTransactionUseCase {
   constructor(
     @inject('ShowTransactionProvider')
     private showTransactionProvider: IShowTransactionProvider,
-    @inject('ProvidersRepository')
-    private providersRepository: IProvidersRepository,
   ) {}
 
   public async execute(publicId: string): Promise<IShowTransactionDTO> {
+    const { providerKey } = this.showTransactionProvider;
+
     try {
       const result = await this.showTransactionProvider.execute(publicId);
 
-      this.providersRepository.registerSuccessfulCall(
-        this.showTransactionProvider.providerKey,
-      );
+      updateProviderUseCase.execute({
+        providerKey,
+        successfulCall: true,
+      });
 
       return result;
     } catch (error) {
-      this.providersRepository.registerFailedCall(
-        this.showTransactionProvider.providerKey,
-      );
+      updateProviderUseCase.execute({
+        providerKey,
+        successfulCall: false,
+      });
 
       throw error;
     }

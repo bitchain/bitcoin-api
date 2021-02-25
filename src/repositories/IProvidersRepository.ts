@@ -1,6 +1,12 @@
+import { Provider } from '@entities/Provider';
+
 export interface IProvidersRepository {
-  subscribe(providerKeys: string[]): Promise<void>;
-  findLowestCalls(providerKeys: string[]): Promise<string>;
-  registerFailedCall(providerKey: string): Promise<void>;
-  registerSuccessfulCall(providerKey: string): Promise<void>;
+  list(): Promise<Provider[]>;
+
+  findByKey(providerKey: string): Promise<Provider | null>;
+  findByKeys(providerKeys: string[]): Promise<Provider[]>;
+  findByLowestCalls(providerKeys: string[]): Promise<Provider | null>;
+
+  save(provider: Provider): Promise<void>;
+  createMany(providerKeys: string[]): Promise<void>;
 }
