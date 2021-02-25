@@ -62,4 +62,4 @@ jobs:
             cd ~/app 
             npm install
             npx prisma migrate deploy --preview-feature
-            pm2 restart testnet.bitchain.network
+            pm2 restart ${{ APP_TESTNET_ID }}
