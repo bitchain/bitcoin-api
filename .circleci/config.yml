@@ -8,6 +8,7 @@ workflows:
 
 jobs:
   build:
+    working_directory: ~/network
     docker:
       - image: circleci/node:14.15.4
     steps:
