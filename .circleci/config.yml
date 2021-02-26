@@ -4,7 +4,10 @@ workflows:
   version: 2
   build:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only: master
 
 jobs:
   build:
@@ -13,7 +16,5 @@ jobs:
       - image: circleci/node:14.15.4
     steps:
       - run: node -v
-
       - run: npm i
-
       - run: npm build
