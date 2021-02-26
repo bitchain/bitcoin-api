@@ -1,18 +1,9 @@
-<h1 align="center">
-  Bitchain Network
-</h1>
+# Bitchain Network
 
-<h3 align="center">
-  Express Application for Bitcoin and blockchain-based.
-</h3>
+[![BUILD](https://travis-ci.org/wladimirgrf/bitchain-network.svg?branch=master)](https://travis-ci.org/wladimirgrf/bitchain-network)
+[![CI](https://github.com/wladimirgrf/bitchain-network/actions/workflows/main.yml/badge.svg)]()
 
-<p align="center">
-  <a href="https://travis-ci.org/wladimirgrf/bitchain-network">
-    <img alt="BUILD" src="https://travis-ci.org/wladimirgrf/bitchain-network.svg?branch=master"> 
-  </a>
-  <img alt="CI" src="https://github.com/wladimirgrf/bitchain-network/actions/workflows/main.yml/badge.svg">
-</p>
-
+Express Application for Bitcoin and blockchain-based.
 
 ## 🌍 Ecosystem
 
