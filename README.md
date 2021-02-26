@@ -6,8 +6,9 @@
   Express Application for Bitcoin and blockchain-based.
 </h3>
 
-
-![](https://github.com/wladimirgrf/bitchain-network/actions/workflows/main.yml/badge.svg)
+<p align="center">
+  <img alt="CI" src="https://github.com/wladimirgrf/bitchain-network/actions/workflows/main.yml/badge.svg">
+</p>
 
 
 ## 🌍 Ecosystem
