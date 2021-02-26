@@ -9,7 +9,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/node:4.8.2
+      - image: circleci/node:14.15.4
     steps:
       - run:
           name: version
