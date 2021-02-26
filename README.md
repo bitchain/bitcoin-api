@@ -24,3 +24,12 @@ Below the technologies, used to build this API:
 |<img height="55" src="https://cdn.worldvectorlogo.com/logos/eslint-1.svg"> | <img alt="eslint version" src="https://img.shields.io/badge/eslint-v7.17-blue"> |
 |<img height="55" src="https://cdn.worldvectorlogo.com/logos/prettier-2.svg"> | <img alt="prettier version" src="https://img.shields.io/badge/prettier-v2.2-blue"> |
 
+
+
+## 💻 Development Process
+
+The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## 📝 License
+
+Bitchain Network is released under the MIT License. Please refer to the [LICENSE](LICENSE) file that accompanies this project for more information including complete terms and conditions.
