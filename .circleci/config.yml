@@ -12,12 +12,8 @@ jobs:
     docker:
       - image: circleci/node:14.15.4
     steps:
-      - run:
-          name: version
-          command: node -v
-      - run:
-          name: install
-          command: npm install
-      - run:
-          name: build
-          command: npm run build
+      - run: node -v
+
+      - run: npm i
+
+      - run: npm build
