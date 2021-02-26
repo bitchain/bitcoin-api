@@ -1,6 +1,6 @@
 # Bitchain Network
 
-[![BUILD](https://travis-ci.org/wladimirgrf/bitchain-network.svg?branch=master)](https://travis-ci.org/wladimirgrf/bitchain-network)
+[![CircleCI](https://circleci.com/gh/wladimirgrf/bitchain-network.svg?style=svg)](https://circleci.com/gh/wladimirgrf/bitchain-network)
 [![CI](https://github.com/wladimirgrf/bitchain-network/actions/workflows/main.yml/badge.svg)]()
 
 Express Application for Bitcoin and blockchain-based.
