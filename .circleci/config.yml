@@ -1,0 +1,22 @@
+version: 2.1
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:4.8.2
+    steps:
+      - run:
+          name: version
+          command: node -v
+      - run:
+          name: install
+          command: npm install
+      - run:
+          name: build
+          command: npm run build
