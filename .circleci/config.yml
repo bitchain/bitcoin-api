@@ -1,0 +1,19 @@
+version: 2.1
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+
+jobs:
+  build:
+    working_directory: ~/network
+    docker:
+      - image: circleci/node:14.15.4
+    steps:
+      - run: node -v
+
+      - run: npm i
+
+      - run: npm build
