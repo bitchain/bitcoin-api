@@ -8,6 +8,9 @@
 
 <p align="center">
   <img alt="CI" src="https://github.com/wladimirgrf/bitchain-network/actions/workflows/main.yml/badge.svg">
+  <a href="https://travis-ci.org/wladimirgrf/bitchain-network">
+    <img alt="BUILD" src="https://travis-ci.org/wladimirgrf/bitchain-network.svg?branch=master"> 
+  </a>
 </p>
 
 
