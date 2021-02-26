@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - 14
+dist: trusty
+
+install:
+  - npm install
+  
+script:
+  - npm run build
