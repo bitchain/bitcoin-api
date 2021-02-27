@@ -2,9 +2,21 @@
   "name": "bitchain-network",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/wladimirgrf/bitchain-app.git",
   "author": "Wladimir <wladimir.code@gmail.com>",
+  "title": "Bitchain Network",
+  "description": "A Secure Bitcoin API",
   "license": "MIT",
+  "keywords": [
+    "bitcoin",
+    "api",
+    "bitchain",
+    "cryptocurrency",
+    "nodejs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wladimirgrf/bitchain-app.git"
+  },
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist",
     "dev:server": "tsnd -r tsconfig-paths/register --transpile-only --ignore-watch node_modules src/http/server.ts",
