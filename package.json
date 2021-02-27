@@ -7,9 +7,9 @@
   "description": "A Secure Bitcoin API",
   "license": "MIT",
   "keywords": [
+    "bitchain",
     "bitcoin",
     "api",
-    "bitchain",
     "cryptocurrency",
     "nodejs"
   ],
