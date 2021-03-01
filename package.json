@@ -4,7 +4,7 @@
   "main": "index.js",
   "author": "Wladimir <wladimir.code@gmail.com>",
   "title": "Bitchain Network",
-  "description": "A Secure Bitcoin API",
+  "description": "Node.js API for Bitcoin",
   "license": "MIT",
   "keywords": [
     "bitchain",
