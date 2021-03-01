@@ -5,6 +5,14 @@
 
 Express Application for Bitcoin and blockchain-based.
 
+## ✅ Main Features
+- Shows the Wallet Balance
+- Shows the Wallet Transactions History
+- Creates a Wallet
+- Shows Transaction details
+- Creates and Broadcast a Transaction
+- Supports multiple Bitcoin providers
+
 ## 🌍 Ecosystem
 
 Below the technologies, used to build this API:
