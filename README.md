@@ -53,7 +53,7 @@ This will launch the Network service at `http://localhost:3333/`.
 #### `/wallets/:address`: Get wallet balance and transactions history
 
 - `:address` is a string representing the public address you're interested in querying.
-> ##### Example: `tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800`
+> ###### Example: `tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800`
 
 <details>
 <summary>Response example</summary>
@@ -82,7 +82,7 @@ This will launch the Network service at `http://localhost:3333/`.
 #### `/transactions/:id`: Get transaction information
 
 - `:id` is a string representing the hex-encoded transaction hash you're interested in querying.
-> ##### Example: `d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53`
+> ###### Example: `d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53`
 
 <details>
 <summary>Response example</summary>
