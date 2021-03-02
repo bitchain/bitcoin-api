@@ -124,9 +124,9 @@ Private Key is a secret number that allows bitcoins to be spent, so be careful w
 #### Request:
 ```json
 {
-	"addressFrom": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
-	"addressTo": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd",
-	"value": 10000
+  "addressFrom": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
+  "addressTo": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd",
+  "value": 10000
 }
 ```
 
@@ -144,9 +144,9 @@ Private Key is a secret number that allows bitcoins to be spent, so be careful w
 #### Request:
 ```json
 {
-	"privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K",
-	"addressTo": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
-	"value": 1000
+  "privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K",
+  "addressTo": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
+  "value": 1000
 }
 ```
 
@@ -170,8 +170,6 @@ Private Key is a secret number that allows bitcoins to be spent, so be careful w
   ]
 }
 ```
-
----
 
 > ##### NOTE: All currency amounts are in units of satoshis (1/100,000,000 of a bitcoin).
 
