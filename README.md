@@ -48,6 +48,136 @@ $ npm run dev:server
 ```
 This will launch the Network service at `http://localhost:3333/`.
 
+### GET
+
+#### `/wallets/:address`: Get wallet balance and transactions history
+
+- `:address` is a string representing the public address you're interested in querying.
+> ##### Example: `tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800`
+
+#### Response:
+```json
+{
+  "publicAddress": "tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800",
+  "balance": 1030000,
+  "confirmedBalance": 1030000,
+  "unconfirmedBalance": 0,
+  "referenceTransactions": [
+    {
+      "transactionId": "d8db85b8aa834bab65c59eac0159ad166c3b89e09a06520412c9821e71222f52",
+      "confirmations": 10,
+      "value": 10000,
+      "blockHeight": 1938604
+    },
+    ...
+  ]
+}
+```
+
+---
+
+#### `/transactions/:id`: Get transaction information
+
+- `:id` is a string representing the hex-encoded transaction hash you're interested in querying.
+> ##### Example: `d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53`
+
+#### Response:
+```json
+{
+  "publicId": "d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53",
+  "fee": 24547,
+  "confirmations": 4,
+  "walletsFrom": [
+    {
+      "publicAddress": "tb1q3yyq37lalgq0chareur9yykgtgpqwztt5uezvz",
+      "value": 78836818
+    },
+    ...
+  ],
+  "walletsTo": [
+    {
+      "publicAddress": "mhfNudm6YDYnYkegFSjcsppucpAA8TRviD",
+      "value": 100000000
+    },
+    ...
+  ]
+}
+```
+
+### POST
+
+#### `/wallets/create`: Create a new Wallet
+
+#### Response:
+```json
+{
+  "publicAddress": "mffzq5WLcJVsokpSjVgPmjPmUCK5K2UoZN",
+  "privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K"
+}
+```
+Private Key is a secret number that allows bitcoins to be spent, so be careful when handling it!
+
+---
+
+#### `/transactions/fee`: Get estimated fee for a transaction
+
+#### Request:
+```json
+{
+	"addressFrom": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
+	"addressTo": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd",
+	"value": 10000
+}
+```
+
+#### Response:
+```json
+{
+  "transactionEstimatedFee": 15200
+}
+```
+
+---
+
+#### `/transactions/create`: Create and broadcast a transaction
+
+#### Request:
+```json
+{
+	"privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K",
+	"addressTo": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
+	"value": 1000
+}
+```
+
+#### Response:
+```json
+{
+  "publicId": "b81fcd39b24616a260b4816d93c4ab229e2e9468fd19da6a127996a8a842fbe0",
+  "fee": 15200,
+  "walletsFrom": [
+    {
+      "publicAddress": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd",
+      "value": 83400
+    }
+  ],
+  "walletsTo": [
+    {
+      "publicAddress": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
+      "value": 1000
+    },
+    ...
+  ]
+}
+```
+
+---
+
+> ##### NOTE: All currency amounts are in units of satoshis (1/100,000,000 of a bitcoin).
+
+
+
+
 ## 💻 Development Process
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
