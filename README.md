@@ -28,6 +28,26 @@ Below the technologies, used to build this API:
 |<img height="40" src="https://cdn.worldvectorlogo.com/logos/bitpay.svg"> | <img alt="bitcore version" src="https://img.shields.io/badge/bitcore_lib-v8.24-blue"> |
 
 
+## ▶️ Getting started
+
+```bash
+$ git clone https://github.com/wladimirgrf/bitchain-network.git
+$ cd bitchain-network
+```
+
+Bitchain Network needs Postgresql. You can configure the connection at `.env`
+> ##### Use .env.example as a reference.
+
+```bash
+$ npm install
+ 
+# Once the Postgresql is running, execute the migrations
+$ npx prisma migrate dev --preview-feature
+ 
+$ npm run dev:server
+```
+This will launch the Network service at `http://localhost:3333/`.
+
 ## 💻 Development Process
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
