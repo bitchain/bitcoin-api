@@ -55,7 +55,10 @@ This will launch the Network service at `http://localhost:3333/`.
 - `:address` is a string representing the public address you're interested in querying.
 > ##### Example: `tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800`
 
-#### Response:
+<details>
+<summary>response example</summary>
+<br>
+  
 ```json
 {
   "publicAddress": "tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800",
@@ -73,6 +76,7 @@ This will launch the Network service at `http://localhost:3333/`.
   ]
 }
 ```
+</details>
 
 ---
 
@@ -81,7 +85,10 @@ This will launch the Network service at `http://localhost:3333/`.
 - `:id` is a string representing the hex-encoded transaction hash you're interested in querying.
 > ##### Example: `d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53`
 
-#### Response:
+<details>
+<summary>response example</summary>
+<br>
+  
 ```json
 {
   "publicId": "d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53",
@@ -103,25 +110,34 @@ This will launch the Network service at `http://localhost:3333/`.
   ]
 }
 ```
+</details>
 
 ### POST
 
 #### `/wallets/create`: Create a new Wallet
 
-#### Response:
+<details>
+<summary>response example</summary>
+<br>
+  
 ```json
 {
   "publicAddress": "mffzq5WLcJVsokpSjVgPmjPmUCK5K2UoZN",
   "privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K"
 }
 ```
+</details>
+
 Private Key is a secret number that allows bitcoins to be spent, so be careful when handling it!
 
 ---
 
 #### `/transactions/fee`: Get estimated fee for a transaction
 
-#### Request:
+<details>
+<summary>request example</summary>
+<br>
+  
 ```json
 {
   "addressFrom": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
@@ -129,19 +145,27 @@ Private Key is a secret number that allows bitcoins to be spent, so be careful w
   "value": 10000
 }
 ```
+</details>
 
-#### Response:
+<details>
+<summary>response example</summary>
+<br>
+  
 ```json
 {
   "transactionEstimatedFee": 15200
 }
 ```
+</details>
 
----
+___
 
 #### `/transactions/create`: Create and broadcast a transaction
 
-#### Request:
+<details>
+<summary>request example</summary>
+<br>
+  
 ```json
 {
   "privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K",
@@ -149,8 +173,13 @@ Private Key is a secret number that allows bitcoins to be spent, so be careful w
   "value": 1000
 }
 ```
+</details>
 
-#### Response:
+
+<details>
+<summary>response example</summary>
+<br>
+ 
 ```json
 {
   "publicId": "b81fcd39b24616a260b4816d93c4ab229e2e9468fd19da6a127996a8a842fbe0",
@@ -170,6 +199,10 @@ Private Key is a secret number that allows bitcoins to be spent, so be careful w
   ]
 }
 ```
+</details>
+
+#### Response:
+
 
 > ##### NOTE: All currency amounts are in units of satoshis (1/100,000,000 of a bitcoin).
 
