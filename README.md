@@ -158,7 +158,7 @@ Private Key is a secret number that allows bitcoins to be spent, so be careful w
 ```
 </details>
 
-___
+---
 
 #### `/transactions/create`: Create and broadcast a transaction
 
@@ -201,12 +201,9 @@ ___
 ```
 </details>
 
-#### Response:
+---
 
-
-> ##### NOTE: All currency amounts are in units of satoshis (1/100,000,000 of a bitcoin).
-
-
+NOTE: All currency amounts are in units of satoshis (1/100,000,000 of a bitcoin).
 
 
 ## 💻 Development Process
