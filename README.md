@@ -116,7 +116,7 @@ This will launch the Network service at `http://localhost:3333/`.
 ### POST
 
 #### `/wallets/create`: Create a new Wallet
-> ##### Private Key is a secret number that allows bitcoins to be spent, so be careful when handling it!
+- `privateKey` is a secret number that allows bitcoins to be spent, so be careful when handling it!
 
 <details>
 <summary>Response example</summary>
