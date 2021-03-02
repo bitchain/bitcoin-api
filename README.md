@@ -56,7 +56,7 @@ This will launch the Network service at `http://localhost:3333/`.
 > ##### Example: `tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800`
 
 <details>
-<summary>response example</summary>
+<summary>Response example</summary>
 <br>
   
 ```json
@@ -78,7 +78,6 @@ This will launch the Network service at `http://localhost:3333/`.
 ```
 </details>
 
----
 
 #### `/transactions/:id`: Get transaction information
 
@@ -86,7 +85,7 @@ This will launch the Network service at `http://localhost:3333/`.
 > ##### Example: `d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53`
 
 <details>
-<summary>response example</summary>
+<summary>Response example</summary>
 <br>
   
 ```json
@@ -112,12 +111,14 @@ This will launch the Network service at `http://localhost:3333/`.
 ```
 </details>
 
+---
+
 ### POST
 
 #### `/wallets/create`: Create a new Wallet
 
 <details>
-<summary>response example</summary>
+<summary>Response example</summary>
 <br>
   
 ```json
@@ -130,12 +131,11 @@ This will launch the Network service at `http://localhost:3333/`.
 
 Private Key is a secret number that allows bitcoins to be spent, so be careful when handling it!
 
----
 
 #### `/transactions/fee`: Get estimated fee for a transaction
 
 <details>
-<summary>request example</summary>
+<summary>Request example</summary>
 <br>
   
 ```json
@@ -148,7 +148,7 @@ Private Key is a secret number that allows bitcoins to be spent, so be careful w
 </details>
 
 <details>
-<summary>response example</summary>
+<summary>Response example</summary>
 <br>
   
 ```json
@@ -158,12 +158,11 @@ Private Key is a secret number that allows bitcoins to be spent, so be careful w
 ```
 </details>
 
----
 
 #### `/transactions/create`: Create and broadcast a transaction
 
 <details>
-<summary>request example</summary>
+<summary>Request example</summary>
 <br>
   
 ```json
@@ -177,7 +176,7 @@ Private Key is a secret number that allows bitcoins to be spent, so be careful w
 
 
 <details>
-<summary>response example</summary>
+<summary>Response example</summary>
 <br>
  
 ```json
@@ -200,8 +199,6 @@ Private Key is a secret number that allows bitcoins to be spent, so be careful w
 }
 ```
 </details>
-
----
 
 NOTE: All currency amounts are in units of satoshis (1/100,000,000 of a bitcoin).
 
