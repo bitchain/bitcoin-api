@@ -174,7 +174,6 @@ Private Key is a secret number that allows bitcoins to be spent, so be careful w
 ```
 </details>
 
-
 <details>
 <summary>Response example</summary>
 <br>
@@ -199,6 +198,8 @@ Private Key is a secret number that allows bitcoins to be spent, so be careful w
 }
 ```
 </details>
+
+</br>
 
 NOTE: All currency amounts are in units of satoshis (1/100,000,000 of a bitcoin).
 
