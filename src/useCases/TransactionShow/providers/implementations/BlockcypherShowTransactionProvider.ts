@@ -22,7 +22,14 @@ export class BlockcypherShowTransactionProvider
     try {
       const response = await blockcypher.api.get(`/txs/${publicId}`);
 
-      const { hash, fees, confirmations, inputs, outputs } = response.data;
+      const {
+        hash,
+        fees,
+        confirmations,
+        confirmed,
+        inputs,
+        outputs,
+      } = response.data;
 
       const walletsFrom = inputs
         .filter((input: Input) => input.addresses)
@@ -43,6 +50,7 @@ export class BlockcypherShowTransactionProvider
         publicId: hash,
         fee: fees,
         confirmations,
+        date: confirmed,
         walletsFrom,
         walletsTo,
       };

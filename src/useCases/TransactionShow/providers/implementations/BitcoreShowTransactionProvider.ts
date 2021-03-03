@@ -22,7 +22,7 @@ export class BitcoreShowTransactionProvider
     try {
       const responseTx = await bitcore.api.get(`/tx/${publicId}`);
 
-      const { txid, fee, confirmations } = responseTx.data;
+      const { txid, fee, confirmations, blockTime } = responseTx.data;
 
       const responseCoins = await bitcore.api.get(`/tx/${publicId}/coins`);
 
@@ -42,6 +42,7 @@ export class BitcoreShowTransactionProvider
         publicId: txid,
         fee,
         confirmations,
+        date: blockTime,
         walletsFrom,
         walletsTo,
       };
