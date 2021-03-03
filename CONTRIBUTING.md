@@ -1,4 +1,4 @@
-## 🤝 Contributing to Bitchain Network
+## Contributing to Bitchain Network
 
 The Bitchain Network project operates an open contributor model where anyone is
 welcome to contribute. This document explains the practical process and guidelines for
