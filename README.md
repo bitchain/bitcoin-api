@@ -48,7 +48,7 @@ $ npm run dev:server
 ```
 This will launch the Network service at `http://localhost:3333/`.
 
-### GET
+### 🟣 GET
 
 #### `/wallets/:address`: Get wallet balance and transactions history
 
@@ -113,7 +113,7 @@ This will launch the Network service at `http://localhost:3333/`.
 
 ---
 
-### POST
+### 🟢 POST
 
 #### `/wallets/create`: Create a new Wallet
 > ##### `privateKey` is a secret number that allows bitcoins to be spent, so be careful when handling it!
