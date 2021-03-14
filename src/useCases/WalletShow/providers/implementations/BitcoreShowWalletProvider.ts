@@ -24,7 +24,7 @@ export class BitcoreShowWalletProvider implements IShowWalletProvider {
 
     const txrefs = responseTransactions.data;
 
-    const referenceTransactions = txrefs.map((txref: Txref) => {
+    const transactionsReference = txrefs.map((txref: Txref) => {
       return {
         transactionId: txref.mintTxid,
         confirmations: txref.confirmations,
@@ -38,7 +38,7 @@ export class BitcoreShowWalletProvider implements IShowWalletProvider {
       balance,
       confirmedBalance: confirmed,
       unconfirmedBalance: unconfirmed,
-      referenceTransactions,
+      transactionsReference,
     };
   }
 }

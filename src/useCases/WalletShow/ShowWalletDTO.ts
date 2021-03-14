@@ -1,4 +1,4 @@
-interface IReferenceTransaction {
+interface ITransactionsReference {
   transactionId: string;
   confirmations: number;
   value: number;
@@ -10,5 +10,5 @@ export interface IShowWalletDTO {
   balance: number;
   confirmedBalance: number;
   unconfirmedBalance: number;
-  referenceTransactions: IReferenceTransaction[];
+  transactionsReference: ITransactionsReference[];
 }

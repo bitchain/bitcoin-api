@@ -25,7 +25,7 @@ export class BlockcypherShowWalletProvider implements IShowWalletProvider {
         txrefs,
       } = response.data;
 
-      const referenceTransactions = txrefs.map((txref: Txref) => {
+      const transactionsReference = txrefs.map((txref: Txref) => {
         return {
           transactionId: txref.tx_hash,
           confirmations: txref.confirmations,
@@ -39,7 +39,7 @@ export class BlockcypherShowWalletProvider implements IShowWalletProvider {
         balance: final_balance,
         confirmedBalance: balance,
         unconfirmedBalance: unconfirmed_balance,
-        referenceTransactions,
+        transactionsReference,
       };
     } catch (error) {
       const { response } = error;
