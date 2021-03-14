@@ -61,11 +61,11 @@ This will launch the Network service at `http://localhost:3333/`.
   
 ```json
 {
-  "publicAddress": "tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800",
+  "address": "tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800",
   "balance": 1030000,
   "confirmedBalance": 1030000,
   "unconfirmedBalance": 0,
-  "referenceTransactions": [
+  "transactionsReference": [
     {
       "transactionId": "d8db85b8aa834bab65c59eac0159ad166c3b89e09a06520412c9821e71222f52",
       "confirmations": 10,
@@ -90,19 +90,20 @@ This will launch the Network service at `http://localhost:3333/`.
   
 ```json
 {
-  "publicId": "d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53",
+  "id": "d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53",
   "fee": 24547,
   "confirmations": 4,
-  "walletsFrom": [
+  "date": "2021-03-02T21:02:23.000Z",
+  "addressFrom": [
     {
-      "publicAddress": "tb1q3yyq37lalgq0chareur9yykgtgpqwztt5uezvz",
+      "address": "tb1q3yyq37lalgq0chareur9yykgtgpqwztt5uezvz",
       "value": 78836818
     },
     ...
   ],
-  "walletsTo": [
+  "addressTo": [
     {
-      "publicAddress": "mhfNudm6YDYnYkegFSjcsppucpAA8TRviD",
+      "address": "mhfNudm6YDYnYkegFSjcsppucpAA8TRviD",
       "value": 100000000
     },
     ...
@@ -124,7 +125,7 @@ This will launch the Network service at `http://localhost:3333/`.
   
 ```json
 {
-  "publicAddress": "mffzq5WLcJVsokpSjVgPmjPmUCK5K2UoZN",
+  "address": "mffzq5WLcJVsokpSjVgPmjPmUCK5K2UoZN",
   "privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K"
 }
 ```
@@ -179,17 +180,17 @@ This will launch the Network service at `http://localhost:3333/`.
  
 ```json
 {
-  "publicId": "b81fcd39b24616a260b4816d93c4ab229e2e9468fd19da6a127996a8a842fbe0",
+  "id": "b81fcd39b24616a260b4816d93c4ab229e2e9468fd19da6a127996a8a842fbe0",
   "fee": 15200,
-  "walletsFrom": [
+  "addressFrom": [
     {
-      "publicAddress": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd",
+      "address": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd",
       "value": 83400
     }
   ],
-  "walletsTo": [
+  "addressTo": [
     {
-      "publicAddress": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
+      "address": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
       "value": 1000
     },
     ...
