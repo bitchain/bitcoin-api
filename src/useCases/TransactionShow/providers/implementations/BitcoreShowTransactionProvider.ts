@@ -18,13 +18,13 @@ export class BitcoreShowTransactionProvider
   implements IShowTransactionProvider {
   public providerKey = 'bitcore_transaction_show';
 
-  public async execute(publicId: string): Promise<IShowTransactionDTO> {
+  public async execute(id: string): Promise<IShowTransactionDTO> {
     try {
-      const responseTx = await bitcore.api.get(`/tx/${publicId}`);
+      const responseTx = await bitcore.api.get(`/tx/${id}`);
 
       const { txid, fee, confirmations, blockTime } = responseTx.data;
 
-      const responseCoins = await bitcore.api.get(`/tx/${publicId}/coins`);
+      const responseCoins = await bitcore.api.get(`/tx/${id}/coins`);
 
       const { inputs, outputs } = responseCoins.data;
 
@@ -39,7 +39,7 @@ export class BitcoreShowTransactionProvider
         });
 
       return {
-        publicId: txid,
+        id: txid,
         fee,
         confirmations,
         date: blockTime,

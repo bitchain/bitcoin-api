@@ -83,7 +83,7 @@ export class BlockcypherCreateTransactionProvider
       }));
 
       return {
-        publicId: hash,
+        id: hash,
         fee: fees,
         walletsFrom,
         walletsTo,

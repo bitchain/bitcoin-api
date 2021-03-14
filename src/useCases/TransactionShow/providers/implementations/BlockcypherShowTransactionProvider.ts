@@ -18,9 +18,9 @@ export class BlockcypherShowTransactionProvider
   implements IShowTransactionProvider {
   public providerKey = 'blockcypher_transaction_show';
 
-  public async execute(publicId: string): Promise<IShowTransactionDTO> {
+  public async execute(id: string): Promise<IShowTransactionDTO> {
     try {
-      const response = await blockcypher.api.get(`/txs/${publicId}`);
+      const response = await blockcypher.api.get(`/txs/${id}`);
 
       const {
         hash,
@@ -47,7 +47,7 @@ export class BlockcypherShowTransactionProvider
         });
 
       return {
-        publicId: hash,
+        id: hash,
         fee: fees,
         confirmations,
         date: confirmed,

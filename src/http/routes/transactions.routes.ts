@@ -33,7 +33,7 @@ transactionsRouter.post(
 );
 
 transactionsRouter.get(
-  '/:publicId',
+  '/:id',
   instanceShowTransactionProvider,
   showTransactionController.handle,
 );

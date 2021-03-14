@@ -12,11 +12,11 @@ export class ShowTransactionUseCase {
     private showTransactionProvider: IShowTransactionProvider,
   ) {}
 
-  public async execute(publicId: string): Promise<IShowTransactionDTO> {
+  public async execute(id: string): Promise<IShowTransactionDTO> {
     const { providerKey } = this.showTransactionProvider;
 
     try {
-      const result = await this.showTransactionProvider.execute(publicId);
+      const result = await this.showTransactionProvider.execute(id);
 
       updateProviderUseCase.execute({
         providerKey,

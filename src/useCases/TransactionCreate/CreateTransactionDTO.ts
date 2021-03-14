@@ -10,7 +10,7 @@ export interface ICreateTransactionRequestDTO {
 }
 
 export interface ICreateTransactionResponseDTO {
-  publicId: string;
+  id: string;
   fee: number;
   walletsFrom: ITransactionWallet[];
   walletsTo: ITransactionWallet[];

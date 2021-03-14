@@ -4,7 +4,7 @@ interface ITransactionWallet {
 }
 
 export interface IShowTransactionDTO {
-  publicId: string;
+  id: string;
   confirmations: number;
   fee: number;
   date: string;
