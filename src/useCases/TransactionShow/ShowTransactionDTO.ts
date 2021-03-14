@@ -1,5 +1,5 @@
 interface ITransactionWallet {
-  publicAddress: string;
+  address: string;
   value: number;
 }
 

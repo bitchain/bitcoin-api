@@ -14,12 +14,11 @@ interface Txref {
 export class BlockcypherShowWalletProvider implements IShowWalletProvider {
   public providerKey = 'blockcypher_wallet_show';
 
-  public async execute(publicAddress: string): Promise<IShowWalletDTO> {
+  public async execute(address: string): Promise<IShowWalletDTO> {
     try {
-      const response = await blockcypher.api.get(`/addrs/${publicAddress}`);
+      const response = await blockcypher.api.get(`/addrs/${address}`);
 
       const {
-        address,
         final_balance,
         balance,
         unconfirmed_balance,
@@ -36,7 +35,7 @@ export class BlockcypherShowWalletProvider implements IShowWalletProvider {
       });
 
       return {
-        publicAddress: address,
+        address,
         balance: final_balance,
         confirmedBalance: balance,
         unconfirmedBalance: unconfirmed_balance,

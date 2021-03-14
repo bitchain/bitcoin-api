@@ -13,16 +13,14 @@ interface Txref {
 export class BitcoreShowWalletProvider implements IShowWalletProvider {
   public providerKey = 'bitcore_wallet_show';
 
-  public async execute(publicAddress: string): Promise<IShowWalletDTO> {
+  public async execute(address: string): Promise<IShowWalletDTO> {
     const responseBalance = await bitcore.api.get(
-      `/address/${publicAddress}/balance`,
+      `/address/${address}/balance`,
     );
 
     const { balance, confirmed, unconfirmed } = responseBalance.data;
 
-    const responseTransactions = await bitcore.api.get(
-      `/address/${publicAddress}`,
-    );
+    const responseTransactions = await bitcore.api.get(`/address/${address}`);
 
     const txrefs = responseTransactions.data;
 
@@ -36,7 +34,7 @@ export class BitcoreShowWalletProvider implements IShowWalletProvider {
     });
 
     return {
-      publicAddress,
+      address,
       balance,
       confirmedBalance: confirmed,
       unconfirmedBalance: unconfirmed,

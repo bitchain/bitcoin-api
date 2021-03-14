@@ -73,12 +73,12 @@ export class BlockcypherCreateTransactionProvider
       const { hash, fees, inputs, outputs } = responseTXSend.data.tx;
 
       const walletsFrom = inputs.map((input: Input) => ({
-        publicAddress: input.addresses[0],
+        address: input.addresses[0],
         value: input.output_value,
       }));
 
       const walletsTo = outputs.map((output: Output) => ({
-        publicAddress: output.addresses[0],
+        address: output.addresses[0],
         value: output.value,
       }));
 

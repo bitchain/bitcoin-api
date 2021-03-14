@@ -29,13 +29,13 @@ export class BitcoreShowTransactionProvider
       const { inputs, outputs } = responseCoins.data;
 
       const walletsFrom = inputs.map((input: Input) => {
-        return { publicAddress: input.address, value: input.value };
+        return { address: input.address, value: input.value };
       });
 
       const walletsTo = outputs
         .filter((output: Output) => output.address !== 'false')
         .map((output: Output) => {
-          return { publicAddress: output.address, value: output.value };
+          return { address: output.address, value: output.value };
         });
 
       return {

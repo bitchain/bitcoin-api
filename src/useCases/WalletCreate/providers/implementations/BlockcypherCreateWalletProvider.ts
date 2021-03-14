@@ -10,6 +10,6 @@ export class BlockcypherCreateWalletProvider implements ICreateWalletProvider {
     const response = await blockcypher.api.post('/addrs');
 
     const { address, wif } = response.data;
-    return { publicAddress: address, privateKey: wif };
+    return { address, privateKey: wif };
   }
 }

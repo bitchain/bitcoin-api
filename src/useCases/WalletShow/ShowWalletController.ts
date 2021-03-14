@@ -5,11 +5,11 @@ import { ShowWalletUseCase } from './ShowWalletUseCase';
 
 export class ShowWalletController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { publicAddress } = request.params;
+    const { address } = request.params;
 
     const showWallet = container.resolve(ShowWalletUseCase);
 
-    const publicWallet = await showWallet.execute(publicAddress);
+    const publicWallet = await showWallet.execute(address);
 
     return response.json(publicWallet);
   }

@@ -12,7 +12,7 @@ import {
 const walletsRouter = Router();
 
 walletsRouter.get(
-  '/:publicAddress',
+  '/:address',
   instanceShowWalletProvider,
   showWalletController.handle,
 );

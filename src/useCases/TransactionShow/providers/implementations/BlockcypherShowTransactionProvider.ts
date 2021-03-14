@@ -35,7 +35,7 @@ export class BlockcypherShowTransactionProvider
         .filter((input: Input) => input.addresses)
         .map((input: Input) => {
           return {
-            publicAddress: input.addresses[0],
+            address: input.addresses[0],
             value: input.output_value,
           };
         });
@@ -43,7 +43,7 @@ export class BlockcypherShowTransactionProvider
       const walletsTo = outputs
         .filter((output: Output) => output.addresses)
         .map((output: Output) => {
-          return { publicAddress: output.addresses[0], value: output.value };
+          return { address: output.addresses[0], value: output.value };
         });
 
       return {

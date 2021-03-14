@@ -6,7 +6,7 @@ interface IReferenceTransaction {
 }
 
 export interface IShowWalletDTO {
-  publicAddress: string;
+  address: string;
   balance: number;
   confirmedBalance: number;
   unconfirmedBalance: number;

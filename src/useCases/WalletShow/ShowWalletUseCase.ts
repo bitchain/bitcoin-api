@@ -15,17 +15,15 @@ export class ShowWalletUseCase {
     private showWalletProvider: IShowWalletProvider,
   ) {}
 
-  public async execute(publicAddress: string): Promise<IShowWalletDTO> {
+  public async execute(address: string): Promise<IShowWalletDTO> {
     const { providerKey } = this.showWalletProvider;
 
     try {
-      if (!validateAddressUseCase.execute(publicAddress)) {
-        throw new ValidationError(
-          `Public Address: ${publicAddress} is invalid`,
-        );
+      if (!validateAddressUseCase.execute(address)) {
+        throw new ValidationError(`Public Address: ${address} is invalid`);
       }
 
-      const result = await this.showWalletProvider.execute(publicAddress);
+      const result = await this.showWalletProvider.execute(address);
 
       updateProviderUseCase.execute({
         providerKey,

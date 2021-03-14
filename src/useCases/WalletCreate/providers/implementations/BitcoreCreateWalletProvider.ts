@@ -11,11 +11,11 @@ export class BitcoreCreateWalletProvider implements ICreateWalletProvider {
   public async execute(): Promise<ICreateWalletResponseDTO> {
     const bitcorePrivateKey = new PrivateKey(bitcore.type);
 
-    const publicAddress = bitcorePrivateKey.toAddress().toString();
+    const address = bitcorePrivateKey.toAddress().toString();
     const privateKey = bitcorePrivateKey.toWIF();
 
     return {
-      publicAddress,
+      address,
       privateKey,
     };
   }
