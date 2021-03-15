@@ -94,14 +94,14 @@ This will launch the Network service at `http://localhost:3333/`.
   "fee": 24547,
   "confirmations": 4,
   "date": "2021-03-02T21:02:23.000Z",
-  "addressFrom": [
+  "transactionInput": [
     {
       "address": "tb1q3yyq37lalgq0chareur9yykgtgpqwztt5uezvz",
       "value": 78836818
     },
     ...
   ],
-  "addressTo": [
+  "transactionOutput": [
     {
       "address": "mhfNudm6YDYnYkegFSjcsppucpAA8TRviD",
       "value": 100000000
@@ -182,13 +182,13 @@ This will launch the Network service at `http://localhost:3333/`.
 {
   "id": "b81fcd39b24616a260b4816d93c4ab229e2e9468fd19da6a127996a8a842fbe0",
   "fee": 15200,
-  "addressFrom": [
+  "transactionInput": [
     {
       "address": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd",
       "value": 83400
     }
   ],
-  "addressTo": [
+  "transactionOutput": [
     {
       "address": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
       "value": 1000
