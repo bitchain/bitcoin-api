@@ -28,11 +28,11 @@ export class BitcoreShowTransactionProvider
 
       const { inputs, outputs } = responseCoins.data;
 
-      const walletsFrom = inputs.map((input: Input) => {
+      const transactionInput = inputs.map((input: Input) => {
         return { address: input.address, value: input.value };
       });
 
-      const walletsTo = outputs
+      const transactionOutput = outputs
         .filter((output: Output) => output.address !== 'false')
         .map((output: Output) => {
           return { address: output.address, value: output.value };
@@ -43,8 +43,8 @@ export class BitcoreShowTransactionProvider
         fee,
         confirmations,
         date: blockTime,
-        walletsFrom,
-        walletsTo,
+        transactionInput,
+        transactionOutput,
       };
     } catch (error) {
       const { response } = error;

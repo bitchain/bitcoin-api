@@ -1,4 +1,9 @@
-interface ITransactionWallet {
+interface Input {
+  address: string;
+  value: number;
+}
+
+interface Output {
   address: string;
   value: number;
 }
@@ -8,6 +13,6 @@ export interface IShowTransactionDTO {
   confirmations: number;
   fee: number;
   date: string;
-  walletsFrom: ITransactionWallet[];
-  walletsTo: ITransactionWallet[];
+  transactionInput: Input[];
+  transactionOutput: Output[];
 }

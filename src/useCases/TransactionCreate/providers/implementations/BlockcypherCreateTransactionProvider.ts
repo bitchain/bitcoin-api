@@ -72,12 +72,12 @@ export class BlockcypherCreateTransactionProvider
 
       const { hash, fees, inputs, outputs } = responseTXSend.data.tx;
 
-      const walletsFrom = inputs.map((input: Input) => ({
+      const transactionInput = inputs.map((input: Input) => ({
         address: input.addresses[0],
         value: input.output_value,
       }));
 
-      const walletsTo = outputs.map((output: Output) => ({
+      const transactionOutput = outputs.map((output: Output) => ({
         address: output.addresses[0],
         value: output.value,
       }));
@@ -85,8 +85,8 @@ export class BlockcypherCreateTransactionProvider
       return {
         id: hash,
         fee: fees,
-        walletsFrom,
-        walletsTo,
+        transactionInput,
+        transactionOutput,
       };
     } catch (error) {
       const { response } = error;

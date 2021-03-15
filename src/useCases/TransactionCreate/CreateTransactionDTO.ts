@@ -1,4 +1,9 @@
-interface ITransactionWallet {
+interface Input {
+  address: string;
+  value: number;
+}
+
+interface Output {
   address: string;
   value: number;
 }
@@ -12,6 +17,6 @@ export interface ICreateTransactionRequestDTO {
 export interface ICreateTransactionResponseDTO {
   id: string;
   fee: number;
-  walletsFrom: ITransactionWallet[];
-  walletsTo: ITransactionWallet[];
+  transactionInput: Input[];
+  transactionOutput: Output[];
 }

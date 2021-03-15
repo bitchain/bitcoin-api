@@ -31,7 +31,7 @@ export class BlockcypherShowTransactionProvider
         outputs,
       } = response.data;
 
-      const walletsFrom = inputs
+      const transactionInput = inputs
         .filter((input: Input) => input.addresses)
         .map((input: Input) => {
           return {
@@ -40,7 +40,7 @@ export class BlockcypherShowTransactionProvider
           };
         });
 
-      const walletsTo = outputs
+      const transactionOutput = outputs
         .filter((output: Output) => output.addresses)
         .map((output: Output) => {
           return { address: output.addresses[0], value: output.value };
@@ -51,8 +51,8 @@ export class BlockcypherShowTransactionProvider
         fee: fees,
         confirmations,
         date: confirmed,
-        walletsFrom,
-        walletsTo,
+        transactionInput,
+        transactionOutput,
       };
     } catch (error) {
       const { response } = error;
