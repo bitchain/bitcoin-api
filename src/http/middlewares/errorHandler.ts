@@ -1,6 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import { isCelebrateError } from 'celebrate';
 
+import * as Sentry from '@sentry/node';
+
 import { ApplicationError } from '@errors/ApplicationError';
 import { ValidationError } from '@errors/ValidationError';
 
@@ -22,7 +24,7 @@ export async function errorHandler(
     });
   }
 
-  console.log(error);
+  Sentry.captureException(error);
 
   return response.status(500).json({
     error: 'Internal Server error!',

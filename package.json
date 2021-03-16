@@ -51,6 +51,8 @@
   },
   "dependencies": {
     "@prisma/client": "^2.17.0",
+    "@sentry/node": "^6.2.2",
+    "@sentry/tracing": "^6.2.2",
     "axios": "^0.21.1",
     "bitcoinjs-lib": "^5.2.0",
     "bitcore-lib": "^8.24.1",
