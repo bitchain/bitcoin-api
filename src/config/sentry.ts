@@ -10,7 +10,7 @@ export function sentryConfig(application: Express): void {
   });
 
   Sentry.init({
-    environment: process.env.ENVIROMENT || 'development',
+    environment: process.env.ENVIRONMENT || 'development',
     dsn: process.env.SENTRY_DSN || '',
     integrations: [integrationsHttp, integrationsExpress],
     tracesSampleRate: 1.0,
