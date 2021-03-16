@@ -1,7 +1,7 @@
 # Bitchain Network
 
-[![CircleCI](https://circleci.com/gh/wladimirgrf/bitchain-network.svg?style=svg)](https://circleci.com/gh/wladimirgrf/bitchain-network)
-[![CI](https://github.com/wladimirgrf/bitchain-network/actions/workflows/main.yml/badge.svg)]()
+[![CircleCI](https://circleci.com/gh/bitchain/network.svg?style=svg)](https://circleci.com/gh/bitchain/network)
+[![CI](https://github.com/bitchain/network/actions/workflows/main.yml/badge.svg)]()
 
 Bitchain Network access the Main and Test Bitcoin blockchains. This application is a simple, mostly RESTful JSON API, accessed over HTTP or HTTPS.
 
