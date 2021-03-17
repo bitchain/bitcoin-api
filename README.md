@@ -1,9 +1,9 @@
-# Bitchain Network
+# BitChain Network
 
 [![CircleCI](https://circleci.com/gh/bitchain/network.svg?style=svg)](https://circleci.com/gh/bitchain/network)
 [![CI](https://github.com/bitchain/network/actions/workflows/main.yml/badge.svg)]()
 
-Bitchain Network access the Main and Test Bitcoin blockchains. This application is a simple, mostly RESTful JSON API, accessed over HTTP or HTTPS.
+BitChain Network access the Main and Test Bitcoin blockchains. This application is a simple, mostly RESTful JSON API, accessed over HTTP or HTTPS.
 
 ## ✅ Main Features
 - Shows the Wallet Balance
@@ -31,11 +31,11 @@ Below the technologies, used to build this API:
 ## ▶️ Getting started
 
 ```bash
-$ git clone https://github.com/wladimirgrf/bitchain-network.git
-$ cd bitchain-network
+$ git clone https://github.com/bitchain/network.git
+$ cd network
 ```
 
-Bitchain Network needs Postgresql. You can configure the connection at `.env`
+BitChain Network needs Postgresql. You can configure the connection at `.env`
 > ###### Use .env.example as a reference.
 
 ```bash
@@ -201,7 +201,7 @@ This will launch the Network service at `http://localhost:3333/`.
 
 </br>
 
-NOTE: All currency amounts are in units of satoshis (1/100,000,000 of a bitcoin).
+NOTE: All currency amounts are in units of satoshis (1/100,000,000 of a Bitcoin).
 
 
 ## 💻 Development Process
