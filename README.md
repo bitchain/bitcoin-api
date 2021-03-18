@@ -215,5 +215,5 @@ Bitchain Network is released under the MIT License. Please refer to the [LICENSE
 ## 💜 Special Thanks
 
 <a href="https://github.com/blockcypher">
-  <img src="https://live.blockcypher.com/static/img/logo.svg" alt="BlockCypher" height="50">
+  <img src="https://live.blockcypher.com/static/img/logo.svg" alt="BlockCypher" height="40">
 </a>
