@@ -180,12 +180,12 @@ This will launch the Network service at `http://localhost:3333/`.
  
 ```json
 {
-  "id": "b81fcd39b24616a260b4816d93c4ab229e2e9468fd19da6a127996a8a842fbe0",
-  "fee": 15200,
+  "id": "9b04e5034e547e0e47291488a2986e5120b0dd38e01541f7ee71136d2a676877",
+  "fee": 13700,
   "transactionInput": [
     {
       "address": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd",
-      "value": 83400
+      "value": 41700
     }
   ],
   "transactionOutput": [
