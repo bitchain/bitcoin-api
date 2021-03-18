@@ -211,3 +211,9 @@ The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 ## 📝 License
 
 Bitchain Network is released under the MIT License. Please refer to the [LICENSE](LICENSE) file that accompanies this project for more information including complete terms and conditions.
+
+## 💜 Special Thanks
+
+<a href="https://github.com/blockcypher">
+  <img src="https://live.blockcypher.com/static/img/logo.svg" alt="BlockCypher" height="50">
+</a>
