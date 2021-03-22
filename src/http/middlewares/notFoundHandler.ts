@@ -5,7 +5,7 @@ export async function notFoundHandler(
   response: Response,
   _: NextFunction,
 ): Promise<Response> {
-  return response
-    .status(404)
-    .json({ message: 'Sorry, we can’t find the page you were looking for.' });
+  return response.status(404).json({
+    message: 'Sorry, we cannot find the route you were looking for.',
+  });
 }
