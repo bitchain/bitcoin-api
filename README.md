@@ -1,4 +1,6 @@
-# BitChain Network
+<img alt="Logo" src=".github/assets/bitchain_logo.png" width="300px">
+
+### network
 
 [![CircleCI](https://circleci.com/gh/bitchain/network.svg?style=svg)](https://circleci.com/gh/bitchain/network)
 [![CI](https://github.com/bitchain/network/actions/workflows/main.yml/badge.svg)]()
