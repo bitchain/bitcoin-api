@@ -7,16 +7,9 @@
     {
       "type": "node",
       "request": "attach",
-      "protocol": "inspector",
-      "restart": true,
-      "name": "Debug",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "preLaunchTask": "tsc: build - tsconfig.json",
-      "outFiles": [
-        "${workspaceFolder}/dist/**/*.js"
-      ]
+      "name": "Debug APP",
+      "skipFiles": ["<node_internals>/**"],
+      "outFiles": ["${workspaceFolder}/**/*.js"]
     }
   ]
 }
