@@ -15,7 +15,8 @@
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "@repositories/*": ["repositories/*"],
-      "@useCases/*": ["useCases/*"],
+      "@modules/*": ["modules/*"],
+      "@shared/*": ["shared/*"],
       "@entities/*": ["entities/*"],
       "@config/*": ["config/*"],
       "@errors/*": ["errors/*"],

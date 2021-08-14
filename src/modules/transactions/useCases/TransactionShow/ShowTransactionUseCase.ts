@@ -1,6 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 
-import { updateProviderUseCase } from '@useCases/ProviderUpdate';
+import { updateProviderUseCase } from '@shared/useCases/ProviderUpdate';
 
 import { IShowTransactionProvider } from './providers/IShowTransactionProvider';
 import { IShowTransactionDTO } from './ShowTransactionDTO';

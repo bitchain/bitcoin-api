@@ -2,9 +2,9 @@ import { injectable, inject } from 'tsyringe';
 
 import { ValidationError } from '@errors/ValidationError';
 
-import { updateProviderUseCase } from '@useCases/ProviderUpdate';
-import { validateAddressUseCase } from '@useCases/ValidateAddress';
-import { validatePrivateKeyUseCase } from '@useCases/ValidatePrivateKey';
+import { updateProviderUseCase } from '@shared/useCases/ProviderUpdate';
+import { validateAddressUseCase } from '@modules/wallets/useCases/ValidateAddress';
+import { validatePrivateKeyUseCase } from '@modules/wallets/useCases/ValidatePrivateKey';
 
 import { ICreateTransactionProvider } from './providers/ICreateTransactionProvider';
 import {

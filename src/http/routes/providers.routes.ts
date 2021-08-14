@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { listProviderController } from '@useCases/ProviderList';
+import { listProviderController } from '@shared/useCases/ProviderList';
 
 const providersRouter = Router();
 

@@ -1,6 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 
-import { updateProviderUseCase } from '@useCases/ProviderUpdate';
+import { updateProviderUseCase } from '@shared/useCases/ProviderUpdate';
 
 import { ICreateWalletProvider } from './providers/ICreateWalletProvider';
 import { ICreateWalletResponseDTO } from './CreateWalletDTO';

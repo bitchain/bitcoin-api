@@ -3,11 +3,11 @@ import { Router } from 'express';
 import {
   instanceCreateWalletProvider,
   createWalletController,
-} from '@useCases/WalletCreate';
+} from '@modules/wallets/useCases/WalletCreate';
 import {
   instanceShowWalletProvider,
   showWalletController,
-} from '@useCases/WalletShow';
+} from '@modules/wallets/useCases/WalletShow';
 
 const walletsRouter = Router();
 

@@ -7,7 +7,8 @@ module.exports = {
     ["module-resolver", {
       alias: {
         "@repositories": "./src/repositories",
-        "@useCases": "./src/useCases",
+        "@modules": "./src/modules",
+        "@shared": "./src/shared",
         "@entities": "./src/entities",
         "@config": "./src/config",
         "@errors": "./src/errors",
@@ -16,6 +17,7 @@ module.exports = {
     }],
     "transform-typescript-metadata",
     ["@babel/plugin-proposal-decorators", { "legacy": true, }],
-    ["@babel/plugin-proposal-class-properties", { "loose": true }]
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    ["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
   ]
 }
