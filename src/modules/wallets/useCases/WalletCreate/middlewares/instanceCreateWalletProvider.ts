@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { createProviderUseCase } from '@useCases/ProviderCreate';
-import { selectProviderUseCase } from '@useCases/ProviderSelect';
+import { createProviderUseCase } from '@shared/useCases/ProviderCreate';
+import { selectProviderUseCase } from '@shared/useCases/ProviderSelect';
 
 import { ICreateWalletProvider } from '../providers/ICreateWalletProvider';
 import { BitcoreCreateWalletProvider } from '../providers/implementations/BitcoreCreateWalletProvider';

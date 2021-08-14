@@ -2,8 +2,8 @@ import { injectable, inject } from 'tsyringe';
 
 import { ValidationError } from '@errors/ValidationError';
 
-import { updateProviderUseCase } from '@useCases/ProviderUpdate';
-import { validateAddressUseCase } from '@useCases/ValidateAddress';
+import { updateProviderUseCase } from '@shared/useCases/ProviderUpdate';
+import { validateAddressUseCase } from '@modules/wallets/useCases/ValidateAddress';
 
 import { IShowTransactionFeeProvider } from './providers/IShowTransactionFeeProvider';
 import {
