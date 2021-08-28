@@ -12,8 +12,6 @@ interface Txref {
 }
 
 export class BlockcypherShowWalletProvider implements IShowWalletProvider {
-  public providerKey = 'blockcypher_wallet_show';
-
   public async execute(address: string): Promise<IShowWalletDTO> {
     try {
       const response = await blockcypher.api.get(`/addrs/${address}`);

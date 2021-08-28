@@ -2,7 +2,7 @@ import { injectable, inject } from 'tsyringe';
 
 import { ValidationError } from '@errors/ValidationError';
 
-import { updateProviderUseCase } from '@shared/useCases/ProviderUpdate';
+import { updateProviderScoreByInstanceUseCase } from '@shared/useCases/UpdateProviderScoreByInstance';
 
 import { validateAddressUseCase } from '../ValidateAddress';
 import { IShowWalletProvider } from './providers/IShowWalletProvider';
@@ -16,7 +16,7 @@ export class ShowWalletUseCase {
   ) {}
 
   public async execute(address: string): Promise<IShowWalletDTO> {
-    const { providerKey } = this.showWalletProvider;
+    const instance = this.showWalletProvider.constructor.name;
 
     try {
       if (!validateAddressUseCase.execute(address)) {
@@ -25,19 +25,21 @@ export class ShowWalletUseCase {
 
       const result = await this.showWalletProvider.execute(address);
 
-      updateProviderUseCase.execute({
-        providerKey,
-        successfulCall: true,
+      await updateProviderScoreByInstanceUseCase.execute({
+        instance,
+        score: 1,
       });
 
       return result;
     } catch (error) {
-      if (!(error instanceof ValidationError)) {
-        updateProviderUseCase.execute({
-          providerKey,
-          successfulCall: false,
-        });
+      if (error instanceof ValidationError) {
+        throw error;
       }
+
+      await updateProviderScoreByInstanceUseCase.execute({
+        instance,
+        score: -5,
+      });
 
       throw error;
     }

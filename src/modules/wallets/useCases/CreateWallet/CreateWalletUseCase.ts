@@ -1,6 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 
-import { updateProviderUseCase } from '@shared/useCases/ProviderUpdate';
+import { updateProviderScoreByInstanceUseCase } from '@shared/useCases/UpdateProviderScoreByInstance';
 
 import { ICreateWalletProvider } from './providers/ICreateWalletProvider';
 import { ICreateWalletResponseDTO } from './CreateWalletDTO';
@@ -13,21 +13,21 @@ export class CreateWalletUseCase {
   ) {}
 
   public async execute(): Promise<ICreateWalletResponseDTO> {
-    const { providerKey } = this.createWalletProvider;
+    const instance = this.createWalletProvider.constructor.name;
 
     try {
       const result = await this.createWalletProvider.execute();
 
-      updateProviderUseCase.execute({
-        providerKey,
-        successfulCall: true,
+      await updateProviderScoreByInstanceUseCase.execute({
+        instance,
+        score: 1,
       });
 
       return result;
     } catch (error) {
-      updateProviderUseCase.execute({
-        providerKey,
-        successfulCall: false,
+      await updateProviderScoreByInstanceUseCase.execute({
+        instance,
+        score: -5,
       });
 
       throw error;

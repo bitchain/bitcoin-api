@@ -6,8 +6,6 @@ import { ICreateWalletResponseDTO } from '../../CreateWalletDTO';
 import { ICreateWalletProvider } from '../ICreateWalletProvider';
 
 export class BitcoreCreateWalletProvider implements ICreateWalletProvider {
-  public providerKey = 'bitcore_wallet_create';
-
   public async execute(): Promise<ICreateWalletResponseDTO> {
     const bitcorePrivateKey = new PrivateKey(bitcore.type);
 

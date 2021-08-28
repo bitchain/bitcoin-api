@@ -11,8 +11,6 @@ interface Txref {
 }
 
 export class BitcoreShowWalletProvider implements IShowWalletProvider {
-  public providerKey = 'bitcore_wallet_show';
-
   public async execute(address: string): Promise<IShowWalletDTO> {
     const responseBalance = await bitcore.api.get(
       `/address/${address}/balance`,

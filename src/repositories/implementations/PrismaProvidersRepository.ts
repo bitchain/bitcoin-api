@@ -11,37 +11,26 @@ export class PrismaProvidersRepository implements IProvidersRepository {
     return prisma.provider.findMany();
   }
 
-  async findByKey(providerKey: string): Promise<Provider | null> {
+  async findByInstance(instance: string): Promise<Provider | null> {
     return prisma.provider.findUnique({
-      where: { providerKey },
+      where: { instance },
     });
   }
 
-  async findByKeys(providerKeys: string[]): Promise<Provider[]> {
-    return prisma.provider.findMany({
-      where: { providerKey: { in: providerKeys } },
-    });
+  async create(provider: Provider): Promise<Provider> {
+    const newProvider = await prisma.provider.create({ data: provider });
+
+    return newProvider;
   }
 
-  async findByLowestCalls(providerKeys: string[]): Promise<Provider | null> {
-    return prisma.provider.findFirst({
-      where: { providerKey: { in: providerKeys } },
-      orderBy: { calls: 'asc' },
-    });
-  }
+  async update(provider: Provider): Promise<Provider> {
+    const { id } = provider;
 
-  async save(provider: Provider): Promise<void> {
-    await prisma.provider.update({
+    const updatedProvider = await prisma.provider.update({
+      where: { id },
       data: provider,
-      where: { providerKey: provider.providerKey },
     });
-  }
 
-  async createMany(providerKeys: string[]): Promise<void> {
-    const newKeys = providerKeys.map(key => ({ providerKey: key }));
-
-    await prisma.provider.createMany({
-      data: newKeys,
-    });
+    return updatedProvider;
   }
 }

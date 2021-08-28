@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
-import { listProviderController } from '@shared/useCases/ProviderList';
+import { listProvidersController } from '@shared/useCases/ListProviders';
 
 const providersRouter = Router();
 
-providersRouter.get('/', listProviderController.handle);
+providersRouter.get('/', listProvidersController.handle);
 
 export { providersRouter };

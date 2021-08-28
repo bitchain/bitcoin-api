@@ -4,7 +4,7 @@ import { Provider } from '@entities/Provider';
 import { IProvidersRepository } from '@repositories/IProvidersRepository';
 
 @injectable()
-export class ListProviderUseCase {
+export class ListProvidersUseCase {
   constructor(
     @inject('ProvidersRepository')
     private providersRepository: IProvidersRepository,
