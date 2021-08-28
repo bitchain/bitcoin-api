@@ -1,6 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 
-import { updateProviderUseCase } from '@shared/useCases/ProviderUpdate';
+import { updateProviderScoreByInstanceUseCase } from '@shared/useCases/UpdateProviderScoreByInstance';
 
 import { IShowTransactionProvider } from './providers/IShowTransactionProvider';
 import { IShowTransactionDTO } from './ShowTransactionDTO';
@@ -13,21 +13,21 @@ export class ShowTransactionUseCase {
   ) {}
 
   public async execute(id: string): Promise<IShowTransactionDTO> {
-    const { providerKey } = this.showTransactionProvider;
+    const instance = this.showTransactionProvider.constructor.name;
 
     try {
       const result = await this.showTransactionProvider.execute(id);
 
-      updateProviderUseCase.execute({
-        providerKey,
-        successfulCall: true,
+      await updateProviderScoreByInstanceUseCase.execute({
+        instance,
+        score: 1,
       });
 
       return result;
     } catch (error) {
-      updateProviderUseCase.execute({
-        providerKey,
-        successfulCall: false,
+      await updateProviderScoreByInstanceUseCase.execute({
+        instance,
+        score: -5,
       });
 
       throw error;

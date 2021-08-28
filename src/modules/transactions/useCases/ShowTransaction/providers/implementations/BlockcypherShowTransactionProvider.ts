@@ -16,8 +16,6 @@ interface Output {
 
 export class BlockcypherShowTransactionProvider
   implements IShowTransactionProvider {
-  public providerKey = 'blockcypher_transaction_show';
-
   public async execute(id: string): Promise<IShowTransactionDTO> {
     try {
       const response = await blockcypher.api.get(`/txs/${id}`);

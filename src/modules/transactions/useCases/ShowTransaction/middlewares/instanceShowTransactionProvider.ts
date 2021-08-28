@@ -1,23 +1,16 @@
 import { NextFunction, Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { selectProviderUseCase } from '@shared/useCases/ProviderSelect';
+import { createProviderUseCase } from '@shared/useCases/CreateProvider';
 
 import { IShowTransactionProvider } from '../providers/IShowTransactionProvider';
 import { BitcoreShowTransactionProvider } from '../providers/implementations/BitcoreShowTransactionProvider';
 import { BlockcypherShowTransactionProvider } from '../providers/implementations/BlockcypherShowTransactionProvider';
 
-const bitcoreTransactionShow = container.resolve(
-  BitcoreShowTransactionProvider,
-);
-const blockcypherTransactionShow = container.resolve(
+const providers = [
   BlockcypherShowTransactionProvider,
-);
-
-const providers = {
-  [blockcypherTransactionShow.providerKey]: blockcypherTransactionShow,
-  [bitcoreTransactionShow.providerKey]: bitcoreTransactionShow,
-};
+  BitcoreShowTransactionProvider,
+];
 
 export async function instanceShowTransactionProvider(
   request: Request,
@@ -25,14 +18,12 @@ export async function instanceShowTransactionProvider(
   next: NextFunction,
 ): Promise<void> {
   if (!container.isRegistered('ShowTransactionProvider')) {
-    const providerKeys = Object.keys(providers);
+    const instanceObj = providers[Math.floor(Math.random() * providers.length)];
 
-    const providerKey = await selectProviderUseCase.execute(providerKeys);
-
-    container.registerInstance<IShowTransactionProvider>(
-      'ShowTransactionProvider',
-      providers[providerKey],
-    );
+    await createProviderUseCase.execute<IShowTransactionProvider>({
+      instanceObj,
+      injectionToken: 'ShowTransactionProvider',
+    });
   }
   next();
 }

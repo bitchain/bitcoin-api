@@ -14,7 +14,7 @@ import {
 import {
   instanceShowTransactionProvider,
   showTransactionController,
-} from '@modules/transactions/useCases/TransactionShow';
+} from '@modules/transactions/useCases/ShowTransaction';
 
 const transactionsRouter = Router();
 
@@ -32,10 +32,10 @@ transactionsRouter.post(
 //   showTransactionFeeController.handle,
 // );
 
-// transactionsRouter.get(
-//   '/:id',
-//   instanceShowTransactionProvider,
-//   showTransactionController.handle,
-// );
+transactionsRouter.get(
+  '/:id',
+  instanceShowTransactionProvider,
+  showTransactionController.handle,
+);
 
 export { transactionsRouter };

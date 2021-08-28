@@ -16,8 +16,6 @@ interface Output {
 
 export class BitcoreShowTransactionProvider
   implements IShowTransactionProvider {
-  public providerKey = 'bitcore_transaction_show';
-
   public async execute(id: string): Promise<IShowTransactionDTO> {
     try {
       const responseTx = await bitcore.api.get(`/tx/${id}`);
