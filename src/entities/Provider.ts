@@ -1,8 +1,7 @@
 export interface Provider {
-  providerKey: string;
-  createdAt?: Date;
-  updatedAt?: Date;
-  success?: number;
-  fails?: number;
+  id?: string;
+  score?: number;
   calls?: number;
+  instance: string;
+  injectionToken: string;
 }
