@@ -9,7 +9,7 @@ import {
   validateTransactionFeeRequest,
   instanceShowTransactionFeeProvider,
   showTransactionFeeController,
-} from '@modules/transactions/useCases/TransactionFeeShow';
+} from '@modules/transactions/useCases/ShowTransactionFee';
 
 import {
   instanceShowTransactionProvider,
@@ -25,12 +25,12 @@ transactionsRouter.post(
   createTransactionController.handle,
 );
 
-// transactionsRouter.post(
-//   '/fee',
-//   validateTransactionFeeRequest,
-//   instanceShowTransactionFeeProvider,
-//   showTransactionFeeController.handle,
-// );
+transactionsRouter.post(
+  '/fee',
+  validateTransactionFeeRequest,
+  instanceShowTransactionFeeProvider,
+  showTransactionFeeController.handle,
+);
 
 transactionsRouter.get(
   '/:id',
