@@ -4,7 +4,6 @@ import {
 } from '../CreateTransactionDTO';
 
 export interface ICreateTransactionProvider {
-  providerKey: string;
   execute(
     data: ICreateTransactionRequestDTO,
   ): Promise<ICreateTransactionResponseDTO>;

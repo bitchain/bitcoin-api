@@ -23,8 +23,6 @@ interface Output {
 
 export class BlockcypherCreateTransactionProvider
   implements ICreateTransactionProvider {
-  public providerKey = 'blockcypher_transaction_create';
-
   public async execute({
     privateKey,
     addressTo,

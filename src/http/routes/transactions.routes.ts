@@ -4,7 +4,7 @@ import {
   validateTransactionRequest,
   instanceCreateTransactionProvider,
   createTransactionController,
-} from '@modules/transactions/useCases/TransactionCreate';
+} from '@modules/transactions/useCases/CreateTransaction';
 import {
   validateTransactionFeeRequest,
   instanceShowTransactionFeeProvider,
@@ -25,17 +25,17 @@ transactionsRouter.post(
   createTransactionController.handle,
 );
 
-transactionsRouter.post(
-  '/fee',
-  validateTransactionFeeRequest,
-  instanceShowTransactionFeeProvider,
-  showTransactionFeeController.handle,
-);
+// transactionsRouter.post(
+//   '/fee',
+//   validateTransactionFeeRequest,
+//   instanceShowTransactionFeeProvider,
+//   showTransactionFeeController.handle,
+// );
 
-transactionsRouter.get(
-  '/:id',
-  instanceShowTransactionProvider,
-  showTransactionController.handle,
-);
+// transactionsRouter.get(
+//   '/:id',
+//   instanceShowTransactionProvider,
+//   showTransactionController.handle,
+// );
 
 export { transactionsRouter };
