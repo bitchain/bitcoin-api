@@ -12,7 +12,8 @@ module.exports = {
         "@entities": "./src/entities",
         "@config": "./src/config",
         "@errors": "./src/errors",
-        "@http": "./src/http"
+        "@http": "./src/http",
+        "@utils": "./src/utils"
       }
     }],
     "transform-typescript-metadata",

@@ -8,10 +8,11 @@ datasource db {
 }
 
 model Provider {
-  providerKey String   @id
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  success     Int      @default(0)
-  fails       Int      @default(0)
-  calls       Int      @default(0)
+  id             String   @id @default(uuid())
+  score          Int      @default(0)
+  calls          Int      @default(0)
+  injectionToken String
+  instance       String   @unique
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }

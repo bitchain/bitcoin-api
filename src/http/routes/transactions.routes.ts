@@ -4,17 +4,17 @@ import {
   validateTransactionRequest,
   instanceCreateTransactionProvider,
   createTransactionController,
-} from '@modules/transactions/useCases/TransactionCreate';
+} from '@modules/transactions/useCases/CreateTransaction';
 import {
   validateTransactionFeeRequest,
   instanceShowTransactionFeeProvider,
   showTransactionFeeController,
-} from '@modules/transactions/useCases/TransactionFeeShow';
+} from '@modules/transactions/useCases/ShowTransactionFee';
 
 import {
   instanceShowTransactionProvider,
   showTransactionController,
-} from '@modules/transactions/useCases/TransactionShow';
+} from '@modules/transactions/useCases/ShowTransaction';
 
 const transactionsRouter = Router();
 

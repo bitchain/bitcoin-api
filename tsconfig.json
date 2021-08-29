@@ -20,7 +20,8 @@
       "@entities/*": ["entities/*"],
       "@config/*": ["config/*"],
       "@errors/*": ["errors/*"],
-      "@http/*": ["http/*"]
+      "@http/*": ["http/*"],
+      "@utils/*": ["utils/*"]
     },
   }
 }
