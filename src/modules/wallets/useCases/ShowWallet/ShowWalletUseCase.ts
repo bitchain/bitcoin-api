@@ -1,10 +1,10 @@
 import { injectable, inject } from 'tsyringe';
 
 import { ValidationError } from '@errors/ValidationError';
+import { validAddress } from '@utils/address';
 
 import { updateProviderScoreByInstanceUseCase } from '@shared/useCases/UpdateProviderScoreByInstance';
 
-import { validateAddressUseCase } from '../ValidateAddress';
 import { IShowWalletProvider } from './providers/IShowWalletProvider';
 import { IShowWalletDTO } from './ShowWalletDTO';
 
@@ -19,7 +19,7 @@ export class ShowWalletUseCase {
     const instance = this.showWalletProvider.constructor.name;
 
     try {
-      if (!validateAddressUseCase.execute(address)) {
+      if (!validAddress(address)) {
         throw new ValidationError(`Public Address: ${address} is invalid`);
       }
 

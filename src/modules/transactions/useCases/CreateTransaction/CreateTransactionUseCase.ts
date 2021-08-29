@@ -1,10 +1,10 @@
 import { injectable, inject } from 'tsyringe';
 
 import { ValidationError } from '@errors/ValidationError';
+import { validAddress } from '@utils/address';
+import { validPrivateKey } from '@utils/privateKey';
 
 import { updateProviderScoreByInstanceUseCase } from '@shared/useCases/UpdateProviderScoreByInstance';
-import { validateAddressUseCase } from '@modules/wallets/useCases/ValidateAddress';
-import { validatePrivateKeyUseCase } from '@modules/wallets/useCases/ValidatePrivateKey';
 
 import { ICreateTransactionProvider } from './providers/ICreateTransactionProvider';
 import {
@@ -27,11 +27,11 @@ export class CreateTransactionUseCase {
     try {
       const { addressTo, privateKey } = data;
 
-      if (!validateAddressUseCase.execute(addressTo)) {
+      if (!validAddress(addressTo)) {
         throw new ValidationError(`Public Address: ${addressTo} is invalid`);
       }
 
-      if (!validatePrivateKeyUseCase.execute(privateKey)) {
+      if (!validPrivateKey(privateKey)) {
         throw new ValidationError(`Private Key is invalid`);
       }
 
