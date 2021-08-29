@@ -24,8 +24,7 @@ export async function errorHandler(
     });
   }
 
-  console.log(error);
-  // Sentry.captureException(error);
+  Sentry.captureException(error);
 
   return response.status(500).json({
     error: 'Internal Server error!',
