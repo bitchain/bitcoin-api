@@ -1,14 +1,13 @@
 import { ECPair, script, payments } from 'bitcoinjs-lib';
 
-import { blockcypher, IntegrationError } from '@config/blockcypher';
 import { bitcoinjs } from '@config/bitcoinjs';
-
-import { HttpError } from '@shared/errors/HttpError';
-
+import { blockcypher, IntegrationError } from '@config/blockcypher';
 import {
   ICreateTransactionRequestDTO,
   ICreateTransactionResponseDTO,
 } from '@modules/transactions/dtos/ICreateTransactionDTO';
+import { HttpError } from '@shared/errors/HttpError';
+
 import { ICreateTransactionProvider } from '../ICreateTransactionProvider';
 
 interface Input {

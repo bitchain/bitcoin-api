@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 
 import { showTransactionProvider } from '@shared/providers';
+
 import { ShowTransactionUseCase } from './ShowTransactionUseCase';
 
 export class ShowTransactionController {

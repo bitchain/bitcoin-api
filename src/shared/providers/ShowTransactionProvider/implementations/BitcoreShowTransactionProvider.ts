@@ -1,7 +1,7 @@
 import { bitcore, IntegrationError } from '@config/bitcore';
+import { IShowTransactionDTO } from '@modules/transactions/dtos/IShowTransactionDTO';
 import { HttpError } from '@shared/errors/HttpError';
 
-import { IShowTransactionDTO } from '@modules/transactions/dtos/IShowTransactionDTO';
 import { IShowTransactionProvider } from '../IShowTransactionProvider';
 
 interface Input {

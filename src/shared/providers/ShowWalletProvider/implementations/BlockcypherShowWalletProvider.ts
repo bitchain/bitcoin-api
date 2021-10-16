@@ -1,7 +1,7 @@
 import { blockcypher, IntegrationError } from '@config/blockcypher';
+import { IShowWalletDTO } from '@modules/wallets/dtos/IShowWalletDTO';
 import { HttpError } from '@shared/errors/HttpError';
 
-import { IShowWalletDTO } from '@modules/wallets/dtos/IShowWalletDTO';
 import { IShowWalletProvider } from '../IShowWalletProvider';
 
 interface Txref {

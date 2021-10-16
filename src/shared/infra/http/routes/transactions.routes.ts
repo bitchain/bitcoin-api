@@ -4,12 +4,11 @@ import {
   validateTransactionRequest,
   createTransactionController,
 } from '@modules/transactions/useCases/CreateTransaction';
+import { showTransactionController } from '@modules/transactions/useCases/ShowTransaction';
 import {
   validateTransactionFeeRequest,
   showTransactionFeeController,
 } from '@modules/transactions/useCases/ShowTransactionFee';
-
-import { showTransactionController } from '@modules/transactions/useCases/ShowTransaction';
 
 const transactionsRouter = Router();
 

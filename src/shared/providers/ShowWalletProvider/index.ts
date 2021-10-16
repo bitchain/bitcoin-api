@@ -1,9 +1,8 @@
 import { container } from 'tsyringe';
 
 import IDependencyProvider from '../IDependencyProvider';
-
-import { BlockcypherShowWalletProvider } from './implementations/BlockcypherShowWalletProvider';
 import { BitcoreShowWalletProvider } from './implementations/BitcoreShowWalletProvider';
+import { BlockcypherShowWalletProvider } from './implementations/BlockcypherShowWalletProvider';
 
 const providers = [BlockcypherShowWalletProvider, BitcoreShowWalletProvider];
 

@@ -2,7 +2,6 @@ import { Router } from 'express';
 
 import { notFoundRouter } from './notFound.routes';
 import { robotsRouter } from './robots.routes';
-
 import { transactionsRouter } from './transactions.routes';
 import { walletsRouter } from './wallets.routes';
 

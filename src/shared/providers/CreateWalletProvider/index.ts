@@ -1,7 +1,6 @@
 import { container } from 'tsyringe';
 
 import IDependencyProvider from '../IDependencyProvider';
-
 import { BitcoreCreateWalletProvider } from './implementations/BitcoreCreateWalletProvider';
 import { BlockcypherCreateWalletProvider } from './implementations/BlockcypherCreateWalletProvider';
 

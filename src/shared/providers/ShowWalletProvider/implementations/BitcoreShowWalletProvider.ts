@@ -1,6 +1,6 @@
 import { bitcore } from '@config/bitcore';
-
 import { IShowWalletDTO } from '@modules/wallets/dtos/IShowWalletDTO';
+
 import { IShowWalletProvider } from '../IShowWalletProvider';
 
 interface Txref {

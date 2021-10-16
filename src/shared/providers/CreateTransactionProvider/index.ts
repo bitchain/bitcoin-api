@@ -1,7 +1,6 @@
 import { container } from 'tsyringe';
 
 import IDependencyProvider from '../IDependencyProvider';
-
 import { BlockcypherCreateTransactionProvider } from './implementations/BlockcypherCreateTransactionProvider';
 
 const providers = [BlockcypherCreateTransactionProvider];

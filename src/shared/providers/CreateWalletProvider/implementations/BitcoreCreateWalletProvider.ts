@@ -1,8 +1,8 @@
 import { PrivateKey } from 'bitcore-lib';
 
 import { bitcore } from '@config/bitcore';
-
 import { ICreateWalletDTO } from '@modules/wallets/dtos/ICreateWalletDTO';
+
 import { ICreateWalletProvider } from '../ICreateWalletProvider';
 
 export class BitcoreCreateWalletProvider implements ICreateWalletProvider {

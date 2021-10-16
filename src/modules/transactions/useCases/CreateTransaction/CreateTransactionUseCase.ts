@@ -1,14 +1,13 @@
 import { injectable, inject } from 'tsyringe';
 
-import { HttpError } from '@shared/errors/HttpError';
-import { validAddress } from '@utils/address';
-import { validPrivateKey } from '@utils/privateKey';
-
-import { ICreateTransactionProvider } from '@shared/providers/CreateTransactionProvider/ICreateTransactionProvider';
 import {
   ICreateTransactionRequestDTO,
   ICreateTransactionResponseDTO,
 } from '@modules/transactions/dtos/ICreateTransactionDTO';
+import { HttpError } from '@shared/errors/HttpError';
+import { ICreateTransactionProvider } from '@shared/providers/CreateTransactionProvider/ICreateTransactionProvider';
+import { validAddress } from '@utils/address';
+import { validPrivateKey } from '@utils/privateKey';
 
 @injectable()
 export class CreateTransactionUseCase {

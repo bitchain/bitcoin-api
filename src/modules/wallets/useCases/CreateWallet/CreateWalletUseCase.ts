@@ -1,8 +1,7 @@
 import { injectable, inject } from 'tsyringe';
 
-import { ICreateWalletProvider } from '@shared/providers/CreateWalletProvider/ICreateWalletProvider';
-
 import { ICreateWalletDTO } from '@modules/wallets/dtos/ICreateWalletDTO';
+import { ICreateWalletProvider } from '@shared/providers/CreateWalletProvider/ICreateWalletProvider';
 
 @injectable()
 export class CreateWalletUseCase {

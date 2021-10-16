@@ -1,10 +1,10 @@
 import { blockcypher, IntegrationError } from '@config/blockcypher';
-import { HttpError } from '@shared/errors/HttpError';
-
 import {
   IShowTransactionFeeRequestDTO,
   IShowTransactionFeeResponseDTO,
 } from '@modules/transactions/dtos/IShowTransactionFeeDTO';
+import { HttpError } from '@shared/errors/HttpError';
+
 import { IShowTransactionFeeProvider } from '../IShowTransactionFeeProvider';
 
 export class BlockcypherShowTransactionFeeProvider

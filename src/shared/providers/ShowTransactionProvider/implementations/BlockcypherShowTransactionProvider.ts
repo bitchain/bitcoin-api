@@ -1,7 +1,7 @@
 import { blockcypher, IntegrationError } from '@config/blockcypher';
+import { IShowTransactionDTO } from '@modules/transactions/dtos/IShowTransactionDTO';
 import { HttpError } from '@shared/errors/HttpError';
 
-import { IShowTransactionDTO } from '@modules/transactions/dtos/IShowTransactionDTO';
 import { IShowTransactionProvider } from '../IShowTransactionProvider';
 
 interface Input {

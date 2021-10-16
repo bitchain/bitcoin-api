@@ -1,6 +1,6 @@
 import { blockcypher } from '@config/blockcypher';
-
 import { ICreateWalletDTO } from '@modules/wallets/dtos/ICreateWalletDTO';
+
 import { ICreateWalletProvider } from '../ICreateWalletProvider';
 
 export class BlockcypherCreateWalletProvider implements ICreateWalletProvider {

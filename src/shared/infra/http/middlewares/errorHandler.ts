@@ -1,8 +1,7 @@
-import { NextFunction, Request, Response } from 'express';
 import { isCelebrateError } from 'celebrate';
+import { NextFunction, Request, Response } from 'express';
 
 import * as Sentry from '@sentry/node';
-
 import { HttpError } from '@shared/errors/HttpError';
 
 export async function errorHandler(

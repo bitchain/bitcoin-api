@@ -1,13 +1,12 @@
 import { injectable, inject } from 'tsyringe';
 
-import { HttpError } from '@shared/errors/HttpError';
-import { validAddress } from '@utils/address';
-
-import { IShowTransactionFeeProvider } from '@shared/providers/ShowTransactionFeeProvider/IShowTransactionFeeProvider';
 import {
   IShowTransactionFeeRequestDTO,
   IShowTransactionFeeResponseDTO,
 } from '@modules/transactions/dtos/IShowTransactionFeeDTO';
+import { HttpError } from '@shared/errors/HttpError';
+import { IShowTransactionFeeProvider } from '@shared/providers/ShowTransactionFeeProvider/IShowTransactionFeeProvider';
+import { validAddress } from '@utils/address';
 
 @injectable()
 export class ShowTransactionFeeUseCase {

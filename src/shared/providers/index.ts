@@ -1,9 +1,8 @@
-import CreateWalletProvider from './CreateWalletProvider';
-import ShowWalletProvider from './ShowWalletProvider';
-
-import ShowTransactionProvider from './ShowTransactionProvider';
-import ShowTransactionFeeProvider from './ShowTransactionFeeProvider';
 import CreateTransactionProvider from './CreateTransactionProvider';
+import CreateWalletProvider from './CreateWalletProvider';
+import ShowTransactionFeeProvider from './ShowTransactionFeeProvider';
+import ShowTransactionProvider from './ShowTransactionProvider';
+import ShowWalletProvider from './ShowWalletProvider';
 
 export const showWalletProvider: ShowWalletProvider = new ShowWalletProvider();
 export const createWalletProvider: CreateWalletProvider =

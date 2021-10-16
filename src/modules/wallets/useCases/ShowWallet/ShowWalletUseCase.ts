@@ -1,9 +1,8 @@
 import { injectable, inject } from 'tsyringe';
 
-import { IShowWalletProvider } from '@shared/providers/ShowWalletProvider/IShowWalletProvider';
 import { IShowWalletDTO } from '@modules/wallets/dtos/IShowWalletDTO';
-
 import { HttpError } from '@shared/errors/HttpError';
+import { IShowWalletProvider } from '@shared/providers/ShowWalletProvider/IShowWalletProvider';
 import { validAddress } from '@utils/address';
 
 @injectable()
