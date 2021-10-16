@@ -1,13 +1,12 @@
 import 'reflect-metadata';
 import 'dotenv/config';
 
-import express from 'express';
 import cors from 'cors';
-import * as Sentry from '@sentry/node';
-
+import express from 'express';
 import 'express-async-errors';
 
 import { sentryConfig } from '@config/sentry';
+import * as Sentry from '@sentry/node';
 
 import { errorHandler } from './middlewares/errorHandler';
 import { headerHandler } from './middlewares/headerHandler';
