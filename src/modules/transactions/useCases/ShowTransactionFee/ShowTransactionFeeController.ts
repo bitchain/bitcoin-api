@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
-import { container } from 'tsyringe';
+
+import { showTransactionFeeProvider } from '@shared/providers';
 
 import { ShowTransactionFeeUseCase } from './ShowTransactionFeeUseCase';
 
@@ -7,7 +8,9 @@ export class ShowTransactionFeeController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { addressFrom, addressTo, value } = request.body;
 
-    const showTransactionFee = container.resolve(ShowTransactionFeeUseCase);
+    const showTransactionFee = showTransactionFeeProvider.resolve(
+      ShowTransactionFeeUseCase,
+    );
 
     const fee = await showTransactionFee.execute({
       addressFrom,

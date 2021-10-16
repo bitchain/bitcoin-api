@@ -3,13 +3,11 @@ import { injectable, inject } from 'tsyringe';
 import { ValidationError } from '@errors/ValidationError';
 import { validAddress } from '@utils/address';
 
-import { updateProviderScoreByInstanceUseCase } from '@shared/useCases/UpdateProviderScoreByInstance';
-
-import { IShowTransactionFeeProvider } from './providers/IShowTransactionFeeProvider';
+import { IShowTransactionFeeProvider } from '@shared/providers/ShowTransactionFeeProvider/IShowTransactionFeeProvider';
 import {
   IShowTransactionFeeRequestDTO,
   IShowTransactionFeeResponseDTO,
-} from './ShowTransactionFeeDTO';
+} from '@modules/transactions/dtos/IShowTransactionFeeDTO';
 
 @injectable()
 export class ShowTransactionFeeUseCase {
@@ -21,8 +19,6 @@ export class ShowTransactionFeeUseCase {
   public async execute(
     data: IShowTransactionFeeRequestDTO,
   ): Promise<IShowTransactionFeeResponseDTO> {
-    const instance = this.showTransactionFeeProvider.constructor.name;
-
     try {
       const { addressFrom, addressTo } = data;
 
@@ -36,21 +32,11 @@ export class ShowTransactionFeeUseCase {
 
       const result = await this.showTransactionFeeProvider.execute(data);
 
-      await updateProviderScoreByInstanceUseCase.execute({
-        instance,
-        score: 1,
-      });
-
       return result;
     } catch (error) {
       if (error instanceof ValidationError) {
         throw error;
       }
-
-      await updateProviderScoreByInstanceUseCase.execute({
-        instance,
-        score: -5,
-      });
 
       throw error;
     }

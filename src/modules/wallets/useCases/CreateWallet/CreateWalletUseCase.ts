@@ -1,9 +1,8 @@
 import { injectable, inject } from 'tsyringe';
 
-import { updateProviderScoreByInstanceUseCase } from '@shared/useCases/UpdateProviderScoreByInstance';
+import { ICreateWalletProvider } from '@shared/providers/CreateWalletProvider/ICreateWalletProvider';
 
-import { ICreateWalletProvider } from './providers/ICreateWalletProvider';
-import { ICreateWalletResponseDTO } from './CreateWalletDTO';
+import { ICreateWalletDTO } from '@modules/wallets/dtos/ICreateWalletDTO';
 
 @injectable()
 export class CreateWalletUseCase {
@@ -12,25 +11,9 @@ export class CreateWalletUseCase {
     private createWalletProvider: ICreateWalletProvider,
   ) {}
 
-  public async execute(): Promise<ICreateWalletResponseDTO> {
-    const instance = this.createWalletProvider.constructor.name;
+  public async execute(): Promise<ICreateWalletDTO> {
+    const result = await this.createWalletProvider.execute();
 
-    try {
-      const result = await this.createWalletProvider.execute();
-
-      await updateProviderScoreByInstanceUseCase.execute({
-        instance,
-        score: 1,
-      });
-
-      return result;
-    } catch (error) {
-      await updateProviderScoreByInstanceUseCase.execute({
-        instance,
-        score: -5,
-      });
-
-      throw error;
-    }
+    return result;
   }
 }

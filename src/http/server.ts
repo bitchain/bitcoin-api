@@ -6,7 +6,6 @@ import cors from 'cors';
 import * as Sentry from '@sentry/node';
 
 import 'express-async-errors';
-import '@repositories/index';
 
 import { sentryConfig } from '@config/sentry';
 
