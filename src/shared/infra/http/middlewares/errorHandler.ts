@@ -3,8 +3,7 @@ import { isCelebrateError } from 'celebrate';
 
 import * as Sentry from '@sentry/node';
 
-import { ApplicationError } from '@errors/ApplicationError';
-import { ValidationError } from '@errors/ValidationError';
+import { HttpError } from '@shared/errors/HttpError';
 
 export async function errorHandler(
   error: Error,
@@ -18,7 +17,7 @@ export async function errorHandler(
     });
   }
 
-  if (error instanceof ApplicationError || error instanceof ValidationError) {
+  if (error instanceof HttpError) {
     return response.status(error.statusCode).json({
       error: error.message,
     });

@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { notFoundHandler } from '@http/middlewares/notFoundHandler';
+import { notFoundHandler } from '../middlewares/notFoundHandler';
 
 const notFoundRouter = Router();
 

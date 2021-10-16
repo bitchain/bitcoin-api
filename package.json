@@ -19,8 +19,8 @@
   },
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist",
-    "dev:server": "tsnd -r tsconfig-paths/register --transpile-only --ignore-watch node_modules src/http/server.ts",
-    "dev:debug": "tsnd -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/http/server.ts"
+    "dev:server": "tsnd -r tsconfig-paths/register --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
+    "dev:debug": "tsnd -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",

@@ -1,5 +1,5 @@
-import { blockcypher } from '@config/blockcypher';
-import { ApplicationError } from '@errors/ApplicationError';
+import { blockcypher, IntegrationError } from '@config/blockcypher';
+import { HttpError } from '@shared/errors/HttpError';
 
 import { IShowWalletDTO } from '@modules/wallets/dtos/IShowWalletDTO';
 import { IShowWalletProvider } from '../IShowWalletProvider';
@@ -36,8 +36,11 @@ export class BlockcypherShowWalletProvider implements IShowWalletProvider {
         transactionsReference,
       };
     } catch (error) {
-      const { response } = error;
-      throw new ApplicationError(response.data.error, response.status);
+      const { response } = error as IntegrationError;
+
+      const message = response?.data.error;
+      const status = response?.status;
+      throw new HttpError(message, status);
     }
   }
 }

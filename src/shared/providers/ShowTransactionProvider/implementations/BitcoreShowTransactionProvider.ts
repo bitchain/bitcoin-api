@@ -1,5 +1,5 @@
-import { bitcore } from '@config/bitcore';
-import { ApplicationError } from '@errors/ApplicationError';
+import { bitcore, IntegrationError } from '@config/bitcore';
+import { HttpError } from '@shared/errors/HttpError';
 
 import { IShowTransactionDTO } from '@modules/transactions/dtos/IShowTransactionDTO';
 import { IShowTransactionProvider } from '../IShowTransactionProvider';
@@ -46,8 +46,11 @@ export class BitcoreShowTransactionProvider
         transactionOutput,
       };
     } catch (error) {
-      const { response } = error;
-      throw new ApplicationError(response.data, response.status);
+      const { response } = error as IntegrationError;
+
+      const message = response?.data;
+      const status = response?.status;
+      throw new HttpError(message, status);
     }
   }
 }

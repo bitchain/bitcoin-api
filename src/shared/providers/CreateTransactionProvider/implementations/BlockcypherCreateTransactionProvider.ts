@@ -1,14 +1,14 @@
 import { ECPair, script, payments } from 'bitcoinjs-lib';
 
-import { blockcypher } from '@config/blockcypher';
+import { blockcypher, IntegrationError } from '@config/blockcypher';
 import { bitcoinjs } from '@config/bitcoinjs';
 
-import { ApplicationError } from '@errors/ApplicationError';
+import { HttpError } from '@shared/errors/HttpError';
 
 import {
   ICreateTransactionRequestDTO,
   ICreateTransactionResponseDTO,
-} from '../../CreateTransactionDTO';
+} from '@modules/transactions/dtos/ICreateTransactionDTO';
 import { ICreateTransactionProvider } from '../ICreateTransactionProvider';
 
 interface Input {
@@ -22,7 +22,8 @@ interface Output {
 }
 
 export class BlockcypherCreateTransactionProvider
-  implements ICreateTransactionProvider {
+  implements ICreateTransactionProvider
+{
   public async execute({
     privateKey,
     addressTo,
@@ -87,11 +88,11 @@ export class BlockcypherCreateTransactionProvider
         transactionOutput,
       };
     } catch (error) {
-      const { response } = error;
-      throw new ApplicationError(
-        response.data.errors[0].error,
-        response.status,
-      );
+      const { response } = error as IntegrationError;
+
+      const message = response?.data.errors[0].error;
+      const status = response?.status;
+      throw new HttpError(message, status);
     }
   }
 }

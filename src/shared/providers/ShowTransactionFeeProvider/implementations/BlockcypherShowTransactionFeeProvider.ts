@@ -1,14 +1,15 @@
-import { blockcypher } from '@config/blockcypher';
-import { ApplicationError } from '@errors/ApplicationError';
+import { blockcypher, IntegrationError } from '@config/blockcypher';
+import { HttpError } from '@shared/errors/HttpError';
 
 import {
   IShowTransactionFeeRequestDTO,
   IShowTransactionFeeResponseDTO,
-} from '../../ShowTransactionFeeDTO';
+} from '@modules/transactions/dtos/IShowTransactionFeeDTO';
 import { IShowTransactionFeeProvider } from '../IShowTransactionFeeProvider';
 
 export class BlockcypherShowTransactionFeeProvider
-  implements IShowTransactionFeeProvider {
+  implements IShowTransactionFeeProvider
+{
   public providerKey = 'blockcypher_transaction_fee_show';
 
   public async execute({
@@ -31,11 +32,11 @@ export class BlockcypherShowTransactionFeeProvider
         transactionEstimatedFee: tx.fees,
       };
     } catch (error) {
-      const { response } = error;
-      throw new ApplicationError(
-        response.data.errors[0].error,
-        response.status,
-      );
+      const { response } = error as IntegrationError;
+
+      const message = response?.data.errors[0].error;
+      const status = response?.status;
+      throw new HttpError(message, status);
     }
   }
 }

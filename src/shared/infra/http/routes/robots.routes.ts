@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { robotsHandler } from '@http/middlewares/robotsHandler';
+import { robotsHandler } from '../middlewares/robotsHandler';
 
 const robotsRouter = Router();
 
