@@ -1,7 +1,7 @@
 import {
   IShowTransactionFeeRequestDTO,
   IShowTransactionFeeResponseDTO,
-} from '../ShowTransactionFeeDTO';
+} from '@modules/transactions/dtos/IShowTransactionFeeDTO';
 
 export interface IShowTransactionFeeProvider {
   providerKey: string;

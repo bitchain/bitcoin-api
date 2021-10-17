@@ -1,7 +1,7 @@
 import {
   ICreateTransactionRequestDTO,
   ICreateTransactionResponseDTO,
-} from '../CreateTransactionDTO';
+} from '@modules/transactions/dtos/ICreateTransactionDTO';
 
 export interface ICreateTransactionProvider {
   execute(
