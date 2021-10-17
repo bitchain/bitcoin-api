@@ -48,6 +48,7 @@ jobs:
             !babel.config.js,
             !tsconfig.json,
             !README.md
+            !CONTRIBUTING.md
           target: "~/app"
 
       - name: Digital Ocean | Dependencies install | Restart
