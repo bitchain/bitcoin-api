@@ -47,7 +47,7 @@ jobs:
             !prettier.config.js,
             !babel.config.js,
             !tsconfig.json,
-            !README.md
+            !README.md,
             !CONTRIBUTING.md
           target: "~/app"
 
