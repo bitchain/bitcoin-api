@@ -1,12 +1,7 @@
-import { CreateTransactionController } from './CreateTransactionController';
+import { validateTransactionRequest } from '@modules/transactions/infra/celebrate/validateTransactionRequest';
 
-import { instanceCreateTransactionProvider } from './middlewares/instanceCreateTransactionProvider';
-import { validateTransactionRequest } from './middlewares/validateTransactionRequest';
+import { CreateTransactionController } from './CreateTransactionController';
 
 const createTransactionController = new CreateTransactionController();
 
-export {
-  validateTransactionRequest,
-  instanceCreateTransactionProvider,
-  createTransactionController,
-};
+export { validateTransactionRequest, createTransactionController };

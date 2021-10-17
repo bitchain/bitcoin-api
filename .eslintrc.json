@@ -16,6 +16,7 @@
   },
   "plugins": [
     "@typescript-eslint",
+    "eslint-plugin-import-helpers",
     "prettier"
   ],
   "rules": {
@@ -28,12 +29,13 @@
       "argsIgnorePattern": "_"
     }],
     "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "ts": "never"
-      }
-    ]
+      "error", "ignorePackages", { "ts": "never" }
+    ],
+    "import-helpers/order-imports": [ "warn", {
+      "newlinesBetween": "always",
+      "groups": [ "module", "/^@/", ["parent", "sibling", "index"] ],
+      "alphabetize": { "order": "asc", "ignoreCase": true }
+    }]
   },
   "settings": {
     "import/resolver": {

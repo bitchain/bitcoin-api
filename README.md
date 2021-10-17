@@ -22,8 +22,7 @@ Below the technologies, used to build this API:
 |                      Name                                   |                         Status                          |
 |:-----------------------------------------------------------:|:-------------------------------------------------------:|
 |<img height="60" src="https://cdn.worldvectorlogo.com/logos/nodejs-1.svg"> | <img alt="node version" src="https://img.shields.io/badge/nodejs-v14.15-blue"> |
-|<img height="35" src="https://cdn.worldvectorlogo.com/logos/express-109.svg"> | <img alt="express version" src="https://img.shields.io/badge/express-v4.17-blue"> |
-|<img height="48" src="https://cdn.worldvectorlogo.com/logos/prisma-2.svg"> | <img alt="prisma version" src="https://img.shields.io/badge/prisma-v2.17-blue"> |
+|<img height="35" src="https://cdn.worldvectorlogo.com/logos/express-109.svg"> | <img alt="express version" src="https://img.shields.io/badge/express-v4.17-blue">|
 |<img height="55" src="https://cdn.worldvectorlogo.com/logos/typescript.svg"> | <img alt="typescript version" src="https://img.shields.io/badge/typescript-v4.1-blue"> |
 |<img height="55" src="https://cdn.worldvectorlogo.com/logos/eslint-1.svg"> | <img alt="eslint version" src="https://img.shields.io/badge/eslint-v7.17-blue"> |
 |<img height="55" src="https://cdn.worldvectorlogo.com/logos/prettier-2.svg"> | <img alt="prettier version" src="https://img.shields.io/badge/prettier-v2.2-blue"> |
@@ -34,20 +33,14 @@ Below the technologies, used to build this API:
 
 ```bash
 $ git clone https://github.com/bitchain/network.git
+
 $ cd network
-```
 
-BitChain Network needs Postgresql. You can configure the connection at `.env`
-> ###### Use .env.example as a reference.
-
-```bash
 $ npm install
- 
-# Once the Postgresql is running, execute the migrations
-$ npx prisma migrate dev --preview-feature
- 
+
 $ npm run dev:server
 ```
+
 This will launch the Network service at `http://localhost:3333/`.
 
 ### 🟣 GET
@@ -60,7 +53,7 @@ This will launch the Network service at `http://localhost:3333/`.
 <details>
 <summary>Response example</summary>
 <br>
-  
+
 ```json
 {
   "address": "tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800",
@@ -89,7 +82,7 @@ This will launch the Network service at `http://localhost:3333/`.
 <details>
 <summary>Response example</summary>
 <br>
-  
+
 ```json
 {
   "id": "d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53",
@@ -124,7 +117,7 @@ This will launch the Network service at `http://localhost:3333/`.
 <details>
 <summary>Response example</summary>
 <br>
-  
+
 ```json
 {
   "address": "mffzq5WLcJVsokpSjVgPmjPmUCK5K2UoZN",
@@ -139,7 +132,7 @@ This will launch the Network service at `http://localhost:3333/`.
 <details>
 <summary>Request example</summary>
 <br>
-  
+
 ```json
 {
   "addressFrom": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
@@ -152,7 +145,7 @@ This will launch the Network service at `http://localhost:3333/`.
 <details>
 <summary>Response example</summary>
 <br>
-  
+
 ```json
 {
   "transactionEstimatedFee": 15200
@@ -166,7 +159,7 @@ This will launch the Network service at `http://localhost:3333/`.
 <details>
 <summary>Request example</summary>
 <br>
-  
+
 ```json
 {
   "privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K",
@@ -179,7 +172,7 @@ This will launch the Network service at `http://localhost:3333/`.
 <details>
 <summary>Response example</summary>
 <br>
- 
+
 ```json
 {
   "id": "9b04e5034e547e0e47291488a2986e5120b0dd38e01541f7ee71136d2a676877",

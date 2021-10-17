@@ -1,12 +1,7 @@
-import { ShowTransactionFeeController } from './ShowTransactionFeeController';
+import { validateTransactionFeeRequest } from '@modules/transactions/infra/celebrate/validateTransactionFeeRequest';
 
-import { instanceShowTransactionFeeProvider } from './middlewares/instanceShowTransactionFeeProvider';
-import { validateTransactionFeeRequest } from './middlewares/validateTransactionFeeRequest';
+import { ShowTransactionFeeController } from './ShowTransactionFeeController';
 
 const showTransactionFeeController = new ShowTransactionFeeController();
 
-export {
-  validateTransactionFeeRequest,
-  instanceShowTransactionFeeProvider,
-  showTransactionFeeController,
-};
+export { validateTransactionFeeRequest, showTransactionFeeController };

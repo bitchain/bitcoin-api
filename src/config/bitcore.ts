@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { Networks } from 'bitcore-lib';
 
 const testnet = {
@@ -21,3 +21,5 @@ export const bitcore = {
   type: network.type,
   api,
 };
+
+export declare type IntegrationError = AxiosError;

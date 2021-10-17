@@ -14,13 +14,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@repositories/*": ["repositories/*"],
       "@modules/*": ["modules/*"],
       "@shared/*": ["shared/*"],
-      "@entities/*": ["entities/*"],
       "@config/*": ["config/*"],
-      "@errors/*": ["errors/*"],
-      "@http/*": ["http/*"],
       "@utils/*": ["utils/*"]
     },
   }

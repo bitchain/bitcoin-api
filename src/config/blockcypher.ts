@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 const testnet = 'https://api.blockcypher.com/v1/btc/test3';
 const mainnet = 'https://api.blockcypher.com/v1/btc/main';
@@ -10,3 +10,5 @@ const api = axios.create({
 });
 
 export const blockcypher = { api };
+
+export declare type IntegrationError = AxiosError;
