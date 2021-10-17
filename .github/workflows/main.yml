@@ -36,6 +36,7 @@ jobs:
             .,
             !node_modules,
             !src,
+            !.circleci,
             !.vscode,
             !.github,
             !.git,
