@@ -21,12 +21,12 @@ Below the technologies, used to build this API:
 
 |                      Name                                   |                         Status                          |
 |:-----------------------------------------------------------:|:-------------------------------------------------------:|
-|<img height="60" src="https://cdn.worldvectorlogo.com/logos/nodejs-1.svg"> | <img alt="node version" src="https://img.shields.io/badge/nodejs-v14.15-blue"> |
-|<img height="35" src="https://cdn.worldvectorlogo.com/logos/express-109.svg"> | <img alt="express version" src="https://img.shields.io/badge/express-v4.17-blue">|
+|<img height="58" src="https://cdn.worldvectorlogo.com/logos/nodejs-1.svg"> | <img alt="node version" src="https://img.shields.io/badge/nodejs-v14.15-blue"> |
+|<img height="60" src="https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21.svg"> | <img alt="express version" src="https://img.shields.io/badge/express-v4.17-blue">|
 |<img height="55" src="https://cdn.worldvectorlogo.com/logos/typescript.svg"> | <img alt="typescript version" src="https://img.shields.io/badge/typescript-v4.1-blue"> |
 |<img height="55" src="https://cdn.worldvectorlogo.com/logos/eslint-1.svg"> | <img alt="eslint version" src="https://img.shields.io/badge/eslint-v7.17-blue"> |
 |<img height="55" src="https://cdn.worldvectorlogo.com/logos/prettier-2.svg"> | <img alt="prettier version" src="https://img.shields.io/badge/prettier-v2.2-blue"> |
-|<img height="40" src="https://cdn.worldvectorlogo.com/logos/bitpay.svg"> | <img alt="bitcore version" src="https://img.shields.io/badge/bitcore_lib-v8.24-blue"> |
+|<img height="38" src="https://cdn.worldvectorlogo.com/logos/bitpay.svg"> | <img alt="bitcore version" src="https://img.shields.io/badge/bitcore_lib-v8.24-blue"> |
 
 
 ## ▶️ Getting started
@@ -45,10 +45,11 @@ This will launch the Network service at `http://localhost:3333/`.
 
 ### 🟣 GET
 
-#### `/wallets/:address`: Get wallet balance and transactions history
+**`/wallets/:address`: Get wallet balance and transactions history**
 
-> ###### `:address` is a string representing the public address you're interested in querying.
-> ###### Example: `tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800`
+> <sup>`:address` is a string representing the public address you're interested in querying.</sup>
+
+> <sup>Example: `tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800`</sup>
 
 <details>
 <summary>Response example</summary>
@@ -74,10 +75,11 @@ This will launch the Network service at `http://localhost:3333/`.
 </details>
 
 
-#### `/transactions/:id`: Get transaction information
+**`/transactions/:id`: Get transaction information**
 
-> ###### `:id` is a string representing the hex-encoded transaction hash you're interested in querying.
-> ###### Example: `d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53`
+> <sup>`:id` is a string representing the hex-encoded transaction hash you're interested in querying.</sup>
+
+> <sup>`Example: `d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53`</sup>
 
 <details>
 <summary>Response example</summary>
@@ -111,8 +113,8 @@ This will launch the Network service at `http://localhost:3333/`.
 
 ### 🟢 POST
 
-#### `/wallets/create`: Create a new Wallet
-> ###### `privateKey` is a secret number that allows bitcoins to be spent, so be careful when handling it!
+**`/wallets/create`: Create a new Wallet**
+> <sup> `privateKey` is a secret number that allows bitcoins to be spent, so be careful when handling it!</sup>
 
 <details>
 <summary>Response example</summary>
@@ -127,7 +129,7 @@ This will launch the Network service at `http://localhost:3333/`.
 </details>
 
 
-#### `/transactions/fee`: Get estimated fee for a transaction
+**`/transactions/fee`: Get estimated fee for a transaction**
 
 <details>
 <summary>Request example</summary>
@@ -154,7 +156,7 @@ This will launch the Network service at `http://localhost:3333/`.
 </details>
 
 
-#### `/transactions/create`: Create and broadcast a transaction
+**`/transactions/create`: Create and broadcast a transaction**
 
 <details>
 <summary>Request example</summary>
