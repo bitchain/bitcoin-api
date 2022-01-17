@@ -25,6 +25,4 @@ application.use(errorHandler);
 
 application.use(Sentry.Handlers.errorHandler());
 
-const port = process.env.APPLICATION_PORT || 3333;
-
-application.listen(port);
+application.listen(process.env.NETWORK_PORT);
