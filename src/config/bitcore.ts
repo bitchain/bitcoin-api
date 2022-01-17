@@ -11,7 +11,8 @@ const mainnet = {
   url: 'https://api.bitcore.io/api/BTC/mainnet',
 };
 
-const network = process.env.NETWORK_TYPE === 'mainnet' ? mainnet : testnet;
+const network =
+  process.env.BITCOIN_NETWORK_TYPE === 'mainnet' ? mainnet : testnet;
 
 const api = axios.create({
   baseURL: network.url,
