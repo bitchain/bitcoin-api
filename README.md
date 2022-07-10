@@ -1,11 +1,12 @@
-<img alt="Logo" src=".github/assets/bitchain_logo.png" width="300px">
+### blockchain
 
-### network
+[![CircleCI](https://circleci.com/gh/bitchain/blockchain.svg?style=svg)](https://circleci.com/gh/bitchain/blockchain)
+[![CI](https://github.com/bitchain/blockchain/actions/workflows/main.yml/badge.svg)]()
 
-[![CircleCI](https://circleci.com/gh/bitchain/network.svg?style=svg)](https://circleci.com/gh/bitchain/network)
-[![CI](https://github.com/bitchain/network/actions/workflows/main.yml/badge.svg)]()
+This project is a proof of concept for the Bitcoin's Mainnet and Testnet. 
+This RESTful API is designed to support multiple blockchain providers. Can be an external API like BlockCypher or even a full node. The goal is to ensure availability even if one of the providers is offline.
 
-BitChain Network access the Main and Test Bitcoin blockchains. This application is a simple, mostly RESTful JSON API, accessed over HTTP or HTTPS.
+You can access the `/shared/providers` folder to create your own implementation.
 
 ## ✅ Main Features
 - Shows the Wallet Balance
@@ -35,9 +36,9 @@ Below the technologies, used to build this API:
 ## ▶️ Getting started
 
 ```bash
-$ git clone https://github.com/bitchain/network.git
+$ git clone https://github.com/bitchain/blockchain.git
 
-$ cd network
+$ cd blockchain
 
 $ npm install
 
