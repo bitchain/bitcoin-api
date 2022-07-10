@@ -1,21 +1,20 @@
 {
-  "name": "network",
+  "name": "blockchain",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Wladimir <wladimir.code@gmail.com>",
-  "title": "Bitchain Network",
+  "title": "blockchain",
   "description": "Node.js RESTful API for bitcoin blockchain",
   "license": "MIT",
   "keywords": [
-    "bitchain",
+    "blockchain",
     "bitcoin",
     "api",
-    "cryptocurrency",
-    "nodejs"
+    "cryptocurrency"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitchain/network.git"
+    "url": "https://github.com/bitchain/blockchain.git"
   },
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist",
