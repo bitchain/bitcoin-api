@@ -1,7 +1,7 @@
-### blockchain
+### bitcoin
 
-[![CircleCI](https://circleci.com/gh/bitchain/blockchain.svg?style=svg)](https://circleci.com/gh/bitchain/blockchain)
-[![CI](https://github.com/bitchain/blockchain/actions/workflows/main.yml/badge.svg)]()
+[![CircleCI](https://circleci.com/gh/bitchain/bitcoin.svg?style=svg)](https://circleci.com/gh/bitchain/bitcoin)
+[![CI](https://github.com/bitchain/bitcoin/actions/workflows/main.yml/badge.svg)]()
 
 This project is a proof of concept for the Bitcoin's Mainnet and Testnet. 
 This RESTful API is designed to support multiple blockchain providers. Can be an external API like BlockCypher or even a full node. The goal is to ensure availability even if one of the providers is offline.
@@ -36,9 +36,9 @@ Below the technologies, used to build this API:
 ## ▶️ Getting started
 
 ```bash
-$ git clone https://github.com/bitchain/blockchain.git
+$ git clone https://github.com/bitchain/bitcoin.git
 
-$ cd blockchain
+$ cd bitcoin
 
 $ npm install
 
