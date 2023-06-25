@@ -1,7 +1,7 @@
-### bitcoin
+### bitcoin-api
 
-[![CircleCI](https://circleci.com/gh/bitchain/bitcoin.svg?style=svg)](https://circleci.com/gh/bitchain/bitcoin)
-[![CI](https://github.com/bitchain/bitcoin/actions/workflows/main.yml/badge.svg)]()
+[![CircleCI](https://circleci.com/gh/bitchain/bitcoin-api.svg?style=svg)](https://circleci.com/gh/bitchain/bitcoin-api)
+[![CI](https://github.com/bitchain/bitcoin-api/actions/workflows/main.yml/badge.svg)]()
 
 This project is a proof of concept for the Bitcoin's Mainnet and Testnet. 
 This RESTful API is designed to support multiple blockchain providers. Can be an external API like BlockCypher or even a full node. The goal is to ensure availability even if one of the providers is offline.
@@ -36,9 +36,9 @@ Below the technologies, used to build this API:
 ## ▶️ Getting started
 
 ```bash
-$ git clone https://github.com/bitchain/bitcoin.git
+$ git clone https://github.com/bitchain/bitcoin-api.git
 
-$ cd bitcoin
+$ cd bitcoin-api
 
 $ npm install
 
@@ -212,9 +212,3 @@ The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 ## 📝 License
 
 Bitchain Network is released under the MIT License. Please refer to the [LICENSE](LICENSE) file that accompanies this project for more information including complete terms and conditions.
-
-## 💜 Special Thanks
-
-<a href="https://github.com/blockcypher">
-  <img src="https://live.blockcypher.com/static/img/logo.svg" alt="BlockCypher" height="40">
-</a>
