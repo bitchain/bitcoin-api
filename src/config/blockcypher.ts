@@ -12,4 +12,7 @@ const api = axios.create({
 
 export const blockcypher = { api }
 
-export declare type IntegrationError = AxiosError
+export declare type IntegrationError = AxiosError<{
+  errors: Array<{ error: string }>
+  error: string
+}>

@@ -23,4 +23,4 @@ export const bitcore = {
   api,
 }
 
-export declare type IntegrationError = AxiosError
+export declare type IntegrationError = AxiosError<string>
