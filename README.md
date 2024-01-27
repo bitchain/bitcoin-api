@@ -21,7 +21,7 @@ You can access the `/shared/providers` folder to create your own implementation.
 Below the technologies, used to build this API:
 
 |                      Name                                   |                         Status                          |
-|:-----------------------------------------------------------:|:-------------------------------------------------------:|
+|:-----------------------------------------------------------:|-------------------------------------------------------|
 |<img height="65" src="https://cdn.worldvectorlogo.com/logos/nodejs-1.svg"> | <img alt="node version" src="https://img.shields.io/badge/nodejs-v18.17.1-blue"> |
 |<img height="60" src="https://upload.vectorlogo.zone/logos/expressjs/images/a1b5cb1f-dae7-4971-ab5b-68efce751b0f.svg"> | <img alt="express version" src="https://img.shields.io/badge/express-v4.18.2-blue">|
 |<img height="20" src="https://axios-http.com/assets/logo.svg"> | <img alt="axios version" src="https://img.shields.io/badge/axios-v1.6.5-blue">|
