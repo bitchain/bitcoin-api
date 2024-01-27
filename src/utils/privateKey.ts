@@ -1,13 +1,13 @@
-import { ECPair } from 'bitcoinjs-lib';
+import { ECPair } from 'bitcoinjs-lib'
 
-import { bitcoinjs } from '@config/bitcoinjs';
+import { bitcoinjs } from '@config/bitcoinjs'
 
 export const validPrivateKey = (privateKey: string): boolean => {
   try {
-    ECPair.fromWIF(privateKey, bitcoinjs.type);
+    ECPair.fromWIF(privateKey, bitcoinjs.type)
 
-    return true;
+    return true
   } catch (error) {
-    return false;
+    return false
   }
-};
+}

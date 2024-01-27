@@ -1,5 +1,5 @@
-import { ShowWalletController } from './ShowWalletController';
+import { ShowWalletController } from './ShowWalletController'
 
-const showWalletController = new ShowWalletController();
+const showWalletController = new ShowWalletController()
 
-export { showWalletController };
+export { showWalletController }

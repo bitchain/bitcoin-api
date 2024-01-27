@@ -21,15 +21,14 @@ You can access the `/shared/providers` folder to create your own implementation.
 Below the technologies, used to build this API:
 
 |                      Name                                   |                         Status                          |
-|:-----------------------------------------------------------:|:-------------------------------------------------------:|
-|<img height="65" src="https://cdn.worldvectorlogo.com/logos/nodejs-1.svg"> | <img alt="node version" src="https://img.shields.io/badge/nodejs-v14.15.4-blue"> |
-|<img height="38" src="https://cdn.worldvectorlogo.com/logos/express-109.svg"> | <img alt="express version" src="https://img.shields.io/badge/express-v4.17.1-blue">|
-|<img height="20" src="https://axios-http.com/assets/logo.svg"> | <img alt="axios version" src="https://img.shields.io/badge/axios-v0.21.4-blue">|
-|<img height="60" src="https://cdn.worldvectorlogo.com/logos/typescript.svg"> | <img alt="typescript version" src="https://img.shields.io/badge/typescript-v4.1.3-blue"> |
+|:-----------------------------------------------------------:|-------------------------------------------------------|
+|<img height="65" src="https://cdn.worldvectorlogo.com/logos/nodejs-1.svg"> | <img alt="node version" src="https://img.shields.io/badge/nodejs-v18.17.1-blue"> |
+|<img height="60" src="https://upload.vectorlogo.zone/logos/expressjs/images/a1b5cb1f-dae7-4971-ab5b-68efce751b0f.svg"> | <img alt="express version" src="https://img.shields.io/badge/express-v4.18.2-blue">|
+|<img height="20" src="https://axios-http.com/assets/logo.svg"> | <img alt="axios version" src="https://img.shields.io/badge/axios-v1.6.5-blue">|
+|<img height="60" src="https://cdn.worldvectorlogo.com/logos/typescript.svg"> | <img alt="typescript version" src="https://img.shields.io/badge/typescript-v4.9.5-blue"> |
 |<img height="55" src="https://raw.githubusercontent.com/arb/celebrate/master/images/logo.svg"> | <img alt="celebrate version" src="https://img.shields.io/badge/celebrate-v13.0.4-blue">|
-|<img height="60" src="https://cdn.worldvectorlogo.com/logos/eslint-1.svg"> | <img alt="eslint version" src="https://img.shields.io/badge/eslint-v7.17.0-blue"> |
-|<img height="60" src="https://cdn.worldvectorlogo.com/logos/prettier-2.svg"> | <img alt="prettier version" src="https://img.shields.io/badge/prettier-v2.2.1-blue"> |
-|<img height="42" src="https://cdn.worldvectorlogo.com/logos/bitpay.svg"> | <img alt="bitcore version" src="https://img.shields.io/badge/bitcore_lib-v8.24.1-blue"> |
+|<img height="60" src="https://cdn.worldvectorlogo.com/logos/eslint-1.svg"> | <img alt="eslint version" src="https://img.shields.io/badge/eslint-v8.56.0-blue"> |
+|<img height="42" src="https://cdn.worldvectorlogo.com/logos/bitpay.svg"> | <img alt="bitcore version" src="https://img.shields.io/badge/bitcore_lib-v8.25.47-blue"> |
 
 
 

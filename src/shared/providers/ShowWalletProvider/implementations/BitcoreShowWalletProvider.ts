@@ -1,26 +1,24 @@
-import { bitcore } from '@config/bitcore';
-import { IShowWalletDTO } from '@modules/wallets/dtos/IShowWalletDTO';
+import { bitcore } from '@config/bitcore'
+import { IShowWalletDTO } from '@modules/wallets/dtos/IShowWalletDTO'
 
-import { IShowWalletProvider } from '../IShowWalletProvider';
+import { IShowWalletProvider } from '../IShowWalletProvider'
 
 interface Txref {
-  mintTxid: string;
-  confirmations: number;
-  value: number;
-  mintHeight: number;
+  mintTxid: string
+  confirmations: number
+  value: number
+  mintHeight: number
 }
 
 export class BitcoreShowWalletProvider implements IShowWalletProvider {
   public async execute(address: string): Promise<IShowWalletDTO> {
-    const responseBalance = await bitcore.api.get(
-      `/address/${address}/balance`,
-    );
+    const responseBalance = await bitcore.api.get(`/address/${address}/balance`)
 
-    const { balance, confirmed, unconfirmed } = responseBalance.data;
+    const { balance, confirmed, unconfirmed } = responseBalance.data
 
-    const responseTransactions = await bitcore.api.get(`/address/${address}`);
+    const responseTransactions = await bitcore.api.get(`/address/${address}`)
 
-    const txrefs = responseTransactions.data;
+    const txrefs = responseTransactions.data
 
     const transactionsReference = txrefs.map((txref: Txref) => {
       return {
@@ -28,8 +26,8 @@ export class BitcoreShowWalletProvider implements IShowWalletProvider {
         confirmations: txref.confirmations,
         value: txref.value,
         blockHeight: txref.mintHeight,
-      };
-    });
+      }
+    })
 
     return {
       address,
@@ -37,6 +35,6 @@ export class BitcoreShowWalletProvider implements IShowWalletProvider {
       confirmedBalance: confirmed,
       unconfirmedBalance: unconfirmed,
       transactionsReference,
-    };
+    }
   }
 }

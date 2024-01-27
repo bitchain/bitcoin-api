@@ -19,5 +19,10 @@
       "@config/*": ["config/*"],
       "@utils/*": ["utils/*"]
     },
-  }
+  },
+  "exclude": [
+    "babel.config.js",
+    "prettier.config.js",
+    "./dist/**/*"
+  ]
 }

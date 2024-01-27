@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '18'
 
       - name: Dependencies install
         run: npm install
@@ -25,7 +25,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Digital Ocean | Copy app
+      - name: Cloud server | Copy app
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -52,7 +52,7 @@ jobs:
             !CONTRIBUTING.md
           target: "~/app"
 
-      - name: Digital Ocean | Dependencies install | Restart
+      - name: Cloud server | Dependencies install | Restart
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}

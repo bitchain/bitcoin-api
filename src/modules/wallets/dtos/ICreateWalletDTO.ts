@@ -1,4 +1,4 @@
 export interface ICreateWalletDTO {
-  address: string;
-  privateKey: string;
+  address: string
+  privateKey: string
 }

@@ -1,5 +1,5 @@
-import { CreateWalletController } from './CreateWalletController';
+import { CreateWalletController } from './CreateWalletController'
 
-const createWalletController = new CreateWalletController();
+const createWalletController = new CreateWalletController()
 
-export { createWalletController };
+export { createWalletController }
