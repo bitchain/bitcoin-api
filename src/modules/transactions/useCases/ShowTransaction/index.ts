@@ -1,5 +1,5 @@
-import { ShowTransactionController } from './ShowTransactionController';
+import { ShowTransactionController } from './ShowTransactionController'
 
-const showTransactionController = new ShowTransactionController();
+const showTransactionController = new ShowTransactionController()
 
-export { showTransactionController };
+export { showTransactionController }

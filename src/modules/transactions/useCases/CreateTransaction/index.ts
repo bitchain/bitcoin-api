@@ -1,7 +1,7 @@
-import { validateTransactionRequest } from '@modules/transactions/infra/celebrate/validateTransactionRequest';
+import { validateTransactionRequest } from '@modules/transactions/infra/celebrate/validateTransactionRequest'
 
-import { CreateTransactionController } from './CreateTransactionController';
+import { CreateTransactionController } from './CreateTransactionController'
 
-const createTransactionController = new CreateTransactionController();
+const createTransactionController = new CreateTransactionController()
 
-export { validateTransactionRequest, createTransactionController };
+export { validateTransactionRequest, createTransactionController }

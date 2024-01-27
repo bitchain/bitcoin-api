@@ -1,4 +1,4 @@
-import { celebrate, Joi, Segments } from 'celebrate';
+import { celebrate, Joi, Segments } from 'celebrate'
 
 export const validateTransactionFeeRequest = celebrate({
   [Segments.BODY]: {
@@ -6,4 +6,4 @@ export const validateTransactionFeeRequest = celebrate({
     addressTo: Joi.string().required(),
     value: Joi.number().min(1),
   },
-});
+})

@@ -1,28 +1,28 @@
-import 'reflect-metadata';
-import 'dotenv/config';
+import 'reflect-metadata'
+import 'dotenv/config'
 
-import cors from 'cors';
-import express from 'express';
-import 'express-async-errors';
+import cors from 'cors'
+import express from 'express'
+import 'express-async-errors'
 
-import { sentryConfig } from '@config/sentry';
-import * as Sentry from '@sentry/node';
+import { sentryConfig } from '@config/sentry'
+import * as Sentry from '@sentry/node'
 
-import { errorHandler } from './middlewares/errorHandler';
-import { headerHandler } from './middlewares/headerHandler';
-import { routes } from './routes';
+import { errorHandler } from './middlewares/errorHandler'
+import { headerHandler } from './middlewares/headerHandler'
+import { routes } from './routes'
 
-const application = express();
+const application = express()
 
-sentryConfig(application);
+sentryConfig(application)
 
-application.use(cors());
-application.use(express.json());
+application.use(cors())
+application.use(express.json())
 
-application.use(headerHandler);
-application.use(routes);
-application.use(errorHandler);
+application.use(headerHandler)
+application.use(routes)
+application.use(errorHandler)
 
-application.use(Sentry.Handlers.errorHandler());
+application.use(Sentry.Handlers.errorHandler())
 
-application.listen(process.env.NETWORK_PORT);
+application.listen(process.env.NETWORK_PORT)

@@ -1,11 +1,11 @@
 import {
   IShowTransactionFeeRequestDTO,
   IShowTransactionFeeResponseDTO,
-} from '@modules/transactions/dtos/IShowTransactionFeeDTO';
+} from '@modules/transactions/dtos/IShowTransactionFeeDTO'
 
 export interface IShowTransactionFeeProvider {
-  providerKey: string;
+  providerKey: string
   execute(
     data: IShowTransactionFeeRequestDTO,
-  ): Promise<IShowTransactionFeeResponseDTO>;
+  ): Promise<IShowTransactionFeeResponseDTO>
 }

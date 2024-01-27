@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express'
 
 export async function notFoundHandler(
   request: Request,
@@ -7,5 +7,5 @@ export async function notFoundHandler(
 ): Promise<Response> {
   return response.status(404).json({
     message: 'Sorry, we cannot find the route you were looking for.',
-  });
+  })
 }

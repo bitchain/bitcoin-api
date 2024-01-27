@@ -1,19 +1,19 @@
-import { Request, Response } from 'express';
+import { Request, Response } from 'express'
 
-import { showTransactionProvider } from '@shared/providers';
+import { showTransactionProvider } from '@shared/providers'
 
-import { ShowTransactionUseCase } from './ShowTransactionUseCase';
+import { ShowTransactionUseCase } from './ShowTransactionUseCase'
 
 export class ShowTransactionController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { id } = request.params;
+    const { id } = request.params
 
     const showTransaction = showTransactionProvider.resolve(
       ShowTransactionUseCase,
-    );
+    )
 
-    const transaction = await showTransaction.execute(id);
+    const transaction = await showTransaction.execute(id)
 
-    return response.json(transaction);
+    return response.json(transaction)
   }
 }

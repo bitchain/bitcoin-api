@@ -1,17 +1,17 @@
-import { blockcypher, IntegrationError } from '@config/blockcypher';
-import { IShowTransactionDTO } from '@modules/transactions/dtos/IShowTransactionDTO';
-import { HttpError } from '@shared/errors/HttpError';
+import { blockcypher, IntegrationError } from '@config/blockcypher'
+import { IShowTransactionDTO } from '@modules/transactions/dtos/IShowTransactionDTO'
+import { HttpError } from '@shared/errors/HttpError'
 
-import { IShowTransactionProvider } from '../IShowTransactionProvider';
+import { IShowTransactionProvider } from '../IShowTransactionProvider'
 
 interface Input {
-  addresses: string[];
-  output_value: number;
+  addresses: string[]
+  output_value: number
 }
 
 interface Output {
-  addresses: string[];
-  value: number;
+  addresses: string[]
+  value: number
 }
 
 export class BlockcypherShowTransactionProvider
@@ -19,10 +19,10 @@ export class BlockcypherShowTransactionProvider
 {
   public async execute(id: string): Promise<IShowTransactionDTO> {
     try {
-      const response = await blockcypher.api.get(`/txs/${id}`);
+      const response = await blockcypher.api.get(`/txs/${id}`)
 
       const { hash, fees, confirmations, confirmed, inputs, outputs } =
-        response.data;
+        response.data
 
       const transactionInput = inputs
         .filter((input: Input) => input.addresses)
@@ -30,14 +30,14 @@ export class BlockcypherShowTransactionProvider
           return {
             address: input.addresses[0],
             value: input.output_value,
-          };
-        });
+          }
+        })
 
       const transactionOutput = outputs
         .filter((output: Output) => output.addresses)
         .map((output: Output) => {
-          return { address: output.addresses[0], value: output.value };
-        });
+          return { address: output.addresses[0], value: output.value }
+        })
 
       return {
         id: hash,
@@ -46,13 +46,13 @@ export class BlockcypherShowTransactionProvider
         date: confirmed,
         transactionInput,
         transactionOutput,
-      };
+      }
     } catch (error) {
-      const { response } = error as IntegrationError;
+      const { response } = error as IntegrationError
 
-      const message = response?.data.error;
-      const status = response?.status;
-      throw new HttpError(message, status);
+      const message = response?.data.error
+      const status = response?.status
+      throw new HttpError(message, status)
     }
   }
 }

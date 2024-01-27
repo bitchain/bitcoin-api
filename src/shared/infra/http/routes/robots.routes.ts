@@ -1,9 +1,9 @@
-import { Router } from 'express';
+import { Router } from 'express'
 
-import { robotsHandler } from '../middlewares/robotsHandler';
+import { robotsHandler } from '../middlewares/robotsHandler'
 
-const robotsRouter = Router();
+const robotsRouter = Router()
 
-robotsRouter.get('/robots.txt', robotsHandler);
+robotsRouter.get('/robots.txt', robotsHandler)
 
-export { robotsRouter };
+export { robotsRouter }

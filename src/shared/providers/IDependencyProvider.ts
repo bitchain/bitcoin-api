@@ -1,3 +1,3 @@
 export default interface IDependencyProvider {
-  resolve(useCase: any): any;
+  resolve(useCase: any): any
 }

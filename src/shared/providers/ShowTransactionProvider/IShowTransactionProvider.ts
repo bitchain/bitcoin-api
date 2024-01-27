@@ -1,5 +1,5 @@
-import { IShowTransactionDTO } from '@modules/transactions/dtos/IShowTransactionDTO';
+import { IShowTransactionDTO } from '@modules/transactions/dtos/IShowTransactionDTO'
 
 export interface IShowTransactionProvider {
-  execute(id: string): Promise<IShowTransactionDTO>;
+  execute(id: string): Promise<IShowTransactionDTO>
 }

@@ -1,9 +1,9 @@
 export interface IShowTransactionFeeRequestDTO {
-  addressFrom: string;
-  addressTo: string;
-  value: number;
+  addressFrom: string
+  addressTo: string
+  value: number
 }
 
 export interface IShowTransactionFeeResponseDTO {
-  transactionEstimatedFee: number;
+  transactionEstimatedFee: number
 }
